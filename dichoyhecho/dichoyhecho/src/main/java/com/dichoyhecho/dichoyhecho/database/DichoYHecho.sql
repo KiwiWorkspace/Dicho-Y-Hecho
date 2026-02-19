@@ -32,3 +32,12 @@ INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) V
 ('Barranco de Gerona', 'Corredor Ecológico', 'Zona 1', 'En Recuperación'),
 ('Parque La Asunción', 'Parque Ecológico', 'Zona 5', 'Bueno'),
 ('Parque de la Paz', 'Parque Deportivo', 'Zona 21', 'Nuevo');
+
+create table administrador(
+	id_admin int primary key not null auto_increment,
+    nombre varchar(64),
+    apellido varchar(64),
+    edad int,
+    direccion varchar(150),
+    contraseña varchar(8) unique
+);
