@@ -79,3 +79,21 @@ VALUES
  'ventas@lacultura.com',
  'Librería',
  '18 calle 8-15 Zona 1, Ciudad de Guatemala');
+
+create table administrador(
+	id_administador int primary key auto_increment,
+    nombre varchar(64),
+    appellido varchar(64),
+    edad int,
+    direccion varchar(120),
+    contraseña varchar(8) unique
+);
+
+create table problemas(
+	id_problema int primary key auto_increment,
+    tipo varchar(128),
+    direccion varchar(120),
+    categoria enum('leve','medio','importante'),
+    estado enum('en proceso','resuelto','pendiente de admision'),
+    notificacion boolean
+);
