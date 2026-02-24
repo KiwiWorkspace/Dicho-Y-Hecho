@@ -3,21 +3,17 @@ package com.dichoyhecho.dichoyhecho.entity;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Getter;
-import lombok.Setter;
 
 @JsonPropertyOrder({
         "idAdministrador",
         "nombre",
         "apellido",
         "edad",
-        "dirección",
+        "direccion",
         "identificador",
-        "contraseña"
+        "contrasena"
 })
 @Entity
-@Getter
-@Setter
 @Table(name = "administrador")
 public class Administrador {
 
@@ -44,8 +40,8 @@ public class Administrador {
 
     @NotBlank(message = "Debe ingresar la direccion de residencia del administrador")
     @Size(min = 2, max = 120, message = " La direccion de residencia del administrador debe tener 2 y 60 caracteres")
-    @Column(name = "dirección")
-    private String dirección;
+    @Column(name = "direccion")
+    private String direccion;
 
     @NotBlank(message = "Debe ingresar un nombre del usuario")
     @Size(min = 5, max = 24, message = "El identificador del administrador debe tener 5 y 24 caracteres")
@@ -54,8 +50,8 @@ public class Administrador {
 
     @NotBlank(message = "Debe ingresar un nombre del usuario")
     @Size(min = 8, max = 13, message = "La contraseña debe terner un min de 8 y max 13 caracteres")
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "contrasena")
+    private String contrasena;
 
     public Integer getIdAdministrador() {
         return idAdministrador;
@@ -89,12 +85,12 @@ public class Administrador {
         this.edad = edad;
     }
 
-    public String getDirección() {
-        return dirección;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDirección(String dirección) {
-        this.dirección = dirección;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getIdentificador() {
@@ -105,11 +101,11 @@ public class Administrador {
         this.identificador = identificador;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }

@@ -28,7 +28,7 @@ create table administrador(
     edad int,
     direccion varchar(120),
     identificador varchar(24) unique,
-    contraseña varchar(8) unique
+    contrasena varchar(8) unique
 );
 
 -- tabla que registrara los diferentes problemas a encontrar en la cdad

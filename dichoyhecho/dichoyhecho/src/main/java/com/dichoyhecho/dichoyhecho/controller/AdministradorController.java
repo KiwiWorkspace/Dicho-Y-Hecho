@@ -23,20 +23,21 @@ public class AdministradorController {
         return this.administradorService.listar();
     }
 
+    // no funciona sin @Valid -- revisar
     @RequestMapping("/post")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Administrador crear(@Valid @RequestBody Administrador propietario) {
-        return this.administradorService.crear(propietario);
+    public Administrador crear(@Valid @RequestBody Administrador administrador) {
+        return this.administradorService.crear(administrador);
     }
 
     @PutMapping("/update/{id}")
-    public Administrador actualizar(@Valid @PathVariable Integer id, @RequestBody Administrador administrador) {
+    public Administrador actualizar (@PathVariable Integer id, @RequestBody Administrador administrador) {
         return this.administradorService.actualizar(id, administrador);
     }
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@Valid @PathVariable Integer id) {
+    public void eliminar(@PathVariable Integer id) {
         this.administradorService.eliminar(id);
     }
 
