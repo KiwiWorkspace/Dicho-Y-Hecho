@@ -3,7 +3,8 @@ package com.dichoyhecho.dichoyhecho.entity;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @JsonPropertyOrder({
@@ -13,6 +14,8 @@ import jakarta.validation.constraints.*;
         "edadUsuario"
 })
 @Entity
+@Getter
+@Setter
 @Table(name = "usuario")
 public class Usuario {
     @Id

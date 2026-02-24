@@ -1,5 +1,7 @@
 create database dichoyhecho_in5bv;
 use dichoyhecho_in5bv;
+
+-- tabla la cual llevara el regisro de los diferentes usuarios registrados en el foro
 create table usuario(
 	id_usuario int auto_increment not null primary key,
     nombre_usuario varchar(60) not null,
@@ -9,7 +11,7 @@ create table usuario(
     edad_usuario int not null
 );
 
-
+-- tabla la cual nos ayudara a llevar el registro de las diferentes areas comunitarias que existen para la conviviencia comunitaria.
 create table areas_verdes(
 id_area int auto_increment not null primary key,
 nombre_area varchar(60) not null,
@@ -17,6 +19,39 @@ tipo_area varchar(30) not null,
 ubicacion_area varchar(50) not null,
 estado_area varchar(30) not null
 );
+
+-- tabla para el registro de los administradores de la pagina - foro
+create table administrador(
+	id_administrador int primary key auto_increment,
+    nombre varchar(64),
+    appellido varchar(64),
+    edad int,
+    direccion varchar(120),
+    identificador varchar(24) unique,
+    contraseña varchar(8) unique
+);
+
+-- tabla que registrara los diferentes problemas a encontrar en la cdad
+create table problemas(
+	id_problema int primary key auto_increment,
+    tipo varchar(128),
+    direccion varchar(120),
+    categoria enum('nivel bajo','nivel moderado','nivel alto','nivel crítico'),
+    estado enum('reportado','en inspeccion tecnica','pendiente de aprobación','en revision','programado','en proceso','resuelto','rechazado'),
+    notificacion boolean
+);
+
+-- tabla la cual registrara los diferentes negocios de la cdad
+Create table Directorio(
+id_directorio int auto_increment not null primary key,
+nombre varchar(100) not null,
+descripcion text,
+telefono varchar(12) not null,
+correo varchar(50) not null,
+id_categoria text not null,
+direccion_asociada varchar(100) not null
+);
+
 INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) VALUES
 ('Parque Naciones Unidas', 'Parque Nacional', 'Villa Nueva / Amatitlán', 'Excelente'),
 ('Parque Ecológico Deportivo Cayalá', 'Reserva Ecológica', 'Zona 16', 'Bueno'),
@@ -32,16 +67,6 @@ INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) V
 ('Barranco de Gerona', 'Corredor Ecológico', 'Zona 1', 'En Recuperación'),
 ('Parque La Asunción', 'Parque Ecológico', 'Zona 5', 'Bueno'),
 ('Parque de la Paz', 'Parque Deportivo', 'Zona 21', 'Nuevo');
-
-Create table Directorio(
-id_directorio int auto_increment not null primary key,
-nombre varchar(100) not null,
-descripcion text,
-telefono varchar(12) not null,
-correo varchar(50) not null,
-id_categoria text not null,
-direccion_asociada varchar(100) not null
-);
 
 INSERT INTO Directorio (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
 VALUES 
@@ -80,20 +105,6 @@ VALUES
  'Librería',
  '18 calle 8-15 Zona 1, Ciudad de Guatemala');
 
-create table administrador(
-	id_administador int primary key auto_increment,
-    nombre varchar(64),
-    appellido varchar(64),
-    edad int,
-    direccion varchar(120),
-    contraseña varchar(8) unique
-);
+insert into problemas(tipo,direccion,categoria,estado,notificacion) values ("Congestionamiento vehicular","Calzada Roosevel",3,4,true);
 
-create table problemas(
-	id_problema int primary key auto_increment,
-    tipo varchar(128),
-    direccion varchar(120),
-    categoria enum('leve','medio','importante'),
-    estado enum('en proceso','resuelto','pendiente de admision'),
-    notificacion boolean
-);
+select * from problemas;
