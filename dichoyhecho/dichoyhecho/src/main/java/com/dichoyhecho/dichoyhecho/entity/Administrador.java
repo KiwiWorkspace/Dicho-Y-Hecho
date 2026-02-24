@@ -23,8 +23,8 @@ public class Administrador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @Column(name = "id_administrador")
+    private Integer idAdministrador;
 
     @NotBlank(message = "Debe ingresar un nombre del administrador")
     @Size(min = 4, max = 60, message = "El nombre del administrador debe tener 4 y 60 caracteres")
@@ -57,4 +57,59 @@ public class Administrador {
     @Column(name = "contraseña")
     private String contraseña;
 
+    public Integer getIdAdministrador() {
+        return idAdministrador;
+    }
+
+    public void setIdAdministrador(Integer idAdministrador) {
+        this.idAdministrador = idAdministrador;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public String getDirección() {
+        return dirección;
+    }
+
+    public void setDirección(String dirección) {
+        this.dirección = dirección;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 }

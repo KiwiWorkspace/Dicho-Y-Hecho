@@ -1,15 +1,14 @@
 package com.dichoyhecho.dichoyhecho.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "directorio")
 public class Directorio {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_directorio")
+    private Integer id_directorio;
     
 }
