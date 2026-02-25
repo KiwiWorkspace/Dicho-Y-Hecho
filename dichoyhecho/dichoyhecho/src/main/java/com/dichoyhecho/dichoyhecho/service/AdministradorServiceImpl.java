@@ -24,9 +24,8 @@ public class AdministradorServiceImpl implements AdministradorService{
 
     @Override
     public Administrador obtenerPorId(Integer id) {
-        return administradorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario con ID no encontrado: " + id));
+        return administradorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Administrador con ID no encontrado: " + id));
     }
-
 
     @Override
     public Administrador crear(Administrador administrador) {
@@ -43,7 +42,7 @@ public class AdministradorServiceImpl implements AdministradorService{
     @Override
     public void eliminar(Integer id) {
         if(!administradorRepository.existsById(id)){
-            throw new ResourceNotFoundException("usuario con ID no encontrado " + id);
+            throw new ResourceNotFoundException("Administrador con ID no encontrado " + id);
         }
         administradorRepository.deleteById(id);
     }

@@ -39,7 +39,7 @@ public class Administrador {
     private Integer edad;
 
     @NotBlank(message = "Debe ingresar la direccion de residencia del administrador")
-    @Size(min = 2, max = 120, message = " La direccion de residencia del administrador debe tener 2 y 60 caracteres")
+    @Size(min = 20, max = 120, message = " La direccion de residencia del administrador debe tener 20 y 120 caracteres")
     @Column(name = "direccion")
     private String direccion;
 
