@@ -3,8 +3,6 @@ package com.dichoyhecho.dichoyhecho.entity;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-
 
 @JsonPropertyOrder({
         "idUsuario",
@@ -15,8 +13,8 @@ import jakarta.validation.constraints.*;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-    @Id
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer idUsuario;
@@ -36,4 +34,51 @@ public class Usuario {
     @Column(name = "edad_usuario")
     private Integer edadUsuario;
 
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getApellidoUsuario() {
+        return apellidoUsuario;
+    }
+
+    public void setApellidoUsuario(String apellidoUsuario) {
+        this.apellidoUsuario = apellidoUsuario;
+    }
+
+    public String getHandleUsuario() {
+        return handleUsuario;
+    }
+
+    public void setHandleUsuario(String handleUsuario) {
+        this.handleUsuario = handleUsuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public Integer getEdadUsuario() {
+        return edadUsuario;
+    }
+
+    public void setEdadUsuario(Integer edadUsuario) {
+        this.edadUsuario = edadUsuario;
+    }
 }
