@@ -2,17 +2,10 @@ package com.dichoyhecho.dichoyhecho.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "areas_verdes")
-@Getter
-@Setter
 public class AreasVerdes {
 
     @Id
@@ -41,4 +34,44 @@ public class AreasVerdes {
     @Column(name = "estado_area")
     private String estadoArea;
 
+
+    public Integer getIdArea() {
+        return idArea;
+    }
+
+    public void setIdArea(Integer idArea) {
+        this.idArea = idArea;
+    }
+
+    public String getNombreArea() {
+        return nombreArea;
+    }
+
+    public void setNombreArea(String nombreArea) {
+        this.nombreArea = nombreArea;
+    }
+
+    public String getEstadoArea() {
+        return estadoArea;
+    }
+
+    public void setEstadoArea(String estadoArea) {
+        this.estadoArea = estadoArea;
+    }
+
+    public String getUbicacionArea() {
+        return ubicacionArea;
+    }
+
+    public void setUbicacionArea(String ubicacionArea) {
+        this.ubicacionArea = ubicacionArea;
+    }
+
+    public String getTipoArea() {
+        return tipoArea;
+    }
+
+    public void setTipoArea(String tipoArea) {
+        this.tipoArea = tipoArea;
+    }
 }
