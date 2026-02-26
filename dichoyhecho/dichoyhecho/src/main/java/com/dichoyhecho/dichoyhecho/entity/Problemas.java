@@ -14,11 +14,13 @@ public class Problemas {
     @Column(name = "id_problema")
     private Integer id_problema;
 
+    @NotNull(message = "Debe ingresar el tipo del problema")
     @NotBlank(message = "Debe ingresar el tipo del problema")
     @Size(min = 20, max = 130, message = "El tipo de problema debe tener 20 y 130 caracteres")
     @Column(name = "tipo")
     private String tipo;
 
+    @NotNull(message = "Debe ingresar la dirección donde se ubica el problema")
     @NotBlank(message = "Debe ingresar la direccion de donde se ubica el problema")
     @Size(min = 20, max = 120, message = " La direccion del problema debe tener 20 y 120 caracteres")
     @Column(name = "direccion")
