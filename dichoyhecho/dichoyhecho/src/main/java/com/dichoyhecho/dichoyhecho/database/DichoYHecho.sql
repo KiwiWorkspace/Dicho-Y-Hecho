@@ -9,7 +9,7 @@ create table usuario(
     handle_usuario varchar(60) not null,
     contrasena varchar(60) not null,
     edad_usuario int not null,
-    rol_Usuario enum(
+    rol_usuario enum(
     'Policía Nacional Civil',
     'Policía Municipal',
     'Policía Municipal de Tránsito',

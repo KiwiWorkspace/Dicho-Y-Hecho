@@ -1,6 +1,8 @@
 package com.dichoyhecho.dichoyhecho.entity;
 
 
+import com.dichoyhecho.dichoyhecho.enums.EstadoProblema;
+import com.dichoyhecho.dichoyhecho.enums.UsuarioRoles;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -11,7 +13,8 @@ import jakarta.validation.constraints.*;
         "apellidoUsuario",
         "handleUsuario",
         "contrasena",
-        "edadUsuario"
+        "edadUsuario",
+        "rolUsuario"
 })
 @Entity
 @Table(name = "usuario")
@@ -47,6 +50,11 @@ public class Usuario {
     @Max(value = 135, message = "La edad debe ser menor a 135")
     @Column(name = "edad_usuario")
     private Integer edadUsuario;
+
+    @NotNull(message = "Debe ingresar un rol a su usuario")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rol_usuario")
+    private UsuarioRoles rolUsuario;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -94,5 +102,13 @@ public class Usuario {
 
     public void setEdadUsuario(Integer edadUsuario) {
         this.edadUsuario = edadUsuario;
+    }
+
+    public UsuarioRoles getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(UsuarioRoles rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
 }
