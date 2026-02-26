@@ -13,37 +13,32 @@ import lombok.Setter;
 @Table(name = "areas_verdes")
 @Getter
 @Setter
-@RequiredArgsConstructor
-@NoArgsConstructor
 public class AreasVerdes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_area")
-    private Integer id_area;
+    private Integer idArea;
 
 
     @NotBlank(message = "Debe ingresar el nombre del area")
     @Size(min = 20, max = 60, message = "El nombre del area debe de tener entre 20 y 60 caracteres")
     @Column(name = "nombre_area")
-    private String nombre_area;
+    private String nombreArea;
 
     @Size(min = 20, max = 30, message = "El tipo de area debe tener entre 20 y 30 caracteres")
     @NotBlank(message = "debe ingresar el nombre del area")
     @Column(name = "tipo_area")
-    private String tipo_area;
+    private String tipoArea;
 
     @NotBlank(message = "debe ingresar la ubicacion  del area")
     @Size(min = 20, max = 50, message = "la ubicacion del area debe tener entre 20 y 50 caracteres")
     @Column(name = "ubicaicon_area")
-    private String ubicacion_area;
+    private String ubicacionArea;
 
     @NotBlank(message = "Debe ingresar el estado del area")
     @Size(min = 20, max = 30, message = "El estado del area debe tener entr 20 y 30 caracteres")
     @Column(name = "estado_area")
-    private String estado_area;
-
-
-
+    private String estadoArea;
 
 }

@@ -33,17 +33,17 @@ public class AreasVerdesServiceImpl implements AreasVerdesService{
 
     @Override
     public AreasVerdes crear(AreasVerdes areasVerdes) {
-        areasVerdes.setEstado_area(null);
+        areasVerdes.setEstadoArea(null);
         return areasVerdesRepository.save(areasVerdes);
     }
 
     @Override
     public AreasVerdes actualizar(Integer id, AreasVerdes areasVerdes) {
         AreasVerdes existente = buscarPorId(id);
-        existente.setEstado_area(areasVerdes.getEstado_area());
-        existente.setNombre_area(areasVerdes.getNombre_area());
-        existente.setTipo_area(areasVerdes.getTipo_area());
-        existente.setUbicacion_area(areasVerdes.getUbicacion_area());
+        existente.setEstadoArea(areasVerdes.getEstadoArea());
+        existente.setNombreArea(areasVerdes.getNombreArea());
+        existente.setTipoArea(areasVerdes.getTipoArea());
+        existente.setUbicacionArea(areasVerdes.getUbicacionArea());
 
         return areasVerdesRepository.save(existente) ;
     }
