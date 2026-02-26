@@ -25,6 +25,15 @@ create table usuario(
     'Vecino'
     )
 );
+create table comentario (
+    id bigint auto_increment primary key,
+    contenido text not null,
+    imagen_url longblob,
+    video_url longblob,
+    id_usuario int not null,
+    fecha_comentario timestamp default current_timestamp,
+    constraint fk_usuario_comentario foreign key (id_usuario) references usuario(id_usuario) on delete cascade
+);
 
 -- tabla la cual nos ayudara a llevar el registro de las diferentes areas comunitarias que existen para la conviviencia comunitaria.
 create table areas_verdes(
