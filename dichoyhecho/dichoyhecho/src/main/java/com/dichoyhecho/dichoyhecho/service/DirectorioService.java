@@ -1,15 +1,14 @@
 package com.dichoyhecho.dichoyhecho.service;
 
-import com.dichoyhecho.dichoyhecho.entity.Directorio;
+import com.dichoyhecho.dichoyhecho.entity.Locales;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DirectorioService {
 
-    List<Directorio> listar();
-    void crear(Directorio directorio);
-    int actualizar(Long id, Directorio directorio);
+    List<Locales> listar();
+    void crear(Locales locales);
+    int actualizar(Long id, Locales locales);
     int eliminar(Long id);
 
 }

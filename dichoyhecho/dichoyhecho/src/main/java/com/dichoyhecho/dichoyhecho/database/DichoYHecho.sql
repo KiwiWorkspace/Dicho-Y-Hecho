@@ -57,8 +57,8 @@ create table problemas(
 );
 
 -- tabla la cual registrara los diferentes negocios de la cdad
-Create table Directorio(
-id_directorio int auto_increment not null primary key,
+Create table locales(
+id_locales int auto_increment not null primary key,
 nombre varchar(100) not null,
 descripcion text,
 telefono varchar(12) not null,

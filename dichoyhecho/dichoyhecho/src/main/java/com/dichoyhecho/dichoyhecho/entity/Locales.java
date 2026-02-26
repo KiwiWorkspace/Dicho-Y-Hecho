@@ -6,13 +6,13 @@ import jakarta.validation.constraints.Size;
 import org.w3c.dom.Text;
 
 @Entity
-@Table(name = "directorio")
-public class Directorio {
+@Table(name = "locales")
+public class Locales {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_directorio")
-    private Integer id_directorio;
+    @Column(name = "id_locales")
+    private Integer id_locales;
 
     @NotBlank(message = "Porfavor ingrese el nombre de su negocio.")
     @Size(min=1, max=100, message = "El nombre del negocio tiene como maximo 100 caracteres.")

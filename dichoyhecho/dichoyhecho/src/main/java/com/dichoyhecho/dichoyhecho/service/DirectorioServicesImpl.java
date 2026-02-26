@@ -1,6 +1,6 @@
 package com.dichoyhecho.dichoyhecho.service;
 
-import com.dichoyhecho.dichoyhecho.entity.Directorio;
+import com.dichoyhecho.dichoyhecho.entity.Locales;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,17 +8,17 @@ import java.util.List;
 @Service
 public class DirectorioServicesImpl implements DirectorioService{
     @Override
-    public List<Directorio> listar() {
+    public List<Locales> listar() {
         return List.of();
     }
 
     @Override
-    public void crear(Directorio directorio) {
+    public void crear(Locales locales) {
 
     }
 
     @Override
-    public int actualizar(Long id, Directorio directorio) {
+    public int actualizar(Long id, Locales locales) {
         return 0;
     }
 
