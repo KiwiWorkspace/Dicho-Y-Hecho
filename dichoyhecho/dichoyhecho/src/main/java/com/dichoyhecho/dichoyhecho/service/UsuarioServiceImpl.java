@@ -39,6 +39,7 @@ public class UsuarioServiceImpl implements UsuarioService{
         existente.setHandleUsuario(usuario.getHandleUsuario());
         existente.setContrasena(usuario.getContrasena());
         existente.setEdadUsuario(usuario.getEdadUsuario());
+        existente.setRolUsuario(usuario.getRolUsuario());
 
         return usuarioRepository.save(existente);
     }

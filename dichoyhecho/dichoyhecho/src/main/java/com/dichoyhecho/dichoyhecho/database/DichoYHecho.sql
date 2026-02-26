@@ -8,7 +8,22 @@ create table usuario(
     apellido_usuario varchar(60) not null,
     handle_usuario varchar(60) not null,
     contrasena varchar(60) not null,
-    edad_usuario int not null
+    edad_usuario int not null,
+    rol_usuario enum(
+    'Policía Nacional Civil',
+    'Policía Municipal',
+    'Policía Municipal de Tránsito',
+    'Bombero Municipal',
+    'Bombero Voluntario',
+    'Agente CONRED',
+    'Ejército de Guatemala',
+    'Personal de Salud Pública',
+    'Gestor de Transmetro',
+    'Personal de Ornato',
+    'Personalidad de municipalidad',
+    'Juez de Asuntos Municipales',
+    'Vecino'
+    )
 );
 
 -- tabla la cual nos ayudara a llevar el registro de las diferentes areas comunitarias que existen para la conviviencia comunitaria.
