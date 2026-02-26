@@ -3,6 +3,8 @@ package com.dichoyhecho.dichoyhecho.controller;
 
 import com.dichoyhecho.dichoyhecho.entity.AreasVerdes;
 import com.dichoyhecho.dichoyhecho.service.AreasVerdesService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,18 +25,18 @@ public class AreasVerdesController {
     }
 
     @GetMapping("/{id}")
-    public AreasVerdes obtener(@PathVariable Integer id){
+    public AreasVerdes obtener(@PathVariable @Positive(message = "el id debe ser mayor a 0") Integer id){
         return areasVerdesService.buscarPorId(id);
     }
 
     @GetMapping("/post")
     @ResponseStatus
-    public AreasVerdes crear(@RequestBody AreasVerdes areasVerdes){
+    public AreasVerdes crear(@Valid @RequestBody AreasVerdes areasVerdes){
         return areasVerdesService.crear(areasVerdes);
     }
 
     @PutMapping("/put/{id}")
-    public AreasVerdes actualizar(@PathVariable Integer id, @RequestBody AreasVerdes areasVerdes){
+    public AreasVerdes actualizar(@PathVariable Integer id, @Valid @RequestBody AreasVerdes areasVerdes){
         return areasVerdesService.actualizar(id, areasVerdes);
     }
 

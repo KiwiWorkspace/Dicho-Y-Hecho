@@ -1,6 +1,9 @@
 package com.dichoyhecho.dichoyhecho.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -19,15 +22,24 @@ public class AreasVerdes {
     @Column(name = "id_area")
     private Integer id_area;
 
+
+    @NotBlank(message = "Debe ingresar el nombre del area")
+    @Size(min = 20, max = 60, message = "El nombre del area debe de tener entre 20 y 60 caracteres")
     @Column(name = "nombre_area")
     private String nombre_area;
 
+    @Size(min = 20, max = 30, message = "El tipo de area debe tener entre 20 y 30 caracteres")
+    @NotBlank(message = "debe ingresar el nombre del area")
     @Column(name = "tipo_area")
     private String tipo_area;
 
+    @NotBlank(message = "debe ingresar la ubicacion  del area")
+    @Size(min = 20, max = 50, message = "la ubicacion del area debe tener entre 20 y 50 caracteres")
     @Column(name = "ubicaicon_area")
     private String ubicacion_area;
 
+    @NotBlank(message = "Debe ingresar el estado del area")
+    @Size(min = 20, max = 30, message = "El estado del area debe tener entr 20 y 30 caracteres")
     @Column(name = "estado_area")
     private String estado_area;
 
