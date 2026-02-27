@@ -28,8 +28,8 @@ create table usuario(
 create table comentario (
     id_comentario bigint auto_increment primary key,
     contenido text not null,
-    imagen longblob,
-    video longblob,
+    imagen_url longblob,
+    video_url longblob,
     id_usuario int not null,
     fecha_comentario timestamp default current_timestamp,
     constraint fk_usuario_comentario foreign key (id_usuario) references usuario(id_usuario) on delete cascade
@@ -60,8 +60,8 @@ create table problemas(
 	id_problema int primary key auto_increment,
     tipo varchar(128),
     direccion varchar(120),
-    categoria enum('nivel bajo','nivel moderado','nivel alto','nivel crítico'),
-    estado enum('reportado','en inspeccion tecnica','pendiente de aprobación','en revision','programado','en proceso','resuelto','rechazado'),
+    categoria enum('NIVEL_BAJO','NIVEL_MODERADO','NIVEL_ALTO','NIVEL_CRITICO'),
+    estado enum('REPORTADO','EN_INSPECCION_TECNICAa','PENDIENTE_DE_APROBACION','EN_REVISION','PROGRAMADO','EN_PROCESO','RESUELTO','RECHAZADO'),
     notificacion boolean
 );
 
@@ -92,7 +92,7 @@ INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) V
 ('Parque La Asunción', 'Parque Ecológico', 'Zona 5', 'Bueno'),
 ('Parque de la Paz', 'Parque Deportivo', 'Zona 21', 'Nuevo');
 
-INSERT INTO Directorio (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
+INSERT INTO Locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
 VALUES 
 ('Super 24 Zona 1',
  'Tienda de conveniencia abierta 24 horas',
