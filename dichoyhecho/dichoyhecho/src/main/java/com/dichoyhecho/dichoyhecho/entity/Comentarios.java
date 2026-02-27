@@ -40,7 +40,6 @@ public class Comentarios {
     @JoinColumn (name= "id_usuario", nullable = false)
     private Usuario idUsuario;
 
-
     @NotNull
     @Column(name = "fecha_comentario")
     private LocalDateTime fechaComentario;
