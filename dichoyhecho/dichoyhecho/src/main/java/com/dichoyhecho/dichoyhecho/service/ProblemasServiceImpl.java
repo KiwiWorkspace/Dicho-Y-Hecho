@@ -23,11 +23,6 @@ public class ProblemasServiceImpl implements ProblemasService {
     }
 
     @Override
-    public Problemas obtenerPorId(Integer id) {
-        return problemasRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Problema con ID no encontrado: " + id));
-    }
-
-    @Override
     public Problemas crear(Problemas problemas) {
         problemas.setId_problema(null);
         return problemasRepository.save(problemas);

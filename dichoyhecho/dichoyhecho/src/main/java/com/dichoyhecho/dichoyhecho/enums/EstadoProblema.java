@@ -1,5 +1,10 @@
 package com.dichoyhecho.dichoyhecho.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import java.util.Arrays;
+
 public enum EstadoProblema {
     reportado("reportado"),
     enInspeccionTecnica("En inspeccion tecnica"),
@@ -19,7 +24,15 @@ public enum EstadoProblema {
     }
 
     //obtenemos el valor de la variable interna
+    @JsonValue
     public String getEstado() {
         return estado;
+    }
+
+    @JsonCreator
+    public static EstadoProblema descripcionEstado(String estado){
+        return Arrays.stream(values()).filter(c -> c.estado.equalsIgnoreCase(estado))
+                .findFirst().orElseThrow(() -> new IllegalArgumentException("La estado es invalido: " + estado));
+
     }
 }

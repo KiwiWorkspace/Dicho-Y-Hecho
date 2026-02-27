@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 
+
 @Entity
 @Table(name = "locales")
 public class Locales {

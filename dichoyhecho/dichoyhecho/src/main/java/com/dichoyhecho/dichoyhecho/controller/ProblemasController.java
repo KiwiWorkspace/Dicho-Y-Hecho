@@ -3,6 +3,7 @@ package com.dichoyhecho.dichoyhecho.controller;
 
 import com.dichoyhecho.dichoyhecho.entity.Problemas;
 import com.dichoyhecho.dichoyhecho.service.ProblemasService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,19 +19,19 @@ public class ProblemasController {
         this.problemasService = problemasService;
     }
 
-    @RequestMapping("/get")
+    @GetMapping("/get")
     public List<Problemas> listar(){
         return this.problemasService.listar();
     }
 
-    @RequestMapping("/post")
+    @PostMapping("/post")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Problemas crear(@RequestBody Problemas problemas){
+    public Problemas crear(@Valid @RequestBody Problemas problemas){
         return this.problemasService.crear(problemas);
     }
 
     @PutMapping("/update/{id}")
-    public Problemas actualizar(@PathVariable Integer id,
+    public Problemas actualizar(@Valid @PathVariable Integer id,
                                   @RequestBody Problemas problemas){
         return this.problemasService.actualizar(id, problemas);
     }

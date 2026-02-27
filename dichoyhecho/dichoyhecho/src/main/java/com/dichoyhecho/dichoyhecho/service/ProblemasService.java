@@ -9,7 +9,6 @@ import java.util.List;
 public interface ProblemasService {
 
     List<Problemas> listar();
-    Problemas obtenerPorId(Integer id);
     Problemas crear(Problemas problemas);
     Problemas actualizar(Integer id, Problemas problemas);
     void eliminar(Integer id);
