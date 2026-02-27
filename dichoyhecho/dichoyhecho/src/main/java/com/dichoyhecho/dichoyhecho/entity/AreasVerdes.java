@@ -11,8 +11,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "areas_verdes")
-@Getter
-@Setter
 public class AreasVerdes {
 
     @Id
@@ -40,5 +38,48 @@ public class AreasVerdes {
     @Size(min = 20, max = 30, message = "El estado del area debe tener entr 20 y 30 caracteres")
     @Column(name = "estado_area")
     private String estadoArea;
+
+
+    public Integer getIdArea() {
+        return idArea;
+    }
+
+    public void setIdArea(Integer idArea) {
+        this.idArea = idArea;
+    }
+
+    public @NotBlank(message = "Debe ingresar el nombre del area") @Size(min = 20, max = 60, message = "El nombre del area debe de tener entre 20 y 60 caracteres") String getNombreArea() {
+        return nombreArea;
+    }
+
+    public void setNombreArea(@NotBlank(message = "Debe ingresar el nombre del area") @Size(min = 20, max = 60, message = "El nombre del area debe de tener entre 20 y 60 caracteres") String nombreArea) {
+        this.nombreArea = nombreArea;
+    }
+
+    public @Size(min = 20, max = 30, message = "El tipo de area debe tener entre 20 y 30 caracteres") @NotBlank(message = "debe ingresar el nombre del area") String getTipoArea() {
+        return tipoArea;
+    }
+
+    public void setTipoArea(@Size(min = 20, max = 30, message = "El tipo de area debe tener entre 20 y 30 caracteres") @NotBlank(message = "debe ingresar el nombre del area") String tipoArea) {
+        this.tipoArea = tipoArea;
+    }
+
+    public @NotBlank(message = "debe ingresar la ubicacion  del area") @Size(min = 20, max = 50, message = "la ubicacion del area debe tener entre 20 y 50 caracteres") String getUbicacionArea() {
+        return ubicacionArea;
+    }
+
+    public void setUbicacionArea(@NotBlank(message = "debe ingresar la ubicacion  del area") @Size(min = 20, max = 50, message = "la ubicacion del area debe tener entre 20 y 50 caracteres") String ubicacionArea) {
+        this.ubicacionArea = ubicacionArea;
+    }
+
+    public @NotBlank(message = "Debe ingresar el estado del area") @Size(min = 20, max = 30, message = "El estado del area debe tener entr 20 y 30 caracteres") String getEstadoArea() {
+        return estadoArea;
+    }
+
+    public void setEstadoArea(@NotBlank(message = "Debe ingresar el estado del area") @Size(min = 20, max = 30, message = "El estado del area debe tener entr 20 y 30 caracteres") String estadoArea) {
+        this.estadoArea = estadoArea;
+    }
+
+
 
 }
