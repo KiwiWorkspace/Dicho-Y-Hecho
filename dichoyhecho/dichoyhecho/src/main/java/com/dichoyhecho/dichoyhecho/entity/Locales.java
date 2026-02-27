@@ -31,7 +31,7 @@ public class Locales {
     private String telefono;
 
     @NotBlank(message = "Porfavor ingrese el correo de negocios de su negocio.")
-    @Size(min=1, max=12, message = "El numero de telefono no puede excederse de 12 caracteres.")
+    @Size(min=1, max=50, message = "El numero de telefono no puede excederse de 12 caracteres.")
     @Column(name = "correo")
     private String correo;
 

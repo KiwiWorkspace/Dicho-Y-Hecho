@@ -26,8 +26,8 @@ public class UsuarioController {
     public Usuario obtener(@PathVariable @Min(value = 1, message = "El valor debe ser mayor a 1")Integer id){
         return usuarioService.obtenerPorId(id);
     }
-    @GetMapping("/post")
-    @PostMapping
+
+    @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario crear(@RequestBody Usuario usuario){
         return usuarioService.crear(usuario);
