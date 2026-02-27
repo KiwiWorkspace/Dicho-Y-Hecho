@@ -41,4 +41,9 @@ public class Locales {
     @Column(name = "direccion_asociada")
     private String direccion_asociada;
 
+    public void setId_locales(Integer id_locales) {
+        this.id_locales = id_locales;
+    }
+
+
 }
