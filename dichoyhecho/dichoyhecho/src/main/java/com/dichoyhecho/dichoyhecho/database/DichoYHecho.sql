@@ -26,7 +26,7 @@ create table usuario(
     )
 );
 create table comentario (
-    id bigint auto_increment primary key,
+    id_comentario bigint auto_increment primary key,
     contenido text not null,
     imagen_url longblob,
     video_url longblob,
