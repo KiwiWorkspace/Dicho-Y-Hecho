@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @JsonPropertyOrder({
-        "idUsuario",
-        "nombreUsuario",
+        "idComentario",
+        "contenido",
         "apellidoUsuario",
         "handleUsuario",
         "contrasena",
@@ -19,6 +19,14 @@ import jakarta.validation.constraints.*;
 public class Comentarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @Column(name = "id_comentario")
+    private Integer idComentario;
+
+    @NotBlank(message = "Debe ingresar contenido para su comentario ")
+    @Column(name = "contenido")
+    private String contenido;
+
+    @Lob
+    @Column(name = "imagen", columnDefinition = "LONGBLOB")
+    private byte[] imagen;
 }

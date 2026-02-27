@@ -28,8 +28,8 @@ create table usuario(
 create table comentario (
     id_comentario bigint auto_increment primary key,
     contenido text not null,
-    imagen_url longblob,
-    video_url longblob,
+    imagen longblob,
+    video longblob,
     id_usuario int not null,
     fecha_comentario timestamp default current_timestamp,
     constraint fk_usuario_comentario foreign key (id_usuario) references usuario(id_usuario) on delete cascade
