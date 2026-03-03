@@ -9,6 +9,7 @@ import jakarta.validation.constraints.*;
         "nombre",
         "apellido",
         "edad",
+        "correo",
         "direccion",
         "identificador",
         "contrasena"
@@ -47,6 +48,11 @@ public class Administrador {
     @Size(min = 5, max = 24, message = "El identificador del administrador debe tener 5 y 24 caracteres")
     @Column(name = "identificador")
     private String identificador;
+
+    @NotBlank(message = "Debe registrar un correo Electronico para poder registrarse")
+    @Size(min = 12, max = 72, message = "El correo electrico debe contar con un min de 12 caracteres y maximo de 72.")
+    @Column(name = "correo")
+    private String correo;
 
     @NotBlank(message = "Debe ingresar un nombre del usuario")
     @Size(min = 8, max = 13, message = "La contraseña debe terner un min de 8 y max 13 caracteres")
@@ -107,5 +113,13 @@ public class Administrador {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

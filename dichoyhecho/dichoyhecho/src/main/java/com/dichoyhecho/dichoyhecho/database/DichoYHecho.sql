@@ -1,7 +1,6 @@
 create database dichoyhecho_in5bv;
 use dichoyhecho_in5bv;
 
--- tabla la cual llevara el regisro de los diferentes usuarios registrados en el foro
 create table usuario(
 	id_usuario int auto_increment not null primary key,
     nombre_usuario varchar(60) not null,
@@ -35,7 +34,6 @@ create table comentario (
     constraint fk_usuario_comentario foreign key (id_usuario) references usuario(id_usuario) on delete cascade
 );
 
--- tabla la cual nos ayudara a llevar el registro de las diferentes areas comunitarias que existen para la conviviencia comunitaria.
 create table areas_verdes(
 id_area int auto_increment not null primary key,
 nombre_area varchar(60) not null,
@@ -44,18 +42,17 @@ ubicacion_area varchar(50) not null,
 estado_area varchar(30) not null
 );
 
--- tabla para el registro de los administradores de la pagina - foro
 create table administrador(
 	id_administrador int primary key auto_increment,
     nombre varchar(64),
-    appellido varchar(64),
+    apellido varchar(64),
     edad int,
     direccion varchar(120),
     identificador varchar(24) unique,
+    correo varchar(74),
     contrasena varchar(8) unique
 );
 
--- tabla que registrara los diferentes problemas a encontrar en la cdad
 create table problemas(
 	id_problema int primary key auto_increment,
     tipo varchar(128),
@@ -65,7 +62,6 @@ create table problemas(
     notificacion boolean
 );
 
--- tabla la cual registrara los diferentes negocios de la cdad
 Create table locales(
 id_locales int auto_increment not null primary key,
 nombre varchar(100) not null,
@@ -132,3 +128,4 @@ VALUES
 insert into problemas(tipo,direccion,categoria,estado,notificacion) values ("Congestionamiento vehicular","Calzada Roosevel",3,4,true);
 
 select * from problemas;
+select * from administrador;

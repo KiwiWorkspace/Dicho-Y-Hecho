@@ -26,12 +26,12 @@ public class ProblemasController {
 
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Problemas crear(@Valid @RequestBody Problemas problemas){
+    public Problemas crear(@RequestBody Problemas problemas){
         return this.problemasService.crear(problemas);
     }
 
     @PutMapping("/update/{id}")
-    public Problemas actualizar(@Valid @PathVariable Integer id,
+    public Problemas actualizar(@PathVariable Integer id,
                                   @RequestBody Problemas problemas){
         return this.problemasService.actualizar(id, problemas);
     }
