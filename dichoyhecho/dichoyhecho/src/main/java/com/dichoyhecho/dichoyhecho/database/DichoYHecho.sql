@@ -1,7 +1,6 @@
 create database dichoyhecho_in5bv;
 use dichoyhecho_in5bv;
 
--- tabla la cual llevara el regisro de los diferentes usuarios registrados en el foro
 create table usuario(
 	id_usuario int auto_increment not null primary key,
     nombre_usuario varchar(60) not null,
@@ -31,14 +30,13 @@ insert into usuario (nombre_usuario, apellido_usuario, handle_usuario, contrasen
 create table comentario (
     id_comentario bigint auto_increment primary key,
     contenido text not null,
-    imagen longblob,
-    video longblob,
+    imagen_url longblob,
+    video_url longblob,
     id_usuario int not null,
     fecha_comentario timestamp default current_timestamp,
     constraint fk_usuario_comentario foreign key (id_usuario) references usuario(id_usuario) on delete cascade
 );
 
--- tabla la cual nos ayudara a llevar el registro de las diferentes areas comunitarias que existen para la conviviencia comunitaria.
 create table areas_verdes(
 id_area int auto_increment not null primary key,
 nombre_area varchar(60) not null,
@@ -47,28 +45,26 @@ ubicacion_area varchar(50) not null,
 estado_area varchar(30) not null
 );
 
--- tabla para el registro de los administradores de la pagina - foro
 create table administrador(
 	id_administrador int primary key auto_increment,
     nombre varchar(64),
-    appellido varchar(64),
+    apellido varchar(64),
     edad int,
     direccion varchar(120),
     identificador varchar(24) unique,
+    correo varchar(74),
     contrasena varchar(8) unique
 );
 
--- tabla que registrara los diferentes problemas a encontrar en la cdad
 create table problemas(
 	id_problema int primary key auto_increment,
     tipo varchar(128),
     direccion varchar(120),
-    categoria enum('nivel bajo','nivel moderado','nivel alto','nivel crítico'),
-    estado enum('reportado','en inspeccion tecnica','pendiente de aprobación','en revision','programado','en proceso','resuelto','rechazado'),
+    categoria enum('NIVEL_BAJO','NIVEL_MODERADO','NIVEL_ALTO','NIVEL_CRITICO'),
+    estado enum('REPORTADO','EN_INSPECCION_TECNICAa','PENDIENTE_DE_APROBACION','EN_REVISION','PROGRAMADO','EN_PROCESO','RESUELTO','RECHAZADO'),
     notificacion boolean
 );
 
--- tabla la cual registrara los diferentes negocios de la cdad
 Create table locales(
 id_locales int auto_increment not null primary key,
 nombre varchar(100) not null,
@@ -95,7 +91,11 @@ INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) V
 ('Parque La Asunción', 'Parque Ecológico', 'Zona 5', 'Bueno'),
 ('Parque de la Paz', 'Parque Deportivo', 'Zona 21', 'Nuevo');
 
+<<<<<<< HEAD
 INSERT INTO locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
+=======
+INSERT INTO Locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
+>>>>>>> 9e00897eb5c9b9fce083c29900817eabd518c190
 VALUES 
 ('Super 24 Zona 1',
  'Tienda de conveniencia abierta 24 horas',
@@ -135,3 +135,4 @@ VALUES
 insert into problemas(tipo,direccion,categoria,estado,notificacion) values ("Congestionamiento vehicular","Calzada Roosevel",3,4,true);
 
 select * from problemas;
+select * from administrador;

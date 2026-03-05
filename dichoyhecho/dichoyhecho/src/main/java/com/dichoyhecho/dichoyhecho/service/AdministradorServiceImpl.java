@@ -4,6 +4,7 @@ import com.dichoyhecho.dichoyhecho.entity.Administrador;
 import com.dichoyhecho.dichoyhecho.repository.AdministradorRepository;
 import com.dichoyhecho.dichoyhecho.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +14,11 @@ public class AdministradorServiceImpl implements AdministradorService{
 
     private AdministradorRepository administradorRepository;
 
-    public AdministradorServiceImpl(AdministradorRepository administradorRepository) {
+    private CorreoService correoService;
+
+    public AdministradorServiceImpl(AdministradorRepository administradorRepository, CorreoService correoService) {
         this.administradorRepository = administradorRepository;
+        this.correoService = correoService;
     }
 
     @Override
@@ -29,9 +33,15 @@ public class AdministradorServiceImpl implements AdministradorService{
 
     @Override
     public Administrador crear(Administrador administrador) {
-        administrador.setIdAdministrador(null);
-        return administradorRepository.save(administrador);
-    }
+            Administrador guardado = administradorRepository.save(administrador);
+            try{
+                correoService.enviarConfirmacion(guardado.getCorreo());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                
+            }
+            return guardado;
+        }
 
     @Override
     public Administrador actualizar(Integer id, Administrador administrador) {
