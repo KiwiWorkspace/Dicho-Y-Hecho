@@ -7,6 +7,7 @@ create table usuario(
     apellido_usuario varchar(60) not null,
     handle_usuario varchar(60) not null,
     contrasena varchar(60) not null,
+    email_usuario varchar(60) not null,
     edad_usuario int not null,
     rol_usuario enum(
     'POLICIA_NACIONAL_CIVIL',
@@ -91,11 +92,8 @@ INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) V
 ('Parque La Asunción', 'Parque Ecológico', 'Zona 5', 'Bueno'),
 ('Parque de la Paz', 'Parque Deportivo', 'Zona 21', 'Nuevo');
 
-<<<<<<< HEAD
+
 INSERT INTO locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
-=======
-INSERT INTO Locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
->>>>>>> 9e00897eb5c9b9fce083c29900817eabd518c190
 VALUES 
 ('Super 24 Zona 1',
  'Tienda de conveniencia abierta 24 horas',

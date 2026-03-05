@@ -6,6 +6,7 @@ import com.dichoyhecho.dichoyhecho.enums.UsuarioRoles;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.ToString;
 
 @JsonPropertyOrder({
         "idUsuario",
@@ -13,11 +14,15 @@ import jakarta.validation.constraints.*;
         "apellidoUsuario",
         "handleUsuario",
         "contrasena",
+        "emailUsuario",
         "edadUsuario",
         "rolUsuario"
 })
+@ToString
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuario", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "emailUsuario")
+})
 public class Usuario {
 
     @Id
@@ -44,6 +49,9 @@ public class Usuario {
     @Size(min = 8, max = 12, message = "La contraseña debe terner de 8 a 12 caracteres")
     @Column(name = "contrasena")
     private String contrasena;
+
+    @Column(name = "email_usuario")
+    private String emailUsuario;
 
     @NotNull(message = "Debe ingresar una edad ")
     @Min(value = 3, message = "La edad debe ser mayor a 3")
@@ -96,6 +104,14 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
     public Integer getEdadUsuario() {
         return edadUsuario;
     }
@@ -109,6 +125,21 @@ public class Usuario {
     }
 
     public void setRolUsuario(UsuarioRoles rolUsuario) {
+        this.rolUsuario = rolUsuario;
+    }
+
+    //constructores
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombreUsuario, String apellidoUsuario, String contrasena, String handleUsuario, String emailUsuario, Integer edadUsuario, UsuarioRoles rolUsuario) {
+        this.nombreUsuario = nombreUsuario;
+        this.apellidoUsuario = apellidoUsuario;
+        this.contrasena = contrasena;
+        this.handleUsuario = handleUsuario;
+        this.emailUsuario = emailUsuario;
+        this.edadUsuario = edadUsuario;
         this.rolUsuario = rolUsuario;
     }
 }
