@@ -9,21 +9,24 @@ create table usuario(
     contrasena varchar(60) not null,
     edad_usuario int not null,
     rol_usuario enum(
-    'Policía Nacional Civil',
-    'Policía Municipal',
-    'Policía Municipal de Tránsito',
-    'Bombero Municipal',
-    'Bombero Voluntario',
-    'Agente CONRED',
-    'Ejército de Guatemala',
-    'Personal de Salud Pública',
-    'Gestor de Transmetro',
-    'Personal de Ornato',
-    'Personalidad de municipalidad',
-    'Juez de Asuntos Municipales',
-    'Vecino'
+    'POLICIA_NACIONAL_CIVIL',
+	'POLICIA_MUNICIPAL',
+	'POLICIA_MUNICIPAL_DE_TRANSITO',
+	'BOMBERO_MUNICIPAL',
+	'BOMBERO_VOLUNTARIO',
+	'AGENTE_CONRED',
+	'EJERCITO_DE_GUATEMALA',
+	'PERSONAL_DE_SALUD_PUBLICA',
+	'GESTOR_DE_TRANSMETRO',
+	'PERSONAL_DE_ORNATO',
+	'PERSONALIDAD_DE_MUNICIPALIDAD',
+	'JUEZ_DE_ASUNTOS_MUNICIPALES',
+	'VECINO'
     )
 );
+
+insert into usuario (nombre_usuario, apellido_usuario, handle_usuario, contrasena, edad_usuario, rol_usuario) values ("Jaime", "Martinez", "roxy", "contraseña", 67, "Vecino");
+
 create table comentario (
     id_comentario bigint auto_increment primary key,
     contenido text not null,
@@ -88,7 +91,11 @@ INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) V
 ('Parque La Asunción', 'Parque Ecológico', 'Zona 5', 'Bueno'),
 ('Parque de la Paz', 'Parque Deportivo', 'Zona 21', 'Nuevo');
 
+<<<<<<< HEAD
+INSERT INTO locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
+=======
 INSERT INTO Locales (nombre, descripcion, telefono, correo, id_categoria, direccion_asociada)
+>>>>>>> 9e00897eb5c9b9fce083c29900817eabd518c190
 VALUES 
 ('Super 24 Zona 1',
  'Tienda de conveniencia abierta 24 horas',
