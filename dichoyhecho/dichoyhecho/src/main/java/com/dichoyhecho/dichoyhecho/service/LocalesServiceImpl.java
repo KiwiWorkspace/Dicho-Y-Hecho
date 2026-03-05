@@ -18,14 +18,12 @@ public class LocalesServiceImpl implements LocalesService {
         this.localesRepository = localesRepository;
     }
 
-    // ── Usuario ──────────────────────────────────────────────────────────────
-
     @Override
     @Transactional
     public Locales crear(Locales locales) {
         locales.setId_locales(null);
         locales.setEstado(EstadoLocales.PENDIENTE);
-        locales.setMotivoRechazo(null);   // El usuario no puede presetear un motivo de rechazo
+        locales.setMotivoRechazo(null);
         return localesRepository.save(locales);
     }
 
@@ -60,8 +58,6 @@ public class LocalesServiceImpl implements LocalesService {
         }
         localesRepository.deleteById(id);
     }
-
-    // ── Admin ─────────────────────────────────────────────────────────────────
 
     @Override
     @Transactional(readOnly = true)

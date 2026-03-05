@@ -4,6 +4,7 @@ import com.dichoyhecho.dichoyhecho.entity.Administrador;
 import com.dichoyhecho.dichoyhecho.service.AdministradorService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class AdministradorController {
     public Administrador crear(@RequestBody Administrador administrador) {
         return this.administradorService.crear(administrador);
     }
+
 
     @PutMapping("/update/{id}")
     public Administrador actualizar (@PathVariable Integer id,

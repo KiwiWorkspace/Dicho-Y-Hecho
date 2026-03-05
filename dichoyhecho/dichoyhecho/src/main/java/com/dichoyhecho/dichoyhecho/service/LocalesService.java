@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface LocalesService {
 
-    // ── Usuario ──────────────────────────────────────────────────────────────
-
     Locales crear(Locales locales);
 
     List<Locales> listar();
@@ -17,9 +15,6 @@ public interface LocalesService {
     Locales actualizar(Integer id, Locales locales);
 
     void eliminar(Integer id);
-
-    // ── Admin ─────────────────────────────────────────────────────────────────
-
 
     List<Locales> listarPendientes();
 

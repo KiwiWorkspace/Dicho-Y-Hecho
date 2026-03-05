@@ -43,7 +43,6 @@ public class Locales {
     @Column(name = "direccion_asociada")
     private String direccion_asociada;
 
-    // Al subir un local siempre arranca como PENDIENTE, el admin decide despues
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false, length = 20)
     private EstadoLocales estado = EstadoLocales.PENDIENTE;

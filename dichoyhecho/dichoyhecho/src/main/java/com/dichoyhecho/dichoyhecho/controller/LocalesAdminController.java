@@ -31,9 +31,6 @@ public class LocalesAdminController {
         return localesService.listarPendientes();
     }
 
-    // El admin aprueba o rechaza un local con un solo endpoint
-    // Body ejemplo aprobación : { "decision": "APROBADO" }
-    // Body ejemplo rechazo    : { "decision": "RECHAZADO", "motivoRechazo": "Información incompleta." }
     @PatchMapping("/{id}/decision")
     public ResponseEntity<Locales> decidir(
             @PathVariable Integer id,

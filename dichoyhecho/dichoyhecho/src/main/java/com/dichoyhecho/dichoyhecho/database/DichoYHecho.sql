@@ -50,7 +50,7 @@ create table administrador(
     direccion varchar(120),
     identificador varchar(24) unique,
     correo varchar(74),
-    contrasena varchar(8) unique
+    contrasena varchar(13) unique
 );
 
 create table problemas(
