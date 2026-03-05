@@ -44,4 +44,10 @@ public class Comentarios {
     @Column(name = "fecha_comentario")
     private LocalDateTime fechaComentario;
 
+    //se va a utilizar para que se coloque automaticamente la fecha
+    @PrePersist
+    protected void onCreate() {
+        this.fechaComentario = LocalDateTime.now();
+    }
+
 }
