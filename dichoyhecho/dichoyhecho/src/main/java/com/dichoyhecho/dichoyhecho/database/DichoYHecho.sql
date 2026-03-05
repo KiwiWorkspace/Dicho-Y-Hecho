@@ -26,7 +26,7 @@ create table usuario(
     )
 );
 
-insert into usuario (nombre_usuario, apellido_usuario, handle_usuario, contrasena, edad_usuario, rol_usuario) values ("Jaime", "Martinez", "roxy", "contraseña", 67, "Vecino");
+insert into usuario (nombre_usuario, apellido_usuario, handle_usuario, contrasena, edad_usuario, rol_usuario, email_usuario) values ("Jaime", "Martinez", "roxy", "contraseña", 67, "Vecino", "jmartinez202567@kinal.edu.gt");
 
 create table comentario (
     id_comentario bigint auto_increment primary key,
