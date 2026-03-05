@@ -1,0 +1,602 @@
+{
+  "info": {
+    "_postman_id": "839e935a-8a16-4490-8b1e-ad844d50a12f",
+    "name": "Dicho y Hecho",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "List Admin",
+          "id": "60048a40-1558-4b17-9acb-21f71eae9832",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create admin",
+          "id": "1e9aedd6-2979-4d28-9c66-6c5d4f556fc9",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/admin/post",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "admin",
+                "post"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Admin",
+          "id": "ffb06323-b40b-4b84-b919-05c1deeb53dc",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/admin/update/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "admin",
+                "update",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete admin",
+          "id": "a15deb76-b46d-407e-aab2-1ab67e270722",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/admin/delete/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "admin",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "a683dca5-37f9-45d7-ac62-11eaad25c30f"
+    },
+    {
+      "name": "Problemas",
+      "item": [
+        {
+          "name": "List Problem",
+          "id": "fb8400d2-da21-4b99-8e35-6f0a19c4fa52",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/problem/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "problem",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create problem",
+          "id": "7d9a7417-4322-4f34-b5f4-7a3800d92b95",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/problem/post",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "problem",
+                "post"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Problems",
+          "id": "4340680a-93e2-45da-87f9-c2bd2bb6629f",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/problem/update/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "problem",
+                "update",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Problem",
+          "id": "93db4075-334e-4079-adba-724253fdbb57",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/problem/delete/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "problem",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "9ea348c1-0b2e-40ea-96a8-5509a24126f3"
+    },
+    {
+      "name": "Locales",
+      "item": [
+        {
+          "name": "Get locales",
+          "id": "4df46a38-5b2f-4cce-b286-4309bce317a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/locales/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "locales",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post Locales",
+          "id": "5e319bb3-d438-4618-ac45-720e72a72e74",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/locales/post",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "locales",
+                "post"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update locales",
+          "id": "8316350a-bb50-49a6-a7ec-9a0997d838d2",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/locales/put/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "locales",
+                "put",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete locales",
+          "id": "c9639e9a-0035-4a38-94e6-585a6da2f1bd",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/locales/delete/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "locales",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "901d5c64-bf74-413f-b39f-6587a66ac678"
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get Users",
+          "id": "89291b59-6915-4847-b75a-b14d8d29c10a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/usuario/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "usuario",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User ID",
+          "id": "a309b34b-e107-44e1-b200-5692b89c3dcf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/usuario/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "usuario",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post User",
+          "id": "653c6032-82a7-4d30-81c1-43c24fe461cb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/usuario/post",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "usuario",
+                "post"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "id": "8293e86f-f7aa-4cbf-a61b-b96ec75f3328",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/usuario/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "usuario",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "1845792e-ac3b-42de-941c-a96023d40cfe"
+    },
+    {
+      "name": "Areas Verdes",
+      "item": [
+        {
+          "name": "Get Areas Verdes",
+          "id": "81d124eb-d7d4-4e58-a5eb-54175af9e5c5",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/areasVerdes/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "areasVerdes",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Areas Verdes ID",
+          "id": "f31120de-82f7-493a-b6a8-eb25226798d2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/areasVerdes/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "areasVerdes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post Areas Verdes",
+          "id": "a3df21f0-a6ac-4dbe-95e0-79386f8cf73c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/areasVerdes/post",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "areasVerdes",
+                "post"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Areas Verdes",
+          "id": "7b2fd364-8761-4f03-82a3-cbfda95e4471",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/areasVerdes/put/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "areasVerdes",
+                "put",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Areas Verdes",
+          "id": "1c571739-806d-4b1a-be04-6b754755d623",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/areasVerdes/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "areasVerdes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "9a46f948-e799-4f55-a8e1-e694ab875a61"
+    }
+  ]
+}
