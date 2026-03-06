@@ -1,7 +1,6 @@
 package com.dichoyhecho.dichoyhecho.entity;
 
 
-import com.dichoyhecho.dichoyhecho.enums.EstadoProblema;
 import com.dichoyhecho.dichoyhecho.enums.UsuarioRoles;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
@@ -50,6 +49,7 @@ public class Usuario {
     @Column(name = "contrasena")
     private String contrasena;
 
+    @Email
     @Column(name = "email_usuario")
     private String emailUsuario;
 
@@ -130,7 +130,7 @@ public class Usuario {
 
     //constructores
 
-    public Usuario() {
+    public Usuario(@NotBlank String name, @Email @NotBlank String email, @NotBlank String password) {
     }
 
     public Usuario(String nombreUsuario, String apellidoUsuario, String contrasena, String handleUsuario, String emailUsuario, Integer edadUsuario, UsuarioRoles rolUsuario) {
@@ -141,5 +141,11 @@ public class Usuario {
         this.emailUsuario = emailUsuario;
         this.edadUsuario = edadUsuario;
         this.rolUsuario = rolUsuario;
+    }
+
+    public Usuario(Integer idUsuario, String handleUsuario, String emailUsuario) {
+        this.idUsuario = idUsuario;
+        this.handleUsuario = handleUsuario;
+        this.emailUsuario = emailUsuario;
     }
 }
