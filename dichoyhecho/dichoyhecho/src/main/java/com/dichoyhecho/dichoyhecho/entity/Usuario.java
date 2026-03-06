@@ -45,11 +45,12 @@ public class Usuario {
     private String handleUsuario;
 
     @NotBlank(message = "Debe ingresar una contrasena")
-    @Size(min = 8, max = 12, message = "La contraseña debe terner de 8 a 12 caracteres")
+    @Size(min = 8, max =75, message = "La contraseña debe terner de 8 a 12 caracteres")
     @Column(name = "contrasena")
     private String contrasena;
 
     @Email
+    @NotBlank
     @Column(name = "email_usuario")
     private String emailUsuario;
 
@@ -59,9 +60,8 @@ public class Usuario {
     @Column(name = "edad_usuario")
     private Integer edadUsuario;
 
-    @NotNull(message = "Debe ingresar un rol a su usuario")
     @Enumerated(EnumType.STRING)
-    @Column(name = "rol_usuario")
+    @Column(name = "rol_usuario", nullable = true)
     private UsuarioRoles rolUsuario;
 
     public Integer getIdUsuario() {
@@ -147,5 +147,8 @@ public class Usuario {
         this.idUsuario = idUsuario;
         this.handleUsuario = handleUsuario;
         this.emailUsuario = emailUsuario;
+    }
+
+    public Usuario() {
     }
 }
