@@ -32,7 +32,7 @@ public class ProblemasController {
 
     @PutMapping("/update/{id}")
     public Problemas actualizar(@PathVariable Integer id,
-                                  @RequestBody Problemas problemas){
+                                    @RequestBody Problemas problemas){
         return this.problemasService.actualizar(id, problemas);
     }
 
