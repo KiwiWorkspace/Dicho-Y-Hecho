@@ -50,4 +50,51 @@ public class Comentarios {
         this.fechaComentario = LocalDateTime.now();
     }
 
+    public long getIdComentario() {
+        return idComentario;
+    }
+
+    public void setIdComentario(long idComentario) {
+        this.idComentario = idComentario;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
+    public byte[] getVideo() {
+        return video;
+    }
+
+    public void setVideo(byte[] video) {
+        this.video = video;
+    }
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public LocalDateTime getFechaComentario() {
+        return fechaComentario;
+    }
+
+    public void setFechaComentario(LocalDateTime fechaComentario) {
+        this.fechaComentario = fechaComentario;
+    }
 }

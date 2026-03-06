@@ -16,6 +16,7 @@ public class SecurityConfig {
                         .requestMatchers("/dichoyhecho/auth/**").permitAll()
                         .requestMatchers("/admin/post").hasAnyRole("ADMIN","USER")
                         .requestMatchers("/usuario/**").hasRole("USER")
+                        .requestMatchers("/dichoyhecho/comentarios/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {});

@@ -1,14 +1,19 @@
 package com.dichoyhecho.dichoyhecho.service;
 
+import com.dichoyhecho.dichoyhecho.dto.ComentarioRequest;
+import com.dichoyhecho.dichoyhecho.entity.Comentarios;
 import com.dichoyhecho.dichoyhecho.entity.Usuario;
 import com.dichoyhecho.dichoyhecho.exception.ResourceNotFoundException;
+import com.dichoyhecho.dichoyhecho.repository.ComentariosRepository;
 import com.dichoyhecho.dichoyhecho.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
@@ -50,5 +55,47 @@ public class UsuarioServiceImpl implements UsuarioService{
             throw new ResourceNotFoundException("Usuario con ID no encontrado: " + id);
         }
         usuarioRepository.deleteById(id);
+    }
+
+    @Service
+    public class ComentarioService {
+
+        @Autowired
+        private ComentariosRepository comentarioRepository;
+
+        @Autowired
+        private UsuarioService usuarioService;
+
+        public List<Comentarios> obtenerTodos() {
+            return comentarioRepository.findAll();
+        }
+
+        public void guardarComentario(ComentarioRequest request) throws IOException {
+            Usuario autor = usuarioService.obtenerPorId(request.getIdUsuario().intValue());
+            Comentarios nuevo = new Comentarios();
+            nuevo.setContenido(request.getContenido());
+            nuevo.setIdUsuario(autor);
+
+
+            if (request.getImagen() != null && !request.getImagen().isEmpty()) {
+                nuevo.setImagen(request.getImagen().getBytes());
+            }
+
+            if (request.getVideo() != null && !request.getVideo().isEmpty()) {
+                nuevo.setVideo(request.getVideo().getBytes());
+            }
+
+            comentarioRepository.save(nuevo);
+        }
+        public void eliminarComentario(Long idComentario, Integer idUsuarioQueBorra) {
+            Comentarios comentario = comentarioRepository.findById(idComentario)
+                    .orElseThrow(() -> new RuntimeException("El comentario no existe."));
+
+            if (comentario.getIdUsuario().getIdUsuario().longValue() != idUsuarioQueBorra.longValue()) {
+                throw new RuntimeException("No tienes permiso para eliminar este comentario.");
+            }
+
+            comentarioRepository.delete(comentario);
+        }
     }
 }
