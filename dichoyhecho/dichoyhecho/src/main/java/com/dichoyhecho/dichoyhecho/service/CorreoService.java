@@ -16,7 +16,7 @@ public class CorreoService {
         SimpleMailMessage mensaje = new SimpleMailMessage();
         mensaje.setTo(correo);
         mensaje.setSubject("Registro verificado.");
-        mensaje.setText("Su registro se a realizado exitosamente ✅.");
+        mensaje.setText("Su registro se a realizado exitosamente ✅." + "");
 
         mailSender.send(mensaje);
     }

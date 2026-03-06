@@ -1,6 +1,8 @@
 package com.dichoyhecho.dichoyhecho.service;
 
 import com.dichoyhecho.dichoyhecho.entity.Administrador;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 public interface AdministradorService {

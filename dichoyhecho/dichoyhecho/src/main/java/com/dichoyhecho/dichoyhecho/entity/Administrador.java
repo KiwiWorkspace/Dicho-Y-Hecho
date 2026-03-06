@@ -55,7 +55,7 @@ public class Administrador {
     private String correo;
 
     @NotBlank(message = "Debe ingresar la contraseña del administrador")
-    @Size(min = 8, max = 13, message = "La contraseña debe tener un min de 8 y max 13 caracteres")
+    @Size(min = 8, max = 75, message = "La contraseña debe tener un min de 8 y max 13 caracteres")
     @Column(name = "contrasena")
     private String contrasena;
 

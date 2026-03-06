@@ -134,3 +134,4 @@ insert into problemas(tipo,direccion,categoria,estado,notificacion) values ("Con
 
 select * from problemas;
 select * from administrador;
+select * from usuario;
