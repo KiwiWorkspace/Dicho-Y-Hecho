@@ -12,4 +12,3 @@ public class LoginUsuarioRequest {
         @NotBlank
         public String password;
     }
-

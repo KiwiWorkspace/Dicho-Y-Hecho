@@ -21,9 +21,9 @@ public class AutenController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @RequestBody RegisterUsuarioRequest req) {
+    public void register(@Valid @RequestBody RegisterUsuarioRequest req) {
         autenService.register(req);
-        return "Usuario registrado correctamente.";
+        System.out.println("Usuario registrado correctamente.");
     }
 
     @PostMapping("/login")
@@ -31,4 +31,3 @@ public class AutenController {
         return autenService.login(req);
     }
 }
-

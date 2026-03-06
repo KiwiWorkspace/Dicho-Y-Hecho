@@ -5,6 +5,7 @@ import com.dichoyhecho.dichoyhecho.repository.AdministradorRepository;
 import com.dichoyhecho.dichoyhecho.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,12 +14,13 @@ import java.util.List;
 public class AdministradorServiceImpl implements AdministradorService{
 
     private AdministradorRepository administradorRepository;
-
+    private final PasswordEncoder passwordEncoder;
     private CorreoService correoService;
 
-    public AdministradorServiceImpl(AdministradorRepository administradorRepository, CorreoService correoService) {
-        this.administradorRepository = administradorRepository;
+    public AdministradorServiceImpl(CorreoService correoService, PasswordEncoder passwordEncoder, AdministradorRepository administradorRepository) {
         this.correoService = correoService;
+        this.passwordEncoder = passwordEncoder;
+        this.administradorRepository = administradorRepository;
     }
 
     @Override
@@ -33,6 +35,11 @@ public class AdministradorServiceImpl implements AdministradorService{
 
     @Override
     public Administrador crear(Administrador administrador) {
+        if (administradorRepository.existsByCorreo(administrador.getCorreo())) {
+            throw new IllegalArgumentException("El email ya está registrado");
+        }
+        administrador.setContrasena(passwordEncoder.encode(administrador.getContrasena()));
+
             Administrador guardado = administradorRepository.save(administrador);
             try{
                 correoService.enviarConfirmacion(guardado.getCorreo());
