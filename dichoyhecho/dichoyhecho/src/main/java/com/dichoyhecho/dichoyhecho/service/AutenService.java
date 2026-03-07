@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AutenService implements UserDetailsService {
+public class AutenService implements UserDetailsService{
     private final UsuarioRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -29,7 +29,7 @@ public class AutenService implements UserDetailsService {
         this.administradorRepository = administradorRepository;
     }
 
-    public void register (RegisterUsuarioRequest req) {
+    public void register(RegisterUsuarioRequest req) {
         if (userRepository.existsByEmailUsuario(req.email)) {
             throw new IllegalArgumentException("El email ya está registrado.");
         }
@@ -46,13 +46,29 @@ public class AutenService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public LoginUsuarioResponse login (LoginUsuarioRequest req) {
-        Usuario user = userRepository.findByEmailUsuario(req.email)
-                .orElseThrow(() -> new IllegalArgumentException("Email Incorrecto o no existe."));
+    public LoginUsuarioResponse login(LoginUsuarioRequest req) {
+        Usuario user = userRepository.findByEmailUsuario(req.email).orElse(null);
 
-        boolean ok = passwordEncoder.matches(req.password, user.getContrasena());
-        if (!ok) throw new IllegalArgumentException("Contraseña incorrecta");
-        return new LoginUsuarioResponse("Login correcto: ",user.getIdUsuario(), user.getNombreUsuario(), user.getEmailUsuario());
+        if (user != null) {
+            boolean ok = passwordEncoder.matches(req.password, user.getContrasena());
+            if (!ok) throw new IllegalArgumentException("Contraseña incorrecta");
+            return new LoginUsuarioResponse("Login correcto: ", user.getIdUsuario(), user.getNombreUsuario(), user.getEmailUsuario());
+
+        }
+
+        Administrador admin = administradorRepository.findByCorreo(req.email).orElse(null);
+        if (admin != null) {
+            boolean ok = passwordEncoder.matches(req.password, admin.getContrasena());
+            if (!ok) throw new IllegalArgumentException("Contraseña incorrecta");
+
+            return new LoginUsuarioResponse(
+                    "Login correcto",
+                    admin.getIdAdministrador(),
+                    admin.getNombre(),
+                    admin.getCorreo()
+            );
+        }
+        throw  new IllegalArgumentException("Email Incorrecto o no existe.");
     }
 
     @Override
@@ -80,5 +96,6 @@ public class AutenService implements UserDetailsService {
 
         throw new UsernameNotFoundException("Usuario no encontrado");
     }
+
 
 }

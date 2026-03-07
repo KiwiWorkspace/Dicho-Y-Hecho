@@ -16,8 +16,7 @@ public class CorreoService {
         SimpleMailMessage mensaje = new SimpleMailMessage();
         mensaje.setTo(correo);
         mensaje.setSubject("Registro verificado.");
-        mensaje.setText("Su registro se a realizado exitosamente ✅." + "");
-
+        mensaje.setText( "Su registro se ha realizado exitosamente ✅.\n" + "Tu información de inicio de sesión es: \n" + "Correo: " + correo + "\n" + "Tu contraseña (por motivos de seguridad no se muestra en este correo).");
         mailSender.send(mensaje);
     }
 }

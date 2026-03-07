@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "61a202ad-f8e7-44bb-ac1f-3720b2165f33",
+    "_postman_id": "5bd1c209-15cf-43d7-9642-8077c4b12b02",
     "name": "Dicho y Hecho",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "52214022",
-    "_collection_link": "https://go.postman.co/collection/52214022-61a202ad-f8e7-44bb-ac1f-3720b2165f33?source=collection_link"
+    "_exporter_id": "44459917",
+    "_collection_link": "https://go.postman.co/collection/44459917-5bd1c209-15cf-43d7-9642-8077c4b12b02?source=collection_link"
   },
   "item": [
     {
@@ -437,8 +437,60 @@
         {
           "name": "Login User",
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"segioBandaLizarragaMS@gmail.com\",\r\n    \"password\": \"EdenMuñoz\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Sergio\",\r\n    \"apellido\": \"Lizarraga\",\r\n    \"edad\": 19,\r\n    \"handle\": \"banda ms\",\r\n    \"email\": \"segioBandaLizarragaMS@gmail.com\",\r\n    \"password\": \"EdenMuñoz\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/dichoyhecho/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "dichoyhecho",
+                "auth",
+                "register"
+              ]
+            }
           },
           "response": []
         }
@@ -589,7 +641,10 @@
           "name": "Ver comentario",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": ""
+            }
           },
           "response": []
         },
@@ -597,7 +652,10 @@
           "name": "publicar comentario",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": ""
+            }
           },
           "response": []
         },
@@ -605,19 +663,14 @@
           "name": "Eliminar",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": ""
+            }
           },
           "response": []
         }
       ]
-    },
-    {
-      "name": "New Request",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
     }
   ]
 }

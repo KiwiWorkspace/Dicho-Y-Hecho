@@ -6,6 +6,7 @@ import com.dichoyhecho.dichoyhecho.dto.LoginUsuarioResponse;
 import com.dichoyhecho.dichoyhecho.dto.RegisterUsuarioRequest;
 import com.dichoyhecho.dichoyhecho.service.AutenService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,4 +31,5 @@ public class AutenController {
     public LoginUsuarioResponse login(@Valid @RequestBody LoginUsuarioRequest req) {
         return autenService.login(req);
     }
+
 }
