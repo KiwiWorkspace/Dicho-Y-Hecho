@@ -29,9 +29,9 @@ public class AreasVerdesController {
         return areasVerdesService.buscarPorId(id);
     }
 
-    @GetMapping("/post")
+    @PostMapping("/post")
     @ResponseStatus
-    public AreasVerdes crear(@Valid @RequestBody AreasVerdes areasVerdes){
+    public AreasVerdes crear(@RequestBody AreasVerdes areasVerdes){
         return areasVerdesService.crear(areasVerdes);
     }
 

@@ -73,7 +73,9 @@ descripcion text,
 telefono varchar(12) not null,
 correo varchar(50) not null,
 id_categoria text not null,
-direccion_asociada varchar(100) not null
+direccion_asociada varchar(100) not null,
+estado ENUM('PENDIENTE', 'APROBADO', 'RECHAZADO') NOT NULL DEFAULT 'PENDIENTE',
+motivo_rechazo VARCHAR(255)
 );
 
 INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) VALUES

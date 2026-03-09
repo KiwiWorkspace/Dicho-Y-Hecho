@@ -18,7 +18,7 @@ public class LocalesController {
         this.localesService = localesService;
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public List<Locales> listar() {
         return this.localesService.listar();
     }
