@@ -14,9 +14,12 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/dichoyhecho/auth/**").permitAll()
-                        .requestMatchers("/admin/post").hasRole("ADMIN")
-                        .requestMatchers("/usuario/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/dichoyhecho/admin/post").permitAll()
+                        .requestMatchers("/dichoyhecho/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/dichoyhecho/usuario/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/dichoyhecho/comentarios/**").permitAll()
+
+                        // Todo lo demás requiere autenticación
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {});

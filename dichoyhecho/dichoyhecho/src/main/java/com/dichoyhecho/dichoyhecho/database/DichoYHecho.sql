@@ -54,7 +54,7 @@ create table administrador(
     direccion varchar(120),
     identificador varchar(24) unique,
     correo varchar(74),
-    contrasena varchar(13) unique
+    contrasena varchar(255) unique
 );
 
 create table problemas(
@@ -73,7 +73,9 @@ descripcion text,
 telefono varchar(12) not null,
 correo varchar(50) not null,
 id_categoria text not null,
-direccion_asociada varchar(100) not null
+direccion_asociada varchar(100) not null,
+estado ENUM('PENDIENTE', 'APROBADO', 'RECHAZADO') NOT NULL DEFAULT 'PENDIENTE',
+motivo_rechazo VARCHAR(255)
 );
 
 INSERT INTO areas_verdes (nombre_area, tipo_area, ubicacion_area, estado_area) VALUES

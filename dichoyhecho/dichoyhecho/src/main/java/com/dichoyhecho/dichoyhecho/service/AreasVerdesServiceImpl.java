@@ -9,18 +9,12 @@ import java.util.List;
 @Service
 public class AreasVerdesServiceImpl implements AreasVerdesService{
 
-
-
-    //instancia y constructor de areasVerdesService para poder usar sus metodos
     private final AreasVerdesRepository areasVerdesRepository;
 
     public AreasVerdesServiceImpl(AreasVerdesRepository areasVerdesRepository) {
         this.areasVerdesRepository = areasVerdesRepository;
     }
 
-
-
-    //Se usa override por que son metodos sobreescritos
     @Override
     public List<AreasVerdes> listar() {
         return areasVerdesRepository.findAll();
@@ -28,12 +22,11 @@ public class AreasVerdesServiceImpl implements AreasVerdesService{
 
     @Override
     public AreasVerdes buscarPorId(Integer id) {
-        return areasVerdesRepository.findById(id).orElseThrow(()-> new RuntimeException("Srea verde con ID no encontrada: " + id));
+        return areasVerdesRepository.findById(id).orElseThrow(() -> new RuntimeException("Area verde con ID no encontrada: " + id));
     }
 
     @Override
     public AreasVerdes crear(AreasVerdes areasVerdes) {
-        areasVerdes.setEstadoArea(null);
         return areasVerdesRepository.save(areasVerdes);
     }
 
@@ -44,8 +37,7 @@ public class AreasVerdesServiceImpl implements AreasVerdesService{
         existente.setNombreArea(areasVerdes.getNombreArea());
         existente.setTipoArea(areasVerdes.getTipoArea());
         existente.setUbicacionArea(areasVerdes.getUbicacionArea());
-
-        return areasVerdesRepository.save(existente) ;
+        return areasVerdesRepository.save(existente);
     }
 
     @Override
