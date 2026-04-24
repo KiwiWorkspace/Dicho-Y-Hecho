@@ -1,4 +1,4 @@
-package com.dichoyhecho.dichoyhecho.config;
+﻿package com.dichoyhecho.dichoyhecho.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +13,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/dichoyhecho/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/dichoyhecho/admin/post").permitAll()
-                        .requestMatchers("/dichoyhecho/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/dichoyhecho/usuario/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/dichoyhecho/comentarios/**").permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/admin/post").permitAll()
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/api/comment/**").permitAll()
 
-                        // Todo lo demás requiere autenticación
+                        //Any other request must be authenticated
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {});

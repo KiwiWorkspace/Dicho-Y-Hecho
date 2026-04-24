@@ -1,8 +1,7 @@
-package com.dichoyhecho.dichoyhecho.controller;
+﻿package com.dichoyhecho.dichoyhecho.controller;
 
-
-import com.dichoyhecho.dichoyhecho.entity.Usuario;
-import com.dichoyhecho.dichoyhecho.service.UsuarioService;
+import com.dichoyhecho.dichoyhecho.entity.User;
+import com.dichoyhecho.dichoyhecho.service.UserService;
 import jakarta.validation.constraints.Min;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,35 +9,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/dichoyhecho/usuario")
-public class UsuarioController {
-    private final UsuarioService usuarioService;
+@RequestMapping("/dichoyhecho/user")
+public class UserController {
 
-    public UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/get")
-    public List<Usuario> listar(){
-        return usuarioService.listar();
+    public List<User> list() {
+        return userService.list();
     }
+
     @GetMapping("/{id}")
-    public Usuario obtener(@PathVariable @Min(value = 1, message = "El valor debe ser mayor a 1")Integer id){
-        return usuarioService.obtenerPorId(id);
+    public User get(@PathVariable @Min(value = 1, message = "the value must be greater than 1") Integer id) {
+        return userService.getById(id);
     }
 
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario crear(@RequestBody Usuario usuario){
-        return usuarioService.crear(usuario);
+    public User create(@RequestBody User user) {
+        return userService.create(user);
     }
+
     @PutMapping("/{id}")
-    public Usuario actualizar(@PathVariable Integer id, @RequestBody Usuario usuario){
-        return usuarioService.actualizar(id, usuario);
+    public User update(@PathVariable Integer id, @RequestBody User user) {
+        return userService.update(id, user);
     }
+
     @DeleteMapping("/{id}")
-    public Usuario eliminar (Integer id){
-        usuarioService.eliminar(id);
+    public User delete(@PathVariable Integer id) {
+        userService.delete(id);
         return null;
     }
 }
