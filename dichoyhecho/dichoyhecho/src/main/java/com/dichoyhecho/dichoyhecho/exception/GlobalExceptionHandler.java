@@ -1,4 +1,4 @@
-package com.dichoyhecho.dichoyhecho.exception;
+﻿package com.dichoyhecho.dichoyhecho.exception;
 
 import jakarta.validation.ConstraintDeclarationException;
 import jakarta.validation.ConstraintViolation;
@@ -16,8 +16,8 @@ import java.util.Map;
 @RestControllerAdvice
 public class    GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> handleValidation(ResourceNotFoundException ex) {
+    @ExceptionHandler(ResourceNotFound.class)
+    public ResponseEntity<?> handleValidation(ResourceNotFound ex) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(Map.of("message", ex.getMessage()));
@@ -37,7 +37,7 @@ public class    GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleBodyValidation(MethodArgumentNotValidException ex) {
-        List<String> mensaje = ex.getBindingResult()
+        List<String> message = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
                 .map(err -> err.getDefaultMessage())
@@ -45,14 +45,14 @@ public class    GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(Map.of("message", mensaje));
+                .body(Map.of("message", message));
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<?> handleBadJson(HttpMessageNotReadableException ex) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(Map.of("message", "La estructura del JSON es incorrecta."));
+                .body(Map.of("message", "The JSON structure is incorrect."));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

@@ -1,154 +1,154 @@
-package com.dichoyhecho.dichoyhecho.entity;
+﻿package com.dichoyhecho.dichoyhecho.entity;
 
 
-import com.dichoyhecho.dichoyhecho.enums.UsuarioRoles;
+import com.dichoyhecho.dichoyhecho.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.ToString;
 
 @JsonPropertyOrder({
-        "idUsuario",
-        "nombreUsuario",
-        "apellidoUsuario",
-        "handleUsuario",
-        "contrasena",
-        "emailUsuario",
-        "edadUsuario",
-        "rolUsuario"
+        "id",
+        "firstName",
+        "lastName",
+        "userHandle",
+        "password",
+        "email",
+        "age",
+        "userRole"
 })
 @ToString
 @Entity
-@Table(name = "usuario", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "emailUsuario")
+@Table(name = "user", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "email")
 })
-public class Usuario {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @Column(name = "userId")
+    private Integer id;
 
-    @NotBlank(message = "Debe ingresar un nombre ")
-    @Size(min = 2, max = 60, message = "Su nombre  debe tener 2 y 60 caracteres")
-    @Column(name = "nombre_usuario")
-    private String nombreUsuario;
+    @NotBlank(message = "You must enter a name ")
+    @Size(min = 2, max = 60, message = "Your name must have between 2 and 60 characters")
+    @Column(name = "first_name")
+    private String firstName;
 
-    @NotBlank(message = "Debe ingresar un apellido ")
-    @Size(min = 2, max = 60, message = "Su apellido  debe tener 2 y 60 caracteres")
-    @Column(name = "apellido_usuario")
-    private String apellidoUsuario;
+    @NotBlank(message = "You must enter a last name ")
+    @Size(min = 2, max = 60, message = "Your last name must have between 2 and 60 characters")
+    @Column(name = "last_name")
+    private String lastName;
 
-    @NotBlank(message = "Debe ingresar un apodo para su  usuario")
-    @Size(min = 3, max = 60, message = "Su apodo debe tener 3 y 60 caracteres")
-    @Column(name = "handle_usuario")
-    private String handleUsuario;
+    @NotBlank(message = "You must enter a username")
+    @Size(min = 3, max = 60, message = "Your username must have between 3 and 60 characters")
+    @Column(name = "user_handle")
+    private String userHandle;
 
-    @NotBlank(message = "Debe ingresar una contrasena")
-    @Size(min = 8, max =75, message = "La contraseña debe terner de 8 a 12 caracteres")
-    @Column(name = "contrasena")
-    private String contrasena;
+    @NotBlank(message = "You must enter a password")
+    @Size(min = 8, max =75, message = "The password must have between 8 and 12 characters")
+    @Column(name = "password")
+    private String password;
 
     @Email
     @NotBlank
-    @Column(name = "email_usuario")
-    private String emailUsuario;
+    @Column(name = "email")
+    private String email;
 
-    @NotNull(message = "Debe ingresar una edad ")
-    @Min(value = 3, message = "La edad debe ser mayor a 3")
-    @Max(value = 135, message = "La edad debe ser menor a 135")
-    @Column(name = "edad_usuario")
-    private Integer edadUsuario;
+    @NotNull(message = "You must enter an age ")
+    @Min(value = 3, message = "The age must be greater than 3")
+    @Max(value = 135, message = "The age must be less than 135")
+    @Column(name = "age")
+    private Integer age;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "rol_usuario", nullable = true)
-    private UsuarioRoles rolUsuario;
+    @Column(name = "role", nullable = true)
+    private UserRole userRole;
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getApellidoUsuario() {
-        return apellidoUsuario;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setApellidoUsuario(String apellidoUsuario) {
-        this.apellidoUsuario = apellidoUsuario;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getHandleUsuario() {
-        return handleUsuario;
+    public String getUserHandle() {
+        return userHandle;
     }
 
-    public void setHandleUsuario(String handleUsuario) {
-        this.handleUsuario = handleUsuario;
+    public void setUserHandle(String userHandle) {
+        this.userHandle = userHandle;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmailUsuario() {
-        return emailUsuario;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailUsuario(String emailUsuario) {
-        this.emailUsuario = emailUsuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Integer getEdadUsuario() {
-        return edadUsuario;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setEdadUsuario(Integer edadUsuario) {
-        this.edadUsuario = edadUsuario;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-    public UsuarioRoles getRolUsuario() {
-        return rolUsuario;
+    public UserRole getUserRole() {
+        return userRole;
     }
 
-    public void setRolUsuario(UsuarioRoles rolUsuario) {
-        this.rolUsuario = rolUsuario;
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 
-    //constructores
+    //constructors
 
-    public Usuario(@NotBlank String name, @Email @NotBlank String email, @NotBlank String password) {
+    public User(@NotBlank String name, @Email @NotBlank String email, @NotBlank String password) {
     }
 
-    public Usuario(String nombreUsuario, String apellidoUsuario, String contrasena, String handleUsuario, String emailUsuario, Integer edadUsuario, UsuarioRoles rolUsuario) {
-        this.nombreUsuario = nombreUsuario;
-        this.apellidoUsuario = apellidoUsuario;
-        this.contrasena = contrasena;
-        this.handleUsuario = handleUsuario;
-        this.emailUsuario = emailUsuario;
-        this.edadUsuario = edadUsuario;
-        this.rolUsuario = rolUsuario;
+    public User(String firstName, String lastName, String password, String userHandle, String email, Integer age, UserRole userRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.userHandle = userHandle;
+        this.email = email;
+        this.age = age;
+        this.userRole = userRole;
     }
 
-    public Usuario(Integer idUsuario, String handleUsuario, String emailUsuario) {
-        this.idUsuario = idUsuario;
-        this.handleUsuario = handleUsuario;
-        this.emailUsuario = emailUsuario;
+    public User(Integer id, String userHandle, String email) {
+        this.id = id;
+        this.userHandle = userHandle;
+        this.email = email;
     }
 
-    public Usuario() {
+    public User() {
     }
 }

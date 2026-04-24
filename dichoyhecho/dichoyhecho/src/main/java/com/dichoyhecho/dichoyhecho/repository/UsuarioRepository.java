@@ -1,12 +1,12 @@
-package com.dichoyhecho.dichoyhecho.repository;
+﻿package com.dichoyhecho.dichoyhecho.repository;
 
-import com.dichoyhecho.dichoyhecho.entity.Usuario;
+import com.dichoyhecho.dichoyhecho.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    Optional<Usuario> findByEmailUsuario(String emailUsuario);
-    boolean existsByEmailUsuario(String emailUsuario);
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByemail(String email);
+    boolean existsByemail(String email);
 
 }
