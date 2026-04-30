@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.service;
+package com.dichoyhecho.dichoyhecho.service;
 
 import com.dichoyhecho.dichoyhecho.entity.Store;
 import com.dichoyhecho.dichoyhecho.enums.StoreStatus;
@@ -20,17 +20,17 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     @Transactional
-    public Store create(Store locales) {
-        locales.setId(null);
-        locales.setStatus(StoreStatus.PENDING);
-        locales.setRejectionReason(null);
-        return StoreRepository.save(locales);
+    public Store create(Store store) {
+        store.setId(null);
+        store.setStatus(StoreStatus.PENDING);
+        store.setRejectionReason(null);
+        return StoreRepository.save(store);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Store> list() {
-        return StoreRepository.findByEstado(StoreStatus.APPROVED);
+        return StoreRepository.findByStatus(StoreStatus.APPROVED);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class StoreServiceImpl implements StoreService {
     @Override
     @Transactional(readOnly = true)
     public List<Store> listPending() {
-        return StoreRepository.findByEstado(StoreStatus.PENDING);
+        return StoreRepository.findByStatus(StoreStatus.PENDING);
     }
 
     @Override

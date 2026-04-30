@@ -1,6 +1,5 @@
-﻿package com.dichoyhecho.dichoyhecho.entity;
+package com.dichoyhecho.dichoyhecho.entity;
 
-import com.dichoyhecho.dichoyhecho.enums.StoreStatus;
 import com.dichoyhecho.dichoyhecho.enums.StoreStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -44,30 +43,96 @@ public class Store {
     private String associatedAddress;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "estado", nullable = false, length = 20)
-    private StoreStatus estado = StoreStatus.PENDING;
+    @Column(name = "status", nullable = false, length = 20)
+    private StoreStatus status = StoreStatus.PENDING;
 
     @Column(name = "rejection_reason", length = 300)
     private String rejectionReason;
 
-    public Integer getId() { return id; }
-    public String getFirstName() { return name; }
-    public String getDescripcion() { return description; }
-    public String getTelefono() { return telephone; }
-    public String getEmail() { return email; }
-    public String getCategoryId() { return categoryId; }
-    public String getAssociatedAddress() { return associatedAddress; }
-    public StoreStatus getStatus() { return estado; }
-    public String getRejectionReason() { return rejectionReason; }
+    public Store() {
+    }
 
+    public Store(Integer id, String name, String description, String telephone, String email, String categoryId, String associatedAddress, StoreStatus status, String rejectionReason) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.telephone = telephone;
+        this.email = email;
+        this.categoryId = categoryId;
+        this.associatedAddress = associatedAddress;
+        this.status = status;
+        this.rejectionReason = rejectionReason;
+    }
 
-    public void setId(Integer id) { this.id = id; }
-    public void setFirstName(String name) { this.name = name; }
-    public void setDescripcion(String description) { this.description = description; }
-    public void setTelefono(String telephone) { this.telephone = telephone; }
-    public void setEmail(String email) { this.email = email; }
-    public void setCategoryId(String categoryId) { this.categoryId = categoryId; }
-    public void setAssociatedAddress(String associatedAddress) { this.associatedAddress = associatedAddress; }
-    public void setStatus(StoreStatus estado) { this.estado = estado; }
-    public void setRejectionReason(String rejectionReason) { this.rejectionReason = rejectionReason; }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getAssociatedAddress() {
+        return associatedAddress;
+    }
+
+    public void setAssociatedAddress(String associatedAddress) {
+        this.associatedAddress = associatedAddress;
+    }
+
+    public StoreStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(StoreStatus status) {
+        this.status = status;
+    }
+
+    public String getRejectionReason() {
+        return rejectionReason;
+    }
+
+    public void setRejectionReason(String rejectionReason) {
+        this.rejectionReason = rejectionReason;
+    }
 }

@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.enums;
+package com.dichoyhecho.dichoyhecho.enums;
 
 public enum UserRole {
     NATIONAL_POLICE,

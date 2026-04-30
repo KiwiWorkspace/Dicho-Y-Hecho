@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.dto;
+package com.dichoyhecho.dichoyhecho.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

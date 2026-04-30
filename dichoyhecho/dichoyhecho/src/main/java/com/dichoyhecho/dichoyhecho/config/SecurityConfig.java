@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.config;
+package com.dichoyhecho.dichoyhecho.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.dto;
+package com.dichoyhecho.dichoyhecho.dto;
 
 import com.dichoyhecho.dichoyhecho.enums.StoreStatus;
 import jakarta.validation.constraints.NotNull;

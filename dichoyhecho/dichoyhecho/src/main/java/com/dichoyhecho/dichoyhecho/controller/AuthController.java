@@ -1,9 +1,8 @@
-﻿package com.dichoyhecho.dichoyhecho.controller;
+package com.dichoyhecho.dichoyhecho.controller;
 
-import ch.qos.logback.core.util.ReentryGuard;
-import com.dichoyhecho.dichoyhecho.dto.LoginRequest;
-import com.dichoyhecho.dichoyhecho.dto.LoginResponse;
-import com.dichoyhecho.dichoyhecho.dto.RegisterRequest;
+import com.dichoyhecho.dichoyhecho.dto.LoginUserRequest;
+import com.dichoyhecho.dichoyhecho.dto.LoginUserResponse;
+import com.dichoyhecho.dichoyhecho.dto.RegisterUserRequest;
 import com.dichoyhecho.dichoyhecho.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,13 +20,13 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public void register(@Valid @RequestBody RegisterRequest req) {
+    public void register(@Valid @RequestBody RegisterUserRequest req) {
         authService.register(req);
         System.out.println("User registered successfully.");
     }
 
     @PostMapping("/login")
-    public LoginResponse login(@Valid @RequestBody LoginRequest req) {
+    public LoginUserResponse login(@Valid @RequestBody LoginUserRequest req) {
         return authService.login(req);
     }
 }

@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.service;
+package com.dichoyhecho.dichoyhecho.service;
 
 import com.dichoyhecho.dichoyhecho.entity.GreenArea;
 import com.dichoyhecho.dichoyhecho.repository.GreenAreaRepository;

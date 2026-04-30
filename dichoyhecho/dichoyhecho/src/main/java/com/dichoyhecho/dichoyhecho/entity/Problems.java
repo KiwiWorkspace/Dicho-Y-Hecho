@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.entity;
+package com.dichoyhecho.dichoyhecho.entity;
 
 import com.dichoyhecho.dichoyhecho.enums.ProblemCategory;
 import com.dichoyhecho.dichoyhecho.enums.ProblemStatus;
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "problem")
-public class Problem {
+public class Problems {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

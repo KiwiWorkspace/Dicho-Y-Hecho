@@ -1,8 +1,8 @@
-﻿package com.dichoyhecho.dichoyhecho.controller;
+package com.dichoyhecho.dichoyhecho.controller;
 
 import com.dichoyhecho.dichoyhecho.dto.CommentRequest;
-import com.dichoyhecho.dichoyhecho.entity.Comment;
-import com.dichoyhecho.dichoyhecho.service.UsuarioServiceImpl;
+import com.dichoyhecho.dichoyhecho.entity.Comments;
+import com.dichoyhecho.dichoyhecho.service.UserServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping("/dichoyhecho/comentarios")
 public class CommentController {
     @Autowired
-    private UsuarioServiceImpl.ComentarioService comentarioService;
+    private UserServiceImpl.CommentService commentService;
 
     @PostMapping("/publicar")
     public ResponseEntity<?> publicarComentario(@Valid @ModelAttribute CommentRequest request) {
         try {
             //object is recived by the Service
-            comentarioService.guardarComentario(request);
+            commentService.guardarComentario(request);
 
             return ResponseEntity.ok("Comment published ");
         } catch (Exception e) {
@@ -30,8 +30,8 @@ public class CommentController {
         }
     }
     @GetMapping("/list")
-    public ResponseEntity<List<Comment>> listarComentarios() {
-        List<Comment> lista = comentarioService.obtenerTodos();
+    public ResponseEntity<List<Comments>> listarComentarios() {
+        List<Comments> lista = commentService.obtenerTodos();
         return ResponseEntity.ok(lista);
     }
     @DeleteMapping("/delete/{commentId}")
@@ -40,7 +40,7 @@ public class CommentController {
             @RequestParam Integer userId
     ) {
         try {
-            comentarioService.eliminarComentario(commentId, userId);
+            commentService.eliminarComentario(commentId, userId);
             return ResponseEntity.ok("Comment deleted.");
         } catch (RuntimeException e) {
 

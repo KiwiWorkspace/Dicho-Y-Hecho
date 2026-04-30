@@ -1,10 +1,9 @@
-﻿package com.dichoyhecho.dichoyhecho.entity;
+package com.dichoyhecho.dichoyhecho.entity;
 
-import com.dichoyhecho.dichoyhecho.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @JsonPropertyOrder({
@@ -17,11 +16,11 @@ import java.time.LocalDateTime;
 })
 @Entity
 @Table(name = "comment")
-public class Comment {
+public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private long commentId;
 
     @NotBlank(message = "You must enter content for your comment ")
     @Column(name = "contenido")
@@ -37,8 +36,8 @@ public class Comment {
 
     @NotNull
     @ManyToOne
-    @JoinColumn (name= "userId", nullable = false)
-    private Usuario user;
+    @JoinColumn (name= "id_user", nullable = false)
+    private Users idUser;
 
     @NotNull
     @Column(name = "comment_date")
@@ -50,20 +49,20 @@ public class Comment {
         this.commentDate = LocalDateTime.now();
     }
 
-    public long getId() {
+    public long getCommentId() {
         return commentId;
     }
 
-    public void setId(long commentId) {
-        this.id = commentId;
+    public void setCommentId(long commentId) {
+        this.commentId = commentId;
     }
 
     public String getContent() {
-        return contenido;
+        return content;
     }
 
-    public void setContent(String contenido) {
-        this.content = contenido;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public byte[] getImagen() {
@@ -82,12 +81,12 @@ public class Comment {
         this.video = video;
     }
 
-    public Usuario getId() {
-        return userId;
+    public Users getIdUser() {
+        return idUser;
     }
 
-    public void setId(Usuario userId) {
-        this.user = userId;
+    public void setIdUser(Users idUser) {
+        this.idUser = idUser;
     }
 
     public LocalDateTime getCommentDate() {

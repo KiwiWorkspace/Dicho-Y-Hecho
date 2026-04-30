@@ -1,10 +1,8 @@
-﻿package com.dichoyhecho.dichoyhecho.controller;
+package com.dichoyhecho.dichoyhecho.controller;
 
-import com.dichoyhecho.dichoyhecho.entity.Administrator;
+import com.dichoyhecho.dichoyhecho.entity.Admins;
 import com.dichoyhecho.dichoyhecho.service.AdministratorService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,21 +18,21 @@ public class AdministratorController {
     }
 
     @RequestMapping("/get")
-    public List<Administrator> list() {
+    public List<Admins> list() {
         return this.AdministratorService.list();
     }
 
     @RequestMapping("/post")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Administrator create(@RequestBody Administrator administrator) {
-        return this.AdministratorService.create(administrator);
+    public Admins create(@RequestBody Admins admins) {
+        return this.AdministratorService.create(admins);
     }
 
 
     @PutMapping("/update/{id}")
-    public Administrator update (@PathVariable Integer id,
-                                     @RequestBody Administrator administrator) {
-        return this.AdministratorService.update(id, administrator);
+    public Admins update (@PathVariable Integer id,
+                          @RequestBody Admins admins) {
+        return this.AdministratorService.update(id, admins);
     }
 
     @DeleteMapping("/delete/{id}")

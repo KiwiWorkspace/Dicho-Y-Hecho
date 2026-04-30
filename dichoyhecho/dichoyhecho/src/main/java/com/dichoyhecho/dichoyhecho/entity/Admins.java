@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.entity;
+package com.dichoyhecho.dichoyhecho.entity;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
@@ -16,7 +16,7 @@ import jakarta.validation.constraints.*;
 })
 @Entity
 @Table(name = "administrator")
-public class Administrator {
+public class Admins {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,6 +58,20 @@ public class Administrator {
     @Size(min = 8, max = 75, message = "The password must have a minimum of 8 and maximum of 13 characters")
     @Column(name = "password")
     private String password;
+
+    public Admins() {
+    }
+
+    public Admins(Integer id, String firstName, String lastName, Integer age, String address, String identifier, String email, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+        this.identifier = identifier;
+        this.email = email;
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;

@@ -1,7 +1,6 @@
-﻿package com.dichoyhecho.dichoyhecho.service;
+package com.dichoyhecho.dichoyhecho.service;
 
-import com.dichoyhecho.dichoyhecho.entity.Administrator;
-import com.dichoyhecho.dichoyhecho.entity.Problem;
+import com.dichoyhecho.dichoyhecho.entity.Problems;
 import com.dichoyhecho.dichoyhecho.exception.ResourceNotFound;
 import com.dichoyhecho.dichoyhecho.repository.ProblemRepository;
 import org.springframework.stereotype.Service;
@@ -18,18 +17,18 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problem> list() {
+    public List<Problems> list() {
         return ProblemRepository.findAll();
     }
 
     @Override
-    public Problem create(Problem problemas) {
+    public Problems create(Problems problemas) {
         problemas.setId(null);
         return ProblemRepository.save(problemas);
     }
 
     @Override
-    public Problem update(Integer id, Problem problemas) {
+    public Problems update(Integer id, Problems problemas) {
         problemas.setId(id);
         return ProblemRepository.save(problemas);
     }

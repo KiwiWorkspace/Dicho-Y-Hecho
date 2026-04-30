@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.entity;
+package com.dichoyhecho.dichoyhecho.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -33,18 +33,43 @@ public class GreenArea {
     @Column(name = "area_status")
     private String areaStatus;
 
-    public Integer getid() { return id; }
-    public void setid(Integer id) { this.id = id; }
+    public String getAreaStatus() {
+        return areaStatus;
+    }
 
-    public String getAreaName() { return areaName; }
-    public void setAreaName(String areaName) { this.areaName = areaName; }
+    public void setAreaStatus(String areaStatus) {
+        this.areaStatus = areaStatus;
+    }
 
-    public String getAreaType() { return areaType; }
-    public void setAreaType(String areaType) { this.areaType = areaType; }
+    public String getAreaLocation() {
+        return areaLocation;
+    }
 
-    public String getAreaLocation() { return areaLocation; }
-    public void setAreaLocation(String areaLocation) { this.areaLocation = areaLocation; }
+    public void setAreaLocation(String areaLocation) {
+        this.areaLocation = areaLocation;
+    }
 
-    public String getAreaStatus() { return areaStatus; }
-    public void setAreaStatus(String areaStatus) { this.areaStatus = areaStatus; }
+    public String getAreaType() {
+        return areaType;
+    }
+
+    public void setAreaType(String areaType) {
+        this.areaType = areaType;
+    }
+
+    public String getAreaName() {
+        return areaName;
+    }
+
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

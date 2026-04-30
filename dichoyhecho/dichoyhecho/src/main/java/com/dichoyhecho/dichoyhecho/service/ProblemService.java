@@ -1,6 +1,6 @@
-﻿package com.dichoyhecho.dichoyhecho.service;
+package com.dichoyhecho.dichoyhecho.service;
 
-import com.dichoyhecho.dichoyhecho.entity.Problem;
+import com.dichoyhecho.dichoyhecho.entity.Problems;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.List;
 @Service
 public interface ProblemService {
 
-    List<Problem> list();
-    Problem create(Problem problemas);
-    Problem update(Integer id, Problem problemas);
+    List<Problems> list();
+    Problems create(Problems problemas);
+    Problems update(Integer id, Problems problemas);
     void delete(Integer id);
 
 }

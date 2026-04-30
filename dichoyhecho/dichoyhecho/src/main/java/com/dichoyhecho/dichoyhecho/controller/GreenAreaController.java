@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.controller;
+package com.dichoyhecho.dichoyhecho.controller;
 
 
 import com.dichoyhecho.dichoyhecho.entity.GreenArea;
@@ -45,8 +45,4 @@ public class GreenAreaController {
         GreenAreaService.delete(id);
         return null;
     }
-
-
-
-
 }

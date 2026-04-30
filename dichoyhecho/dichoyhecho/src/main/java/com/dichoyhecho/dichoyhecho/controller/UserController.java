@@ -1,6 +1,6 @@
-﻿package com.dichoyhecho.dichoyhecho.controller;
+package com.dichoyhecho.dichoyhecho.controller;
 
-import com.dichoyhecho.dichoyhecho.entity.User;
+import com.dichoyhecho.dichoyhecho.entity.Users;
 import com.dichoyhecho.dichoyhecho.service.UserService;
 import jakarta.validation.constraints.Min;
 import org.springframework.http.HttpStatus;
@@ -19,28 +19,28 @@ public class UserController {
     }
 
     @GetMapping("/get")
-    public List<User> list() {
+    public List<Users> list() {
         return userService.list();
     }
 
     @GetMapping("/{id}")
-    public User get(@PathVariable @Min(value = 1, message = "the value must be greater than 1") Integer id) {
+    public Users get(@PathVariable @Min(value = 1, message = "the value must be greater than 1") Integer id) {
         return userService.getById(id);
     }
 
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
-    public User create(@RequestBody User user) {
-        return userService.create(user);
+    public Users create(@RequestBody Users users) {
+        return userService.create(users);
     }
 
     @PutMapping("/{id}")
-    public User update(@PathVariable Integer id, @RequestBody User user) {
-        return userService.update(id, user);
+    public Users update(@PathVariable Integer id, @RequestBody Users users) {
+        return userService.update(id, users);
     }
 
     @DeleteMapping("/{id}")
-    public User delete(@PathVariable Integer id) {
+    public Users delete(@PathVariable Integer id) {
         userService.delete(id);
         return null;
     }

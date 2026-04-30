@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.repository;
+package com.dichoyhecho.dichoyhecho.repository;
 
 import com.dichoyhecho.dichoyhecho.entity.Store;
 import com.dichoyhecho.dichoyhecho.enums.StoreStatus;

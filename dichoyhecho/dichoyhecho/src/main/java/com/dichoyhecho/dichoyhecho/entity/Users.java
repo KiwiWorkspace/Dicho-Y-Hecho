@@ -1,4 +1,4 @@
-﻿package com.dichoyhecho.dichoyhecho.entity;
+package com.dichoyhecho.dichoyhecho.entity;
 
 
 import com.dichoyhecho.dichoyhecho.enums.UserRole;
@@ -8,26 +8,26 @@ import jakarta.validation.constraints.*;
 import lombok.ToString;
 
 @JsonPropertyOrder({
-        "id",
+        "id_user",
         "firstName",
         "lastName",
         "userHandle",
         "password",
-        "email",
-        "age",
+        "emailUser",
+        "ageUser",
         "userRole"
 })
 @ToString
 @Entity
 @Table(name = "user", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email")
+        @UniqueConstraint(columnNames = "emailUser")
 })
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
-    private Integer id;
+    @Column(name = "id_user")
+    private Integer idUser;
 
     @NotBlank(message = "You must enter a name ")
     @Size(min = 2, max = 60, message = "Your name must have between 2 and 60 characters")
@@ -51,25 +51,25 @@ public class User {
 
     @Email
     @NotBlank
-    @Column(name = "email")
-    private String email;
+    @Column(name = "user_email")
+    private String emailUser;
 
     @NotNull(message = "You must enter an age ")
     @Min(value = 3, message = "The age must be greater than 3")
     @Max(value = 135, message = "The age must be less than 135")
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "user_age")
+    private Integer ageUser;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = true)
+    @Column(name = "user_role", nullable = true)
     private UserRole userRole;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
     public String getFirstName() {
@@ -104,20 +104,20 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailUser() {
+        return emailUser;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getAgeUser() {
+        return ageUser;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setAgeUser(Integer ageUser) {
+        this.ageUser = ageUser;
     }
 
     public UserRole getUserRole() {
@@ -128,27 +128,25 @@ public class User {
         this.userRole = userRole;
     }
 
-    //constructors
-
-    public User(@NotBlank String name, @Email @NotBlank String email, @NotBlank String password) {
+    public Users(@NotBlank String name, @Email @NotBlank String email, @NotBlank String password) {
     }
 
-    public User(String firstName, String lastName, String password, String userHandle, String email, Integer age, UserRole userRole) {
+    public Users(String firstName, String lastName, String userHandle, String password, String emailUser, Integer ageUser, UserRole userRole) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = password;
         this.userHandle = userHandle;
-        this.email = email;
-        this.age = age;
+        this.password = password;
+        this.emailUser = emailUser;
+        this.ageUser = ageUser;
         this.userRole = userRole;
     }
 
-    public User(Integer id, String userHandle, String email) {
-        this.id = id;
+    public Users(Integer idUser, String userHandle, String emailUser) {
+        this.idUser = idUser;
         this.userHandle = userHandle;
-        this.email = email;
+        this.emailUser = emailUser;
     }
 
-    public User() {
+    public Users() {
     }
 }
