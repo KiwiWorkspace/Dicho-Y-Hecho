@@ -5,11 +5,11 @@ import com.dichoyhecho.dichoyhecho.dto.LoginUserResponse;
 import com.dichoyhecho.dichoyhecho.dto.RegisterUserRequest;
 import com.dichoyhecho.dichoyhecho.service.AuthService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+/*
 @RestController
 @RequestMapping("/dichoyhecho/auth")
 public class AuthController {
@@ -25,8 +25,23 @@ public class AuthController {
         System.out.println("User registered successfully.");
     }
 
-    @PostMapping("/login")
-    public LoginUserResponse login(@Valid @RequestBody LoginUserRequest req) {
-        return authService.login(req);
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
+
+    @GetMapping("/home")
+    public String home(Model model, Principal principal) {
+        model.addAttribute("username", principal.getName());
+        return "home";
+    }
+
+    @GetMapping("/")
+    public String redirectToHome() {
+        return "redirect:/home";
+    }
+
+
 }
+
+ */
