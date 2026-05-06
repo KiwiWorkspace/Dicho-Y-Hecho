@@ -45,7 +45,7 @@ public class AuthService implements UserDetailsService {
     }
 
     public LoginUserResponse login(LoginUserRequest req) {
-        Users users = userRepository.findByEmail(req.email).orElse(null);
+        Users users = userRepository.findByEmailUser(req.email).orElse(null);
 
         if (users != null) {
             boolean ok = passwordEncoder.matches(req.password, users.getPassword());
@@ -53,7 +53,7 @@ public class AuthService implements UserDetailsService {
             return new LoginUserResponse("Login successful: ", users.getIdUser(), users.getFirstName(), users.getEmailUser());
         }
 
-        Admins admins = adminRepository.findByCorreo(req.email).orElse(null);
+        Admins admins = adminRepository.findByEmail(req.email).orElse(null);
         if (admins != null) {
             boolean ok = passwordEncoder.matches(req.password, admins.getPassword());
             if (!ok) throw new IllegalArgumentException("Incorrect password");
@@ -71,7 +71,7 @@ public class AuthService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Users users = userRepository.findByEmail(email).orElse(null);
+        Users users = userRepository.findByEmailUser(email).orElse(null);
 
         if (users != null) {
             return User.builder()
@@ -81,7 +81,7 @@ public class AuthService implements UserDetailsService {
                     .build();
         }
 
-        Admins admins = adminRepository.findByCorreo(email).orElse(null);
+        Admins admins = adminRepository.findByEmail(email).orElse(null);
 
         if (admins != null) {
             return User.builder()
