@@ -33,7 +33,7 @@ public class AdministratorServiceImpl implements AdministratorService{
 
     @Override
     public Admins create(Admins admins) {
-        if (AdminRepository.existsByCorreo(admins.getEmail())) {
+        if (AdminRepository.existsByEmail(admins.getEmail())) {
             throw new IllegalArgumentException("El email ya está registrado");
         }
         admins.setPassword(passwordEncoder.encode(admins.getPassword()));
