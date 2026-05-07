@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/auth.css">
+
 </head>
+
 <body>
 
+    <div class="contenedor">
+        <div class="tarjeta">
+            <h1 class="titulo">Home</h1>
+            <p class="subtitulo">Main menu</p>
+
+            <div class="acciones">
+                <a class="boton" th:href="@{/usuario}">Review comments</a>
+                <a class="boton" th:href="@{/biografia}">View Green Areas</a>
+                <a class="boton" th:href="@{/datos}">Write comment</a>
+
+                <form th:action="@{/logout}" method="post" style="width: 100%;">
+                    <button type="submit" class="boton logout-btn">
+                        Cerrar sesión
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

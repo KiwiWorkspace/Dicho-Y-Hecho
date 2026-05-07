@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-/*
+
 @RestController
 @RequestMapping("/dichoyhecho/auth")
 public class AuthController {
@@ -44,4 +44,3 @@ public class AuthController {
 
 }
 
- */

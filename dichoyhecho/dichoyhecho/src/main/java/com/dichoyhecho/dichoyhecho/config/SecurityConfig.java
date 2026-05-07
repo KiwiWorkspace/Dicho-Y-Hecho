@@ -34,20 +34,9 @@ public class SecurityConfig {
     // object for configuring Security routes
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/home", true)
-                        .permitAll()
-                )
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logout")
-                        .permitAll()
-                );
+        http.authorizeHttpRequests(auth -> auth.requestMatchers("/login", "/register/**", "/css/**").permitAll().anyRequest().authenticated())
+                .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/home", true).permitAll())
+                .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll());
 
         return http.build();
     }
