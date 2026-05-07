@@ -14,10 +14,17 @@ public class EmailService {
     public void sendConfirmation(String correo) {
 
         SimpleMailMessage mensaje = new SimpleMailMessage();
+        mensaje.setFrom("dichoyhechoweb@gmail.com");
         mensaje.setTo(correo);
         mensaje.setSubject("Registration verified.");
         mensaje.setText("Your registration has been completed successfully ✅." + "");
 
-        mailSender.send(mensaje);
+        try {
+            mailSender.send(mensaje);
+            System.out.println("✅ Correo entregado al servidor de Google");
+        } catch (Exception e) {
+            System.err.println("❌ Error enviando correo: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

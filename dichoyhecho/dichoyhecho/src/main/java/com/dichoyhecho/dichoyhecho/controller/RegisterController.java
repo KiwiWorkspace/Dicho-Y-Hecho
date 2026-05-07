@@ -3,6 +3,8 @@ package com.dichoyhecho.dichoyhecho.controller;
 
 import com.dichoyhecho.dichoyhecho.entity.Users;
 import com.dichoyhecho.dichoyhecho.repository.UserRepository;
+import com.dichoyhecho.dichoyhecho.service.EmailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ public class RegisterController {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private EmailService emailService;
 
     public RegisterController(UserRepository userRepository,
                               PasswordEncoder passwordEncoder) {
@@ -52,9 +56,11 @@ public class RegisterController {
 
         // save to DB
         userRepository.save(users);
+        emailService.sendConfirmation(users.getEmailUser());
 
         System.out.println("Users save DB: " + users.getFirstName());
         System.out.println("Pasword save DB: " + users.getPassword());
+
 
         return "redirect:/login";
     }
