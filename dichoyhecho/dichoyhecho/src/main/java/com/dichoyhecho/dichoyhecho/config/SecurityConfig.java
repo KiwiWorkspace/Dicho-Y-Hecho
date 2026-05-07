@@ -1,14 +1,14 @@
 package com.dichoyhecho.dichoyhecho.config;
 
+import com.dichoyhecho.dichoyhecho.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -21,14 +21,27 @@ public class SecurityConfig {
 
     // object for the application user
     @Bean
-    public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.builder()
-                .username("admin")
-                .password(passwordEncoder.encode("1234"))
-                .roles("ADMIN")
-                .build();
+    public UserDetailsService userDetailsService(UserRepository userRepository) {
+        return username -> {
 
-        return new InMemoryUserDetailsManager(user);
+            // Admin predetermined
+            if ("admin".equals(username)) {
+                return User.withUsername("admin")
+                        .password(passwordEncoder().encode("1234"))
+                        .roles("ADMIN")
+                        .build();
+            }
+
+            // Users BD
+            return userRepository.findByUserHandle(username)
+                    .map(user -> User.builder()
+                            .username(user.getFirstName())
+                            .password(user.getPassword())
+                            .roles("USER")
+                            .build()
+                    )
+                    .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+        };
     }
 
     // object for configuring Security routes

@@ -1,44 +1,62 @@
 package com.dichoyhecho.dichoyhecho.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.dichoyhecho.dichoyhecho.entity.Users;
+import com.dichoyhecho.dichoyhecho.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/register")
 public class RegisterController {
 
-    private static List<String> usuariosRegistrados = new ArrayList<>();
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    //Método para buscar si un usuario existe en la lista
-    public static String buscarPassword(String username) {
-        for (String dato : usuariosRegistrados) {
-            String nombre = dato.substring(0, dato.indexOf(" (")).trim();
-            String contra = dato.substring(dato.indexOf("(") + 1, dato.indexOf(")")).trim();
-
-            if (nombre.equalsIgnoreCase(username)) {
-                return contra;
-            }
-        }
-        return null;
+    public RegisterController(UserRepository userRepository,
+                              PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-
-    @GetMapping("/register")
-    public String mostrarFormulario() {
+    @GetMapping
+    public String mostrarFormulario(Model model) {
+        model.addAttribute("users", new Users());
         return "register";
     }
 
     @PostMapping("/enviar-registro")
-    public String registrar(@RequestParam String nombre, @RequestParam String contra) {
-        usuariosRegistrados.add(nombre + " (" + contra + ")");
+    public String registrar(@ModelAttribute("users") Users users, Model model) {
 
-        System.out.println("Nuevo usuario registrado: " + nombre + " - " + contra);
-        System.out.println("Total registrados: " + usuariosRegistrados.size());
+        System.out.println("ENTRÓ AL POST");
+
+        // verify  if exits in database
+        if (userRepository.findByUserHandle(users.getFirstName()).isPresent()) {
+            model.addAttribute("error", "The username is already in use");
+            model.addAttribute("users", users);
+            return "register";
+        }
+
+        if (users.getAgeUser() < 0) {
+            model.addAttribute("error", "La edad no puede ser negativa");
+            return "register";
+        }
+
+        // encrypt password
+        users.setPassword(passwordEncoder.encode(users.getPassword()));
+
+        // save to DB
+        userRepository.save(users);
+
+        System.out.println("Users save DB: " + users.getFirstName());
+        System.out.println("Pasword save DB: " + users.getPassword());
 
         return "redirect:/login";
     }
+
 }
