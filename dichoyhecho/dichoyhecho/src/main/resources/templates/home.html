@@ -1,35 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/auth.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Dicho y Hecho</title>
+    <link rel="stylesheet" href="/css/auth.css" />
 </head>
 
 <body>
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1 class="titulo">Dicho y <span>Hecho</span></h1>
+            <p class="subtitulo">Bienvenido al menú principal</p>
+        </div>
 
-    <div class="contenedor">
-        <div class="tarjeta">
-            <h1 class="titulo">Home</h1>
-            <p class="subtitulo">Main menu</p>
+        <div class="acciones" style="display: flex; flex-direction: column; gap: 15px;">
 
-            <div class="acciones">
-                <a class="boton" th:href="@{/usuario}">Review comments</a>
-                <a class="boton" th:href="@{/biografia}">View Green Areas</a>
-                <a class="boton" th:href="@{/datos}">Write comment</a>
+            <a class="btn-auth" th:href="@{/usuario}">Review comments</a>
+            
+            <a class="btn-auth" th:href="@{/biografia}">View Green Areas</a>
+            
+            <a class="btn-auth" th:href="@{/datos}">Write comment</a>
 
-                <form th:action="@{/logout}" method="post" style="width: 100%;">
-                    <button type="submit" class="boton logout-btn">
-                        Cerrar sesión
-                    </button>
-                </form>
-            </div>
+            <form th:action="@{/logout}" method="post" style="width: 100%; margin-top: 10px;">
+                <button type="submit" class="btn-auth btn-secundario" style="width: 100%;">
+                    Cerrar sesión
+                </button>
+            </form>
         </div>
     </div>
-
 </body>
-
 </html>
