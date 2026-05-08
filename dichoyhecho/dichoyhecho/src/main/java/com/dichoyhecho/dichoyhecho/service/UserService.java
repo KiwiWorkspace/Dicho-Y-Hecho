@@ -10,5 +10,6 @@ public interface UserService {
     Users create(Users usuario);
     Users update(Integer id, Users usuario);
     void delete(Integer id);
-
+    Users getByEmail(String email);
+    Users getByHandle(String handle);
 }

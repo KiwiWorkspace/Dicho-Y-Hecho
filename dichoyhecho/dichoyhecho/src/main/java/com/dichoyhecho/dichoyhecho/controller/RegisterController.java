@@ -40,7 +40,7 @@ public class RegisterController {
         System.out.println("ENTRÓ AL POST");
 
         // verify  if exits in database
-        if (userRepository.findByUserHandle(users.getFirstName()).isPresent()) {
+        if (userRepository.findByUserHandle(users.getUserHandle()).isPresent()) {
             model.addAttribute("error", "The username is already in use");
             model.addAttribute("users", users);
             return "register";
@@ -58,7 +58,7 @@ public class RegisterController {
         userRepository.save(users);
         emailService.sendConfirmation(users.getEmailUser());
 
-        System.out.println("Users save DB: " + users.getFirstName());
+        System.out.println("Users save DB: " + users.getUserHandle());
         System.out.println("Pasword save DB: " + users.getPassword());
 
 

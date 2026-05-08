@@ -35,7 +35,7 @@ public class SecurityConfig {
             // Users BD
             return userRepository.findByUserHandle(username)
                     .map(user -> User.builder()
-                            .username(user.getFirstName())
+                            .username(user.getUserHandle())
                             .password(user.getPassword())
                             .roles("USER")
                             .build()

@@ -57,6 +57,18 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+    @Override
+    public Users getByHandle(String handle) {
+        return userRepository.findByUserHandle(handle)
+                .orElseThrow(() -> new ResourceNotFound("User with handle not found: " + handle));
+    }
+
+    @Override
+    public Users getByEmail(String email) {
+        return userRepository.findByEmailUser(email)
+                .orElseThrow(() -> new ResourceNotFound("User with email not found: " + email));
+    }
+
     @Service
     public class CommentService {
 
