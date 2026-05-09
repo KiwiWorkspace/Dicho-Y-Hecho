@@ -96,3 +96,39 @@ body {
   body { flex-direction: column; }
   .sidebar { width: 100%; position: relative; min-height: auto; }
 }
+
+/* Ver el perfil del usuario en home */
+.user-profile-compact {
+  margin-bottom: 20px;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.profile-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: var(--secondary);
+}
+
+.profile-button svg {
+  color: var(--secondary);
+}
+
+.sidebar-brand {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
