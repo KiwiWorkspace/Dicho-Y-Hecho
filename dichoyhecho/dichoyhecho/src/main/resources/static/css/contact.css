@@ -1,0 +1,58 @@
+.main-content {
+  margin-left: 280px;
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 0.25rem rgba(16, 185, 129, 0.25);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 10px;
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+.btn-submit:hover {
+  transform: scale(1.02);
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
