@@ -1,3 +1,8 @@
+:root {
+  --primary: #10b981;
+  --secondary: #064e3b;
+}
+
 .main-content {
   margin-left: 280px;
   width: 100%;
@@ -55,4 +60,13 @@
     margin-left: 0;
     padding: 20px;
   }
+}
+.main-content .contact-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.main-content .btn-submit {
+  background: linear-gradient(135deg, #10b981, #064e3b) !important;
+  color: white !important;
 }
