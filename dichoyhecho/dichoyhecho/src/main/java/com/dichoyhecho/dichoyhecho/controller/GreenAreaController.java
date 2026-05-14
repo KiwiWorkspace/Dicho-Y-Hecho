@@ -5,12 +5,13 @@ import com.dichoyhecho.dichoyhecho.entity.GreenArea;
 import com.dichoyhecho.dichoyhecho.service.GreenAreaService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/dichoyhecho/areasVerdes")
+@Controller
+@RequestMapping("/areasVerdes")
 public class GreenAreaController {
 
     private final GreenAreaService GreenAreaService;
@@ -44,5 +45,10 @@ public class GreenAreaController {
     public GreenArea delete(@PathVariable Integer id){
         GreenAreaService.delete(id);
         return null;
+    }
+
+    @GetMapping("/greenArea")
+    public String showContact() {
+        return "greenArea";
     }
 }
