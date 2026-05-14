@@ -6,6 +6,7 @@ create table user(
     first_name varchar(60) not null,
     last_name varchar(60) not null,
     user_handle varchar(60) not null,
+    profile_img longblob,
     password varchar(60) not null,
     user_email varchar(60) not null,
     user_age int not null,
