@@ -1,10 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Settings</title>
+    <link rel="stylesheet" href="/css/settings.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-brand">Said And Done</span>
+      </div>
+      <nav class="sidebar-nav">
+        <p class="nav-title">Menu</p>
+        <a href="/home" class="nav-link">Dashboard</a>
+        <a href="#" class="nav-link">Analytics</a>
 
-</body>
+        <p class="nav-title">User Services</p>
+        <a href="#" class="nav-link active">Settings</a>
+        <a href="#" class="nav-link">Messages</a>
+        <a href="#" class="nav-link">Subscription</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="settings-card">
+        <div class="settings-header">
+          <h2>Account Settings</h2>
+          <p>Manage your public profile and account security.</p>
+        </div>
+
+        <form class="settings-form">
+          <!-- Profile Section -->
+          <div class="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="John Doe"
+              value="John Doe"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="john@example.com"
+              value="john@example.com"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Language</label>
+              <select class="form-control">
+                <option>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Timezone</label>
+              <select class="form-control">
+                <option>GMT-5 (EST)</option>
+                <option>GMT+0 (UTC)</option>
+              </select>
+            </div>
+          </div>
+
+          <hr class="separator" />
+
+          <!-- Preferences -->
+          <div class="settings-header">
+            <h3>Notifications</h3>
+          </div>
+
+          <div class="toggle-group">
+            <div class="toggle-item">
+              <span>Email notifications</span>
+              <input type="checkbox" checked />
+            </div>
+            <div class="toggle-item">
+              <span>Marketing updates</span>
+              <input type="checkbox" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn-submit">Save Changes</button>
+            <button type="button" class="btn-cancel">Discard</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
 </html>
