@@ -20,6 +20,12 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/zona-1")
+    public String zone(Model model, Principal zone1) {
+        model.addAttribute("username", zone1.getName());
+        return "zona-1";
+    }
+
     @GetMapping("/")
     public String redirectToHome() {
         return "redirect:/home";
