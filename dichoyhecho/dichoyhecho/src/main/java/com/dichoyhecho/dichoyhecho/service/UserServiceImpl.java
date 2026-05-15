@@ -76,6 +76,13 @@ public class UserServiceImpl implements UserService {
         @Autowired
         private CommentRepository commentRepository;
 
+        public void save(String content, Integer idZone, Users user) {
+            Comments nuevo = new Comments();
+            nuevo.setContent(content);
+            nuevo.setIdZone(idZone);
+            nuevo.setIdUser(user);
+            commentRepository.save(nuevo);
+        }
         @Autowired
         private UserService userService;
 
@@ -86,14 +93,12 @@ public class UserServiceImpl implements UserService {
         public void guardarComentario(CommentRequest request) throws IOException {
 
             Users autor = userService.getById(request.getUserId().intValue());
-
             Comments nuevo = new Comments();
             nuevo.setContent(request.getContent());
             nuevo.setIdUser(autor);
 
             // guarda la zona
             nuevo.setIdZone(request.getIdZone());
-
             if (request.getImage() != null && !request.getImage().isEmpty()) {
                 nuevo.setImagen(request.getImage().getBytes());
             }

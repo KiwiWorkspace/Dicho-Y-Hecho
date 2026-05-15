@@ -230,14 +230,16 @@
                     </div>
                 </div>
 
-                <div th:each="c : ${allComments}" class="post-card" style="min-height: auto; margin-bottom: 15px; background: rgba(255,255,255,0.05); border-radius: 15px;">
-                    <div class="post-content" style="padding: 15px;">
-                        <div class="post-header">
-                            <div class="community" th:text="'@' + ${c.idUser.userHandle}" style="color: #10b981;">@usuario</div>
-                            <div class="post-time" th:text="${#temporals.format(c.commentDate, 'dd/MM HH:mm')}">Fecha</div>
+                <div th:each="c : ${allComments}"
+                     style="margin-bottom: 12px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="padding: 15px;">
+                        <div class="post-header" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="community" th:text="'@' + ${c.idUser.userHandle}" style="color: #10b981; font-weight: bold;">@usuario</div>
+                            <div class="post-time" th:text="${#temporals.format(c.commentDate, 'dd/MM HH:mm')}" style="font-size: 0.8rem; opacity: 0.6;">Fecha</div>
                         </div>
-                        <p class="post-text" th:text="${c.content}" style="color: white; margin-top: 10px;">Contenido</p>
+                        <p class="post-text" th:text="${c.content}" style="color: white; margin-top: 8px; line-height: 1.4;">Contenido</p>
                     </div>
+
                 </div>
 
             </div>
@@ -249,7 +251,7 @@
                   style="background: #2b2d31; padding: 10px 20px; border-radius: 8px; display: flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
 
                 <input type="hidden" name="idZone" th:value="${zonaActual}">
-                <input type="hidden" name="userId" value="1">
+                <input type="hidden" name="userId" th:value="${#authentication?.principal?.id}">
 
                 <button type="button" style="background: transparent; border: none; color: #b5bac1; font-size: 20px; cursor: pointer; margin-right: 15px;">+</button>
 

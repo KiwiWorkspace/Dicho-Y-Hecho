@@ -4,9 +4,11 @@ import com.dichoyhecho.dichoyhecho.dto.CommentRequest;
 import com.dichoyhecho.dichoyhecho.entity.Comments;
 import com.dichoyhecho.dichoyhecho.entity.Users;
 import com.dichoyhecho.dichoyhecho.repository.CommentRepository;
+import com.dichoyhecho.dichoyhecho.service.UserService;
 import com.dichoyhecho.dichoyhecho.service.UserServiceImpl;
 import jakarta.validation.Valid;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,24 +20,34 @@ import java.util.List;
 @Controller
 public class CommentController {
 
+
+    @Autowired
+    private UserServiceImpl.CommentService commentService;
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/comment")
     public String ShowComments(){
         return "comment";
     }
 
-    @Autowired
-    private UserServiceImpl.CommentService commentService;
-
     @PostMapping("/publicar")
-    public String publicarComentario(@Valid @ModelAttribute CommentRequest request) {
-        try {
-
-            commentService.guardarComentario(request);
-
-            return "redirect:/zona/" + request.getIdZone();
-        } catch (Exception e) {
-            return "redirect:/home?error=" + e.getMessage();
+    public String publicar(@RequestParam("content") String content,
+                           @RequestParam("idZone") Integer idZone,
+                           Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return "redirect:/login";
         }
+        Users user = userService.getByHandle(authentication.getName());
+
+        if (user == null) {
+
+            return "redirect:/home?error=UserNotFound";
+        }
+
+        commentService.save(content, idZone, user);
+
+        return "redirect:/zona/" + idZone;
     }
 
     @GetMapping("/list")
@@ -44,16 +56,14 @@ public class CommentController {
         return ResponseEntity.ok(lista);
     }
     @DeleteMapping("/delete/{commentId}")
-    public ResponseEntity<?> delete(
-            @PathVariable Long commentId,
-            @RequestParam Integer userId
-    ) {
+    public String delete(@PathVariable Long commentId, Authentication authentication) {
+        Users userActual = userService.getByHandle(authentication.getName());
         try {
-            commentService.eliminarComentario(commentId, userId);
-            return ResponseEntity.ok("Comment deleted.");
+            commentService.eliminarComentario(commentId, userActual.getIdUser());
+            return "redirect:/home?success=deleted";
         } catch (RuntimeException e) {
 
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+            return "redirect:/home?error=forbidden";
         }
     }
 }
