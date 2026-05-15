@@ -27,17 +27,17 @@ public class CommentController {
     private UserServiceImpl.CommentService commentService;
 
     @PostMapping("/publicar")
-    public ResponseEntity<?> publicarComentario(@Valid @ModelAttribute CommentRequest request) {
+    public String publicarComentario(@Valid @ModelAttribute CommentRequest request) {
         try {
-            //object is recived by the Service
+
             commentService.guardarComentario(request);
 
-            return ResponseEntity.ok("Comment published ");
+            return "redirect:/zona/" + request.getIdZone();
         } catch (Exception e) {
-            // Por si algo falla en el parsing de los bytes de las imagenes de post
-            return ResponseEntity.badRequest().body("Error publishing: " + e.getMessage());
+            return "redirect:/home?error=" + e.getMessage();
         }
     }
+
     @GetMapping("/list")
     public ResponseEntity<List<Comments>> listarComentarios() {
         List<Comments> lista = commentService.obtenerTodos();

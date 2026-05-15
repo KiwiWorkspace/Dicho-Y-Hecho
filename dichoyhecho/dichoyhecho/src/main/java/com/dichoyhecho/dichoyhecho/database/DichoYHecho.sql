@@ -36,6 +36,7 @@ create table comment (
     image_url longblob,
     video_url longblob,
     id_user int not null,
+    id_zone int not null,
     comment_date timestamp default current_timestamp,
     constraint fk_user_comment foreign key (id_user) references user(id_user) on delete cascade
 );

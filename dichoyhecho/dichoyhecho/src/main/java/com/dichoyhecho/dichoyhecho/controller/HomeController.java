@@ -1,13 +1,21 @@
 package com.dichoyhecho.dichoyhecho.controller;
 
+import com.dichoyhecho.dichoyhecho.entity.Comments;
+import com.dichoyhecho.dichoyhecho.repository.CommentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @GetMapping("/login")
     public String login() {
@@ -20,10 +28,13 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/zona-1")
-    public String zone(Model model, Principal zone1) {
-        model.addAttribute("username", zone1.getName());
-        return "zona-1";
+    @GetMapping("/zona/{id}")
+    public String verZona(@PathVariable("id") Integer id, Model model, Principal principal) {
+        model.addAttribute("username", principal.getName());
+        List<Comments> comentarios = commentRepository.findByIdZoneOrderByCommentDateDesc(id);
+        model.addAttribute("allComments", comentarios);
+        model.addAttribute("zonaActual", id);
+        return "home";
     }
 
     @GetMapping("/")

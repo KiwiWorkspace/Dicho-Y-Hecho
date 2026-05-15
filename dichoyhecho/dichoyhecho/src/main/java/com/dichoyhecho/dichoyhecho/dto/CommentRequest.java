@@ -12,9 +12,13 @@ public class CommentRequest {
     @NotNull(message = "the user id is mandatory")
     private Long userId;
 
+    @NotNull(message = "the zone id is mandatory")
+    private Integer idZone;
+
     // receive image and video from post
     private MultipartFile image;
     private MultipartFile video;
+
 
     public String getContent() {
         return content;
@@ -47,4 +51,7 @@ public class CommentRequest {
     public void setVideo(MultipartFile video) {
         this.video = video;
     }
+
+    public Integer getIdZone() { return idZone; }
+    public void setIdZone(Integer idZone) { this.idZone = idZone; }
 }

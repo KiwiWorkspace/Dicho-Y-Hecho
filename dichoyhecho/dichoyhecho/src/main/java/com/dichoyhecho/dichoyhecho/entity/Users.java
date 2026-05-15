@@ -44,6 +44,10 @@ public class Users {
     @Column(name = "user_handle")
     private String userHandle;
 
+    @Lob
+    @Column(name = "profile_img", columnDefinition = "LONGBLOB")
+    private byte[] profileImg;
+
     @NotBlank(message = "You must enter a password")
     @Size(min = 8, max =75, message = "The password must have between 8 and 12 characters")
     @Column(name = "password")
@@ -96,6 +100,14 @@ public class Users {
         this.userHandle = userHandle;
     }
 
+    public byte[] getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(byte[] profileImg) {
+        this.profileImg = profileImg;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -128,13 +140,12 @@ public class Users {
         this.userRole = userRole;
     }
 
-    public Users(@NotBlank String name, @Email @NotBlank String email, @NotBlank String password) {
-    }
-
-    public Users(String firstName, String lastName, String userHandle, String password, String emailUser, Integer ageUser, UserRole userRole) {
+    public Users(Integer idUser, String firstName, String userHandle, String lastName, byte[] profileImg, String password, String emailUser, Integer ageUser, UserRole userRole) {
+        this.idUser = idUser;
         this.firstName = firstName;
-        this.lastName = lastName;
         this.userHandle = userHandle;
+        this.lastName = lastName;
+        this.profileImg = profileImg;
         this.password = password;
         this.emailUser = emailUser;
         this.ageUser = ageUser;

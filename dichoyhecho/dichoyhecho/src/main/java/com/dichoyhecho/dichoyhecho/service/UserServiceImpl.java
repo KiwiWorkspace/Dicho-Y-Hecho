@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
         existente.setFirstName(users.getFirstName());
         existente.setLastName(users.getLastName());
         existente.setUserHandle(users.getUserHandle());
+        existente.setProfileImg(users.getProfileImg());
         existente.setPassword(users.getPassword());
         existente.setAgeUser(users.getAgeUser());
         existente.setUserRole(users.getUserRole());
@@ -83,19 +84,22 @@ public class UserServiceImpl implements UserService {
         }
 
         public void guardarComentario(CommentRequest request) throws IOException {
+
             Users autor = userService.getById(request.getUserId().intValue());
+
             Comments nuevo = new Comments();
             nuevo.setContent(request.getContent());
             nuevo.setIdUser(autor);
 
+            // guarda la zona
+            nuevo.setIdZone(request.getIdZone());
+
             if (request.getImage() != null && !request.getImage().isEmpty()) {
                 nuevo.setImagen(request.getImage().getBytes());
             }
-
             if (request.getVideo() != null && !request.getVideo().isEmpty()) {
                 nuevo.setVideo(request.getVideo().getBytes());
             }
-
             commentRepository.save(nuevo);
         }
         public void eliminarComentario(Long commentId, Integer userIdQueBorra) {

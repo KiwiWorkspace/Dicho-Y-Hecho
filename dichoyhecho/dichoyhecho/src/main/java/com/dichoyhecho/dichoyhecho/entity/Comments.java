@@ -19,25 +19,29 @@ import java.time.LocalDateTime;
 public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_comment")
     private long commentId;
 
     @NotBlank(message = "You must enter content for your comment ")
-    @Column(name = "contenido")
+    @Column(name = "content")
     private String content;
 
     @Lob
-    @Column(name = "imagen", columnDefinition = "LONGBLOB")
+    @Column(name = "image_url", columnDefinition = "LONGBLOB")
     private byte[] imagen;
 
     @Lob
-    @Column(name= "video", columnDefinition = "LONGBLOB")
+    @Column(name= "video_url", columnDefinition = "LONGBLOB")
     private byte[] video;
 
     @NotNull
     @ManyToOne
     @JoinColumn (name= "id_user", nullable = false)
     private Users idUser;
+
+    @NotNull
+    @Column(name = "id_zone")
+    private Integer idZone;
 
     @NotNull
     @Column(name = "comment_date")
@@ -87,6 +91,14 @@ public class Comments {
 
     public void setIdUser(Users idUser) {
         this.idUser = idUser;
+    }
+
+    public Integer getIdZone() {
+        return idZone;
+    }
+
+    public void setIdZone(Integer idZone) {
+        this.idZone = idZone;
     }
 
     public LocalDateTime getCommentDate() {
