@@ -17,25 +17,6 @@
             <span>D</span>
         </div>
 
-        <nav class="topbar-nav">
-
-            <a href="#" class="active">
-                Overview
-            </a>
-
-            <a href="#">
-                Trends
-            </a>
-
-            <a href="#">
-                Zones
-            </a>
-
-            <a href="/contact">
-                Contact
-            </a>
-
-        </nav>
 
     </div>
 
@@ -46,47 +27,30 @@
         </div>
 
         <div class="profile-dropdown">
+            <input type="checkbox" id="profile-toggle" class="profile-toggle-input" />
 
-            <button class="profile-trigger">
-
-                <img
-                    src="https://i.pravatar.cc/100"
-                    alt="User"
-                />
-
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-
-                    <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7" />
+            <label for="profile-toggle" class="profile-trigger">
+                <img src="https://i.pravatar.cc/100" alt="User" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
-
-            </button>
+            </label>
 
             <div class="dropdown-menu">
 
                 <a href="/profile">
                     Mi Perfil
                 </a>
-
                 <a href="/settings">
                     Settings
                 </a>
-
                 <div class="dropdown-divider"></div>
-
-                <a href="/logout" class="danger">
-                    Sign out
-                </a>
-
+                <form th:action="@{/logout}" method="post" style="margin: 0; padding: 0;">
+                    <button type="submit" class="danger dropdown-btn-logout">
+                        Sign out
+                    </button>
+                </form>
             </div>
-
         </div>
 
     </div>
@@ -98,7 +62,7 @@
     </div>
     <ul class="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="/home">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
                 </svg>

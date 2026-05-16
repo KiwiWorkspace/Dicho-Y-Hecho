@@ -133,6 +133,8 @@ body {
   margin-left: 280px;
   width: calc(100% - 280px);
   padding: 24px;
+  padding-top: 50px;
+  padding-bottom: 120px;
 }
 
 .feed-container {
@@ -647,4 +649,120 @@ body {
     padding-top: 120px;
   }
 
+}
+/* ================= DROPDOWN DE PERFIL ================= */
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-toggle-input {
+  display: none;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+  user-select: none;
+}
+
+.profile-trigger:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.profile-trigger img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-trigger svg {
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s ease;
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: #1e1f22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.profile-toggle-input:checked ~ .dropdown-menu {
+  display: flex;
+}
+
+
+.profile-toggle-input:checked ~ .profile-trigger svg {
+  transform: rotate(180deg);
+}
+
+/* Enlaces del menú */
+.dropdown-menu a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 6px 0;
+}
+
+.dropdown-menu a.danger {
+  color: #f87171;
+}
+
+.dropdown-menu a.danger:hover {
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.dropdown-btn-logout {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  color: #f87171;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.dropdown-btn-logout:hover {
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
 }
