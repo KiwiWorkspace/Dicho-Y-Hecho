@@ -1,239 +1,104 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Áreas Verdes - Dicho y Hecho</title>
-
-    <style>
-
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body{
-            display: flex;
-            min-height: 100vh;
-            background: #ecfdf5;
-        }
-
-        /* SIDEBAR */
-        .sidebar{
-            width: 260px;
-            background: #064e3b;
-            color: white;
-            padding: 20px;
-            flex-shrink: 0;
-        }
-
-        .sidebar-brand{
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            color: #34d399;
-        }
-
-        .sidebar-nav{
-            list-style: none;
-        }
-
-        .nav-item{
-            margin-bottom: 10px;
-        }
-
-        .nav-link{
-            display: block;
-            text-decoration: none;
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: 0.2s;
-        }
-
-        .nav-link:hover{
-            background: #10b981;
-        }
-
-        /* MAIN */
-        .main-content{
-            flex: 1;
-            padding: 30px;
-        }
-
-        .header h1{
-            color: #064e3b;
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-
-        .header p{
-            color: #047857;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        /* GRID */
-        .areas-grid{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        /* CARD */
-        .area-card{
-            background: white;
-            border: 3px solid #064e3b;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 6px 6px 0px #064e3b;
-            transition: 0.2s;
-        }
-
-        .area-card:hover{
-            transform: translateY(-5px);
-        }
-
-        .area-image{
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-        }
-
-        .area-content{
-            padding: 15px;
-        }
-
-        .area-title{
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: #064e3b;
-            margin-bottom: 8px;
-        }
-
-        .area-description{
-            font-size: 0.9rem;
-            color: #065f46;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .area-info{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .badge{
-            background: #10b981;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 800;
-        }
-
-        .location{
-            font-size: 0.85rem;
-            color: #047857;
-            font-weight: 700;
-        }
-
-        .btn-area{
-            display: block;
-            text-align: center;
-            background: #10b981;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: 800;
-            border: 2px solid #064e3b;
-            box-shadow: 3px 3px 0px #064e3b;
-        }
-
-        .btn-area:active{
-            transform: translate(2px,2px);
-            box-shadow: none;
-        }
-
-    </style>
+    <link rel="stylesheet" th:href="@{/css/greenAreas.css}" href="/css/creenAreas.css">
 </head>
-
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
     <div class="sidebar-brand">Dicho y Hecho</div>
 
     <ul class="sidebar-nav">
-        <li class="nav-item"><a class="nav-link" href="/home"> Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/areasVerdes"> Green Areas</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile"> Porfile</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact"> Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/areasVerdes">Green Areas</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
     </ul>
 </div>
 
-<!-- MAIN -->
 <div class="main-content">
 
     <div class="header">
-        <h1>Green Area</h1>
-        <p>Explore the city's parks, gardens, and natural spaces</p>
+        <h1>Green Areas</h1>
+        <p>Explore parks and nature</p>
     </div>
 
     <div class="areas-grid">
 
         <div class="area-card">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" class="area-image">
+            <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01001.webp">
+
             <div class="area-content">
-                <div class="area-title">Central Park</div>
-                <div class="area-description">Ideal space for walking and relaxing.</div>
+                <div class="area-title">Zone 1</div>
+                <div class="area-description"></div>
 
                 <div class="area-info">
-                    <span class="badge">Park</span>
+                    <span class="badge">National Palace</span>
                     <span class="location">Zone 1</span>
                 </div>
 
-                <a href="#" class="btn-area">more</a>
+                <input type="checkbox" id="c1" class="toggle">
+                <label for="c1" class="btn-area">more</label>
+
+                <div class="extra-list">
+                    <a href="#">Bathrooms</a>
+                    <a href="#">Parking</a>
+                    <a href="#">Playground</a>
+                </div>
             </div>
         </div>
 
         <div class="area-card">
-            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" class="area-image">
+            <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01002.webp">
+
             <div class="area-content">
-                <div class="area-title">Botanical garden</div>
-                <div class="area-description">Plants and nature in one place.</div>
+                <div class="area-title">Zone 2</div>
+                <div class="area-description"></div>
 
                 <div class="area-info">
-                    <span class="badge">Jardín</span>
-                    <span class="location">Zone 10</span>
+                    <span class="badge">Natural and touristic</span>
+                    <span class="location">Zone 2</span>
                 </div>
 
-                <a href="#" class="btn-area">more</a>
+                <input type="checkbox" id="c2" class="toggle">
+                <label for="c2" class="btn-area">more</label>
+
+                <div class="extra-list">
+                    <a href="#">Guided tours</a>
+                    <a href="#">Cafeteria</a>
+                    <a href="#">Shop</a>
+                </div>
             </div>
         </div>
 
         <div class="area-card">
-            <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1" class="area-image">
+            <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01003.webp">
+
             <div class="area-content">
-                <div class="area-title">Eco Park</div>
-                <div class="area-description">Recreational activities and nature.</div>
+                <div class="area-title">Zone 3</div>
+                <div class="area-description"></div>
 
                 <div class="area-info">
-                    <span class="badge">Recreative</span>
-                    <span class="location">Zone 15</span>
+                    <span class="badge">cemetery</span>
+                    <span class="location">Zone 3</span>
                 </div>
 
-                <a href="#" class="btn-area">more</a>
+                <input type="checkbox" id="c3" class="toggle">
+                <label for="c3" class="btn-area">more</label>
+
+                <div class="extra-list">
+                    <a href="#">Camping</a>
+                    <a href="#">Trails</a>
+                    <a href="#">Sports courts</a>
+                </div>
             </div>
         </div>
 
     </div>
-
 </div>
 
 </body>

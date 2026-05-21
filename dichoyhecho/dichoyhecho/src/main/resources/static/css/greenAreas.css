@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    background: #ecfdf5;
+}
+
+.sidebar{
+    width: 260px;
+    background: #064e3b;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-brand{
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #34d399;
+}
+
+.sidebar-nav{
+    list-style: none;
+}
+
+.nav-item{
+    margin-bottom: 10px;
+}
+
+.nav-link{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.nav-link:hover{
+    background: #10b981;
+}
+
+.main-content{
+    flex: 1;
+    padding: 30px;
+}
+
+.header h1{
+    color: #064e3b;
+}
+
+.header p{
+    color: #047857;
+    margin-bottom: 25px;
+}
+
+.areas-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.area-card{
+    background: white;
+    border: 3px solid #064e3b;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 6px 6px 0px #064e3b;
+    align-self: start;
+    min-height: 460px;
+}
+
+.area-image{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.area-content{
+    padding: 18px;
+}
+
+.area-title{
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #064e3b;
+}
+
+.area-description{
+    font-size: 0.9rem;
+    color: #065f46;
+    margin: 10px 0;
+}
+
+.area-info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.badge{
+    background: #10b981;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+}
+
+.location{
+    color: #047857;
+    font-weight: 700;
+}
+
+.btn-area{
+    display: block;
+    width: 100%;
+    background: #10b981;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #064e3b;
+    margin-top: 14px;
+}
+
+.toggle{
+    display: none;
+}
+
+.extra-list{
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    padding: 0 12px;
+    background: #d1fae5;
+    border-radius: 12px;
+    border: 2px solid #064e3b;
+    transition: max-height 0.3s ease, padding 0.3s ease, margin-top 0.3s ease;
+}
+
+.area-card:has(.toggle:checked) .extra-list{
+    max-height: 200px;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.extra-list a{
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #064e3b;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.extra-list a:hover{
+    background: #10b981;
+    color: white;
+}
