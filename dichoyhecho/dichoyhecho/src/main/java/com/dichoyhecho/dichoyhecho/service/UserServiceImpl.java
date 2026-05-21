@@ -1,10 +1,8 @@
 package com.dichoyhecho.dichoyhecho.service;
 
-import com.dichoyhecho.dichoyhecho.dto.CommentRequest;
-import com.dichoyhecho.dichoyhecho.entity.Comments;
+
 import com.dichoyhecho.dichoyhecho.entity.Users;
 import com.dichoyhecho.dichoyhecho.exception.ResourceNotFound;
-import com.dichoyhecho.dichoyhecho.repository.CommentRepository;
 import com.dichoyhecho.dichoyhecho.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +12,10 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private CommentService commentService;
+
     private final UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
@@ -70,52 +72,4 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new ResourceNotFound("User with email not found: " + email));
     }
 
-    @Service
-    public class CommentService {
-
-        @Autowired
-        private CommentRepository commentRepository;
-
-        public void save(String content, Integer idZone, Users user) {
-            Comments nuevo = new Comments();
-            nuevo.setContent(content);
-            nuevo.setIdZone(idZone);
-            nuevo.setIdUser(user);
-            commentRepository.save(nuevo);
-        }
-        @Autowired
-        private UserService userService;
-
-        public List<Comments> obtenerTodos() {
-            return commentRepository.findAll();
-        }
-
-        public void guardarComentario(CommentRequest request) throws IOException {
-
-            Users autor = userService.getById(request.getUserId().intValue());
-            Comments nuevo = new Comments();
-            nuevo.setContent(request.getContent());
-            nuevo.setIdUser(autor);
-
-            // guarda la zona
-            nuevo.setIdZone(request.getIdZone());
-            if (request.getImage() != null && !request.getImage().isEmpty()) {
-                nuevo.setImagen(request.getImage().getBytes());
-            }
-            if (request.getVideo() != null && !request.getVideo().isEmpty()) {
-                nuevo.setVideo(request.getVideo().getBytes());
-            }
-            commentRepository.save(nuevo);
-        }
-        public void eliminarComentario(Long commentId, Integer userIdQueBorra) {
-            Comments comments = commentRepository.findById(commentId)
-                    .orElseThrow(() -> new RuntimeException("The comment does not exist."));
-
-            if (comments.getIdUser().getIdUser().longValue() != userIdQueBorra.longValue()) {
-                throw new RuntimeException("You do not have permission to delete this comment.");
-            }
-
-            commentRepository.delete(comments);
-        }
-    }
 }

@@ -108,4 +108,18 @@ public class Comments {
     public void setCommentDate(LocalDateTime commentDate) {
         this.commentDate = commentDate;
     }
+
+    public String generateBase64Image() {
+        if (this.imagen == null) {
+            return null;
+        }
+        return java.util.Base64.getEncoder().encodeToString(this.imagen);
+    }
+
+    public String generateBase64Video() {
+        if (this.video == null) {
+            return null;
+        }
+        return java.util.Base64.getEncoder().encodeToString(this.video);
+    }
 }
