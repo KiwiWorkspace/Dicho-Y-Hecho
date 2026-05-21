@@ -21,7 +21,6 @@ body {
   color: white;
 }
 
-/* SIDEBAR */
 .sidebar {
   width: 280px;
   min-height: 100vh;
@@ -80,7 +79,6 @@ body {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
-/* MAIN CONTENT & SETTINGS CARD */
 .main-content {
   margin-left: 280px;
   width: calc(100% - 280px);
@@ -108,7 +106,6 @@ body {
 .settings-header h3 { font-size: 1.2rem; margin-top: 20px; }
 .settings-header p { color: rgba(260, 150, 255, 0.6); }
 
-/* FORM ELEMENTS */
 .form-group {
   margin-bottom: 20px;
   display: flex;
@@ -150,7 +147,6 @@ label {
   margin: 30px 0;
 }
 
-/* TOGGLES & ACTIONS */
 .toggle-item {
   display: flex;
   justify-content: space-between;
@@ -190,10 +186,14 @@ label {
   font-weight: 600;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   body { flex-direction: column; }
   .sidebar { width: 100%; position: relative; min-height: auto; }
   .main-content { margin-left: 0; width: 100%; padding: 20px; }
   .form-row { grid-template-columns: 1fr; }
+}
+
+.form-control option {
+    background-color: #0b513b;
+    color: #ffffff;
 }

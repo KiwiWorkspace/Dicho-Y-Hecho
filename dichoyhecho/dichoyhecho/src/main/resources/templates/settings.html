@@ -76,7 +76,7 @@
         <p th:text="#{settings.main.subtitle}">Manage account security.</p>
       </div>
 
-      <form th:action="@{/settings/save}" method="post">
+      <form th:action="@{/settings/save}" th:object="${settingsForm}" method="post">
         <div class="form-row">
           <div class="form-group">
             <label th:text="#{settings.label.language}">Language</label>
@@ -107,17 +107,18 @@
         <div class="toggle-group">
           <div class="toggle-item">
             <span th:text="#{settings.notify.email}">Email notifications</span>
-            <input type="checkbox" checked />
+            <input type="checkbox" th:field="*{emailNotifications}" />
           </div>
           <div class="toggle-item">
             <span th:text="#{settings.notify.marketing}">Marketing updates</span>
-            <input type="checkbox" />
+            <input type="checkbox" th:field="*{marketingUpdates}" />
           </div>
         </div>
 
         <div class="actions">
           <button type="submit" class="btn-submit" th:text="#{settings.btn.save}">Save Changes</button>
-          <button type="button" class="btn-cancel" th:text="#{settings.btn.discard}">Discard</button>
+          <button type="button" class="btn-cancel" th:text="#{settings.btn.discard}"
+            onclick="window.location.reload();">Discard</button>
         </div>
       </form>
     </section>
