@@ -133,6 +133,8 @@ body {
   margin-left: 280px;
   width: calc(100% - 280px);
   padding: 24px;
+  padding-top: 50px;
+  padding-bottom: 120px;
 }
 
 .feed-container {

@@ -31,7 +31,7 @@ public class HomeController {
     @GetMapping("/zona/{id}")
     public String verZona(@PathVariable("id") Integer id, Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        List<Comments> comentarios = commentRepository.findByIdZoneOrderByCommentDateDesc(id);
+        List<Comments> comentarios = commentRepository.findByIdZoneOrderByCommentDateAsc(id);
         model.addAttribute("allComments", comentarios);
         model.addAttribute("zonaActual", id);
         return "home";
