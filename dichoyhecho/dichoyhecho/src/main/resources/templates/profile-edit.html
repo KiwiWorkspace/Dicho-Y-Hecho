@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Dicho y Hecho</title>
+    <title>Edit Profile - Dicho y Hecho</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,44 +49,54 @@
 
     <main class="profile-main-content">
 
-        <div class="content-section">
+        <form th:action="@{/profile/update}" th:object="${user}" method="post" class="content-section" enctype="multipart/form-data">
+
+            <input type="hidden" th:field="*{idUser}" />
+
             <div class="section-header-inline">
                 <div>
-                    <h3>Account Settings</h3>
-                    <p class="section-subtitle">Your personal account details from said and done.</p>
+                    <h3>Update Account</h3>
+                    <p class="section-subtitle">Update your personal account details from said and done.</p>
                 </div>
-                <a th:href="@{/profile/edit}" class="btn-edit-toggle">
-                    <i class="fa-regular fa-pen-to-square"></i> Edit Profile
-                </a>
+                <button type="submit" class="btn-edit-toggle" style="background: var(--primary); border-color: var(--primary); cursor: pointer;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Profile
+                </button>
             </div>
 
             <div class="profile-editable-grid">
+
+                <div class="input-profile-group full-width">
+                    <label><i class="fa-solid fa-camera"></i> New profile photo</label>
+                    <input type="file" name="profilePhoto" accept="image/jpeg, image/png, image/webp" style="background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.08); color: #cbd5e1; font-size: 0.85rem; padding: 12px; height: auto;" />
+                    <span style="font-size: 0.75rem; color: #a7f3d0; opacity: 0.8; margin-top: -3px; display: block;">Maximum recommended size: 1MB. Types: JPG, PNG, WEBP.</span>
+                </div>
+
                 <div class="input-profile-group">
                     <label><i class="fa-solid fa-signature"></i> First Name</label>
-                    <input type="text" th:value="${user.firstName}" readonly />
+                    <input type="text" th:field="*{firstName}" required placeholder="First Name" />
                 </div>
 
                 <div class="input-profile-group">
                     <label><i class="fa-solid fa-signature"></i> Last Name</label>
-                    <input type="text" th:value="${user.lastName}" readonly />
+                    <input type="text" th:field="*{lastName}" required placeholder="Last Name" />
                 </div>
 
                 <div class="input-profile-group">
                     <label><i class="fa-solid fa-at"></i> Username Handle</label>
-                    <input type="text" th:value="${user.userHandle}" readonly />
+                    <input type="text" th:field="*{userHandle}" required placeholder="username" />
                 </div>
 
                 <div class="input-profile-group">
                     <label><i class="fa-regular fa-calendar"></i> Age</label>
-                    <input type="text" th:value="${user.ageUser + ' years old'}" readonly />
+                    <input type="number" th:field="*{ageUser}" required min="1" max="120" placeholder="00" />
                 </div>
 
                 <div class="input-profile-group full-width">
-                    <label><i class="fa-regular fa-envelope"></i> Email Address</label>
-                    <input type="email" th:value="${user.emailUser}" readonly />
+                    <label><i class="fa-regular fa-envelope"></i> Email </label>
+                    <input type="email" th:field="*{emailUser}" required placeholder="correo@kinal.edu.gt" />
                 </div>
             </div>
-        </div>
+        </form>
 
         <section class="content-section">
             <h3>Platform Activity</h3>

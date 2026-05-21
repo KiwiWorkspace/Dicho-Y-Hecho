@@ -160,4 +160,11 @@ public class Users {
 
     public Users() {
     }
+
+    public String generateBase64Image() {
+        if (this.profileImg == null) {
+            return null;
+        }
+        return java.util.Base64.getEncoder().encodeToString(this.profileImg);
+    }
 }
