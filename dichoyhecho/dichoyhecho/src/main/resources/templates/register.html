@@ -1,123 +1,75 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create account</title>
-    <link rel="stylesheet" href="/css/auth.css" />
-  </head>
+<html xmlns:th="http://www.thymeleaf.org">
 
-  <body>
-    <div class="auth-container">
-      <div class="auth-header">
-        <h2>Create<span> Acount</span></h2>
-        <p>New user registration</p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="#{register.page.title}">Create account</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
 
-      <div
-        th:if="${error}"
-        style="color: #ff4d4d; margin-bottom: 15px; text-align: center"
-      >
-        <p th:text="${error}"></p>
-      </div>
-
-      <form
-        th:action="@{/register/enviar-registro}"
-        th:object="${users}"
-        method="post"
-      >
-        <div class="form-group">
-          <label for="firstName">Firts Name</label>
-          <input
-            type="text"
-            id="firstName"
-            th:field="*{firstName}"
-            placeholder="Your name"
-            required
-          />
-          <div
-            class="error-msg"
-            th:if="${#fields.hasErrors('firstName')}"
-            th:errors="*{firstName}"
-            style="color: #ff4d4d; font-size: 0.8rem"
-          ></div>
-        </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            th:field="*{lastName}"
-            placeholder="Your last name"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="userHandle">Username</label>
-          <input
-            type="text"
-            id="userHandle"
-            th:field="*{userHandle}"
-            placeholder="Your handle"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="ageUser">Age</label>
-          <input
-            type="number"
-            id="ageUser"
-            th:field="*{ageUser}"
-            placeholder="user ead"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            th:field="*{password}"
-            placeholder="********"
-            required
-          />
-          <div
-            class="error-msg"
-            th:if="${#fields.hasErrors('password')}"
-            th:errors="*{password}"
-            style="color: #ff4d4d; font-size: 0.8rem"
-          ></div>
-        </div>
-
-        <div class="form-group">
-          <label for="emailUser">Email</label>
-          <input
-            type="email"
-            id="emailUser"
-            th:field="*{emailUser}"
-            placeholder="mail@example.com"
-            required
-          />
-          <div
-            class="error-msg"
-            th:if="${#fields.hasErrors('emailUser')}"
-            th:errors="*{emailUser}"
-          ></div>
-        </div>
-
-        <button type="submit" class="btn-auth">Create Account</button>
-
-        <div class="auth-footer">
-          <p>
-            Do you already have an account?
-            <a th:href="@{/login}">Login here</a>
-          </p>
-        </div>
-      </form>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <h2 th:inline="text">[[#{register.main.title}]]<span th:text="#{register.main.title.span}"> Account</span></h2>
+      <p th:text="#{register.main.subtitle}">New user registration</p>
     </div>
-  </body>
+
+    <div th:if="${error}" style="color: #ff4d4d; margin-bottom: 15px; text-align: center">
+      <p th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/register/enviar-registro}" th:object="${users}" method="post">
+      <div class="form-group">
+        <label for="firstName" th:text="#{register.label.firstname}">First Name</label>
+        <input type="text" id="firstName" th:field="*{firstName}" th:placeholder="#{register.placeholder.firstname}"
+          placeholder="Your name" required />
+        <div class="error-msg" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+          style="color: #ff4d4d; font-size: 0.8rem"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName" th:text="#{register.label.lastname}">Last Name</label>
+        <input type="text" id="lastName" th:field="*{lastName}" th:placeholder="#{register.placeholder.lastname}"
+          placeholder="Your last name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="userHandle" th:text="#{register.label.username}">Username</label>
+        <input type="text" id="userHandle" th:field="*{userHandle}" th:placeholder="#{register.placeholder.username}"
+          placeholder="Your handle" required />
+      </div>
+
+      <div class="form-group">
+        <label for="ageUser" th:text="#{register.label.age}">Age</label>
+        <input type="number" id="ageUser" th:field="*{ageUser}" th:placeholder="#{register.placeholder.age}"
+          placeholder="Your age" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password" th:text="#{register.label.password}">Password</label>
+        <input type="password" id="password" th:field="*{password}" placeholder="********" required />
+        <div class="error-msg" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+          style="color: #ff4d4d; font-size: 0.8rem"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="emailUser" th:text="#{register.label.email}">Email</label>
+        <input type="email" id="emailUser" th:field="*{emailUser}" th:placeholder="#{register.placeholder.email}"
+          placeholder="mail@example.com" required />
+        <div class="error-msg" th:if="${#fields.hasErrors('emailUser')}" th:errors="*{emailUser}"></div>
+      </div>
+
+      <button type="submit" class="btn-auth" th:text="#{register.btn.submit}">Create Account</button>
+
+      <div class="auth-footer">
+        <p>
+          <span th:text="#{register.footer.text}">Do you already have an account?</span>
+          <a th:href="@{/login}" th:text="#{register.footer.link}">Login here</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</body>
+
 </html>

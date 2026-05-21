@@ -1,106 +1,119 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Dicho y Hecho</title>
+    <title th:text="#{profile.page.title}">My Profile - Said And Done</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" th:href="@{/css/auth.css}">
 </head>
+
 <body class="profile-layout-body">
 
-<div class="profile-dashboard-container">
+    <div class="profile-dashboard-container">
 
-    <aside class="profile-sidebar">
-        <div class="sidebar-banner"></div>
+        <aside class="profile-sidebar">
+            <div class="sidebar-banner"></div>
 
-        <div class="sidebar-avatar-wrapper">
-            <div class="sidebar-avatar">
-                <img th:if="${user.profileImg != null}" th:src="'data:image/jpeg;base64,' + ${user.generateBase64Image()}" alt="Profile Image"/>
-                <span th:if="${user.profileImg == null}" th:text="${user.firstName.substring(0,1)}">C</span>
-            </div>
-            <span class="sidebar-status"></span>
-        </div>
-
-        <div class="sidebar-user-info">
-            <h2 th:text="${user.firstName + ' ' + user.lastName}">Cristian Pérez</h2>
-            <span class="sidebar-username" th:text="'@' + ${user.userHandle}">@cristander</span>
-        </div>
-
-        <div class="sidebar-role-badge">
-            <i class="fa-solid fa-user-shield"></i>
-            <span th:text="${user.userRole != null ? user.userRole : 'USER'}">STUDENT</span>
-        </div>
-
-        <div class="sidebar-actions">
-            <a th:href="@{/home}" class="btn-sidebar-primary">
-                <i class="fa-solid fa-arrow-left"></i> Back to Home
-            </a>
-
-            <form th:action="@{/logout}" method="post" style="width: 100%;">
-                <button type="submit" class="btn-sidebar-secondary">
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
-                </button>
-            </form>
-        </div>
-    </aside>
-
-    <main class="profile-main-content">
-
-        <div class="content-section">
-            <div class="section-header-inline">
-                <div>
-                    <h3>Account Settings</h3>
-                    <p class="section-subtitle">Your personal account details from said and done.</p>
+            <div class="sidebar-avatar-wrapper">
+                <div class="sidebar-avatar">
+                    <img th:if="${user.profileImg != null}"
+                        th:src="'data:image/jpeg;base64,' + ${user.generateBase64Image()}" alt="Profile Image" />
+                    <span th:if="${user.profileImg == null}" th:text="${user.firstName.substring(0,1)}">C</span>
                 </div>
-                <a th:href="@{/profile/edit}" class="btn-edit-toggle">
-                    <i class="fa-regular fa-pen-to-square"></i> Edit Profile
+                <span class="sidebar-status"></span>
+            </div>
+
+            <div class="sidebar-user-info">
+                <h2 th:text="${user.firstName + ' ' + user.lastName}"></h2>
+                <span class="sidebar-username" th:text="'@' + ${user.userHandle}"></span>
+            </div>
+
+            <div class="sidebar-role-badge">
+                <i class="fa-solid fa-user-shield"></i>
+                <span th:text="${user.userRole != null ? user.userRole : 'USER'}"></span>
+            </div>
+
+            <div class="sidebar-actions">
+                <a th:href="@{/home}" class="btn-sidebar-primary">
+                    <i class="fa-solid fa-arrow-left"></i> <span th:text="#{profile.btn.back}">Back to Home</span>
                 </a>
+
+                <form th:action="@{/logout}" method="post" style="width: 100%;">
+                    <button type="submit" class="btn-sidebar-secondary">
+                        <i class="fa-solid fa-right-from-bracket"></i> <span
+                            th:text="#{profile.btn.logout}">Logout</span>
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <main class="profile-main-content">
+
+            <div class="content-section">
+                <div class="section-header-inline">
+                    <div>
+                        <h3 th:text="#{profile.section.title}">Account Settings</h3>
+                        <p class="section-subtitle" th:text="#{profile.section.subtitle}">Your personal account details
+                            from said and done.</p>
+                    </div>
+                    <a th:href="@{/profile/edit}" class="btn-edit-toggle">
+                        <i class="fa-regular fa-pen-to-square"></i> <span th:text="#{profile.btn.edit}">Edit
+                            Profile</span>
+                    </a>
+                </div>
+
+                <div class="profile-editable-grid">
+                    <div class="input-profile-group">
+                        <label><i class="fa-solid fa-signature"></i> <span th:text="#{profile.label.firstname}">First
+                                Name</span></label>
+                        <input type="text" th:value="${user.firstName}" readonly />
+                    </div>
+
+                    <div class="input-profile-group">
+                        <label><i class="fa-solid fa-signature"></i> <span th:text="#{profile.label.lastname}">Last
+                                Name</span></label>
+                        <input type="text" th:value="${user.lastName}" readonly />
+                    </div>
+
+                    <div class="input-profile-group">
+                        <label><i class="fa-solid fa-at"></i> <span th:text="#{profile.label.username}">Username
+                                Handle</span></label>
+                        <input type="text" th:value="${user.userHandle}" readonly />
+                    </div>
+
+                    <div class="input-profile-group">
+                        <label><i class="fa-regular fa-calendar"></i> <span
+                                th:text="#{profile.label.age}">Age</span></label>
+                        <input type="text" th:value="|${user.ageUser} #{profile.age.suffix}|" readonly />
+                    </div>
+
+                    <div class="input-profile-group full-width">
+                        <label><i class="fa-regular fa-envelope"></i> <span th:text="#{profile.label.email}">Email
+                                Address</span></label>
+                        <input type="email" th:value="${user.emailUser}" readonly />
+                    </div>
+                </div>
             </div>
 
-            <div class="profile-editable-grid">
-                <div class="input-profile-group">
-                    <label><i class="fa-solid fa-signature"></i> First Name</label>
-                    <input type="text" th:value="${user.firstName}" readonly />
+            <section class="content-section">
+                <h3 th:text="#{profile.activity.title}">Platform Activity</h3>
+                <div class="activity-placeholder-box">
+                    <div class="placeholder-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 th:text="#{profile.activity.subtitle}">Contributions & Stats</h4>
+                    <p th:text="#{profile.activity.text}">Metrics regarding interaction zones and comments will sync
+                        with your database automatically.</p>
                 </div>
+            </section>
+        </main>
 
-                <div class="input-profile-group">
-                    <label><i class="fa-solid fa-signature"></i> Last Name</label>
-                    <input type="text" th:value="${user.lastName}" readonly />
-                </div>
-
-                <div class="input-profile-group">
-                    <label><i class="fa-solid fa-at"></i> Username Handle</label>
-                    <input type="text" th:value="${user.userHandle}" readonly />
-                </div>
-
-                <div class="input-profile-group">
-                    <label><i class="fa-regular fa-calendar"></i> Age</label>
-                    <input type="text" th:value="${user.ageUser + ' years old'}" readonly />
-                </div>
-
-                <div class="input-profile-group full-width">
-                    <label><i class="fa-regular fa-envelope"></i> Email Address</label>
-                    <input type="email" th:value="${user.emailUser}" readonly />
-                </div>
-            </div>
-        </div>
-
-        <section class="content-section">
-            <h3>Platform Activity</h3>
-            <div class="activity-placeholder-box">
-                <div class="placeholder-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <h4>Contributions & Stats</h4>
-                <p>Metrics regarding interaction zones and comments will sync with your database automatically.</p>
-            </div>
-        </section>
-    </main>
-
-</div>
+    </div>
 
 </body>
+
 </html>
