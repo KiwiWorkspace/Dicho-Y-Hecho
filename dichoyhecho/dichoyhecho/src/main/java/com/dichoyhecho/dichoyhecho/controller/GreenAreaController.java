@@ -2,12 +2,16 @@ package com.dichoyhecho.dichoyhecho.controller;
 
 
 import com.dichoyhecho.dichoyhecho.entity.GreenArea;
+import com.dichoyhecho.dichoyhecho.entity.Users;
+import com.dichoyhecho.dichoyhecho.repository.UserRepository;
 import com.dichoyhecho.dichoyhecho.service.GreenAreaService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -15,9 +19,11 @@ import java.util.List;
 public class GreenAreaController {
 
     private final GreenAreaService GreenAreaService;
+    private final UserRepository userRepository;
 
-    public GreenAreaController(GreenAreaService GreenAreaService) {
+    public GreenAreaController(GreenAreaService GreenAreaService, UserRepository userRepository) {
         this.GreenAreaService = GreenAreaService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/get")
@@ -48,7 +54,9 @@ public class GreenAreaController {
     }
 
     @GetMapping("/greenArea")
-    public String showContact() {
+    public String showContact(Model model, Principal principal) {
+        Users user = userRepository.findByUserHandle(principal.getName()).orElse(null);
+        model.addAttribute("user", user);
         return "greenArea";
     }
 }

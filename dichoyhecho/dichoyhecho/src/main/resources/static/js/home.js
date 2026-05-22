@@ -20,20 +20,19 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateFileName(input) {
   const preview = document.getElementById("filePreview");
   if (input.files.length > 0) {
-    preview.textContent = "Archivo seleccionado: " + input.files[0].name;
+    preview.textContent = "📎 " + input.files[0].name;
     preview.style.display = "block";
   }
 }
 
 function toggleEditForm(id) {
-  const textElement = document.getElementById("text-" + id);
-  const formElement = document.getElementById("form-" + id);
-
-  if (formElement.style.display === "none") {
-    formElement.style.display = "block";
-    textElement.style.display = "none";
+  const text = document.getElementById("text-" + id);
+  const form = document.getElementById("form-" + id);
+  if (form.style.display === "none") {
+    form.style.display = "block";
+    text.style.display = "none";
   } else {
-    formElement.style.display = "none";
-    textElement.style.display = "block";
+    form.style.display = "none";
+    text.style.display = "block";
   }
 }

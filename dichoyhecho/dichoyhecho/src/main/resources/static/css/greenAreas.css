@@ -1,134 +1,96 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+/* ============================================================
+   greenAreas.css  –  estilos propios de la página Green Areas
+   El sidebar, topbar, body y nav vienen de main.css
+   ============================================================ */
 
-body{
-    display: flex;
+/* ---- Área de contenido ---- */
+.content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    padding: 110px 30px 60px;   /* top: deja espacio a la topbar */
     min-height: 100vh;
-    background: #ecfdf5;
 }
 
-
-.sidebar{
-    width: 260px;
-    background: #064e3b;
+/* ---- Encabezado de página ---- */
+.header h1 {
     color: white;
-    padding: 20px;
-    flex-shrink: 0;
-}
-
-.sidebar-brand{
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin-bottom: 30px;
-    color: #34d399;
-}
-
-.sidebar-nav{
-    list-style: none;
-}
-
-.nav-item{
-    margin-bottom: 10px;
-}
-
-.nav-link{
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.nav-link:hover{
-    background: #10b981;
-}
-
-
-.main-content{
-    flex: 1;
-    padding: 30px;
-}
-
-.header h1{
-    color: #064e3b;
     font-size: 2.5rem;
+    font-weight: 900;
 }
 
-.header p{
-    color: #047857;
-    margin-bottom: 25px;
+.header p {
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 30px;
+    font-size: 1rem;
 }
 
-
-.areas-grid{
+/* ---- Grid de tarjetas ---- */
+.areas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
     gap: 25px;
     align-items: start;
 }
 
-
-.area-card{
+/* ---- Tarjeta de área ---- */
+.area-card {
     background: white;
     border: 3px solid #064e3b;
     border-radius: 22px;
     overflow: hidden;
     box-shadow: 6px 6px 0px #064e3b;
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
-.area-card:hover{
+.area-card:hover {
     transform: translateY(-4px);
 }
 
-.area-image{
+.area-image {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
 
-.area-content{
+.area-content {
     padding: 18px;
 }
 
-.area-title{
+.area-title {
     font-size: 1.4rem;
     font-weight: 900;
     color: #064e3b;
 }
 
-.area-info{
+.area-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 18px 0;
 }
 
-.badge{
+/* Sobreescribe el .badge de main.css dentro de las cards */
+.area-card .badge {
     background: #10b981;
     color: white;
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 700;
+    margin-left: 0;
 }
 
-.location{
+.location {
     color: #047857;
     font-weight: 800;
 }
 
-
-.toggle{
+/* ---- Toggle / expand ---- */
+.toggle {
     display: none;
 }
 
-.btn-area{
+.btn-area {
     display: block;
     width: 100%;
     background: #10b981;
@@ -140,221 +102,173 @@ body{
     cursor: pointer;
     border: 2px solid #064e3b;
     margin-top: 10px;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
-.btn-area:hover{
+.btn-area:hover {
     background: #059669;
 }
 
-.extra-list{
+.extra-list {
     max-height: 0;
     overflow: hidden;
-
     margin-top: 0;
     padding: 0 12px;
-
     background: #d1fae5;
-
     border-radius: 14px;
-
     border: 2px solid #064e3b;
-
     transition:
-    max-height 0.3s ease,
-    padding 0.3s ease,
-    margin-top 0.3s ease;
+        max-height 0.3s ease,
+        padding    0.3s ease,
+        margin-top 0.3s ease;
 }
 
-.toggle:checked + .btn-area + .extra-list{
+.toggle:checked + .btn-area + .extra-list {
     max-height: 300px;
     padding: 12px;
     margin-top: 12px;
 }
 
-.extra-list a{
+.extra-list a {
     display: block;
     padding: 12px;
     text-decoration: none;
     color: #064e3b;
     font-weight: 800;
     border-radius: 10px;
-    transition: 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
-.extra-list a:hover{
+.extra-list a:hover {
     background: #10b981;
     color: white;
 }
 
-
-.popup-overlay{
+/* ---- Popup overlay ---- */
+.popup-overlay {
     position: fixed;
     inset: 0;
-
-    background: rgba(0,0,0,0.65);
-
+    background: rgba(0, 0, 0, 0.65);
     display: flex;
     justify-content: center;
     align-items: center;
-
     opacity: 0;
     pointer-events: none;
-
-    transition: 0.3s;
-
-    z-index: 999;
+    transition: opacity 0.3s;
+    z-index: 1000;
 }
 
-.popup-overlay:target{
+.popup-overlay:target {
     opacity: 1;
     pointer-events: auto;
 }
 
-
-.popup-box{
+.popup-box {
     width: 340px;
-
     background: white;
-
     border-radius: 24px;
-
     overflow: hidden;
-
     position: relative;
-
     border: 3px solid #064e3b;
-
     box-shadow: 8px 8px 0px #064e3b;
-
     transform: scale(0.85);
-
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
-.popup-overlay:target .popup-box{
+.popup-overlay:target .popup-box {
     transform: scale(1);
 }
 
-
-.popup-image{
+.popup-image {
     width: 100%;
     height: 150px;
     object-fit: cover;
 }
 
-
-.popup-content{
+.popup-content {
     padding: 18px;
 }
 
-
-.popup-category{
+.popup-category {
     display: inline-block;
-
     background: #d1fae5;
-
     color: #065f46;
-
     font-size: 0.72rem;
-
     font-weight: 900;
-
     padding: 6px 12px;
-
     border-radius: 999px;
-
     margin-bottom: 14px;
 }
 
-.popup-content h2{
+.popup-content h2 {
     color: #064e3b;
-
     font-size: 1.5rem;
-
     margin-bottom: 10px;
 }
 
-
-.popup-description{
+.popup-description {
     color: #4b5563;
-
     line-height: 1.5;
-
     font-size: 0.9rem;
-
     margin-bottom: 16px;
 }
 
-
-.popup-details{
+.popup-details {
     display: grid;
     gap: 10px;
 }
 
-.popup-detail{
+.popup-detail {
     background: #f0fdf4;
-
     border: 2px solid #bbf7d0;
-
     border-radius: 12px;
-
     padding: 10px;
 }
 
-.detail-label{
+.detail-label {
     display: block;
-
     color: #047857;
-
     font-size: 0.75rem;
-
     font-weight: 900;
-
     margin-bottom: 4px;
 }
 
-.detail-value{
+.detail-value {
     color: #064e3b;
-
     font-weight: 800;
-
     font-size: 0.9rem;
 }
 
-
-.popup-close{
+.popup-close {
     position: absolute;
-
     top: 12px;
     right: 12px;
-
     width: 34px;
     height: 34px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-decoration: none;
-
     background: white;
-
     color: #064e3b;
-
     border-radius: 50%;
-
     font-size: 1.2rem;
-
     font-weight: bold;
-
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-
-    transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background 0.3s, color 0.3s;
 }
 
-.popup-close:hover{
+.popup-close:hover {
     transform: rotate(90deg);
     background: #10b981;
     color: white;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 120px;
+    }
 }
