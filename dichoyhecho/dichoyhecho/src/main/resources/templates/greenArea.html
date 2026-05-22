@@ -1,23 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Áreas Verdes - Dicho y Hecho</title>
-    <link rel="stylesheet" th:href="@{/css/greenAreas.css}" href="/css/creenAreas.css">
+
+    <title>Green Areas</title>
+    <link rel="stylesheet" href="areasverdes.css">
+
 </head>
+
 <body>
 
+
 <div class="sidebar">
-    <div class="sidebar-brand">Dicho y Hecho</div>
+
+    <div class="sidebar-brand">
+        Dicho y Hecho
+    </div>
 
     <ul class="sidebar-nav">
-        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/areasVerdes">Green Areas</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Green Areas</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+        </li>
+
     </ul>
+
 </div>
 
 <div class="main-content">
@@ -29,76 +46,613 @@
 
     <div class="areas-grid">
 
+
+
+
+        <!-- zona 1 -->
+
         <div class="area-card">
-            <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01001.webp">
+
+            <img class="area-image"
+                 src="https://codigo-postal.org/data/gt/images/cp/01001.webp">
 
             <div class="area-content">
                 <div class="area-title">Zone 1</div>
-                <div class="area-description"></div>
-
                 <div class="area-info">
-                    <span class="badge">National Palace</span>
-                    <span class="location">Zone 1</span>
-                </div>
 
+                    <span class="badge">
+                        National Palace
+                    </span>
+
+                    <span class="location">
+                        Zone 1
+                    </span>
+                </div>
                 <input type="checkbox" id="c1" class="toggle">
-                <label for="c1" class="btn-area">more</label>
-
+                <label for="c1" class="btn-area">
+                    More
+                </label>
                 <div class="extra-list">
-                    <a href="#">Bathrooms</a>
-                    <a href="#">Parking</a>
-                    <a href="#">Playground</a>
+
+                    <a href="#popup-park">
+                        Parque San Sebastián
+                    </a>
+
+                    <a href="#popup-centralpark">
+                        Central Park
+                    </a>
+
+                    <a href="#popup-merced">
+                        La merced Park
+                    </a>
+
                 </div>
+
             </div>
+
         </div>
 
+
+        <div id="popup-park" class="popup-overlay">
+
+            <div class="popup-box">
+
+                <a href="#" class="popup-close">×</a>
+
+                <img
+                        class="popup-image"
+                        src="https://www.guatemala.com/wp-content/uploads/2022/10/Historia-del-Parque-San-Sebastian-3.jpg">
+
+                <div class="popup-content">
+
+            <span class="popup-category">
+                Parque
+            </span>
+
+                    <h2>Parque San Sebastián</h2>
+
+                    <p class="popup-description">
+                        Es uno de los espacios históricos y tradicionales más emblemáticos del Centro Histórico. Sirve como un punto de encuentro rodeado de historia, comercio local y arquitectura antigua.
+
+                    </p>
+
+                    <div class="popup-details">
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Schedule</span>
+                            <span class="detail-value">24H</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Acceso Gratuito</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">3ª calle y 6ª avenida de la zona 1 de la Ciudad de Guatemala</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="popup-centralpark" class="popup-overlay">
+
+            <div class="popup-box">
+
+                <a href="#" class="popup-close">×</a>
+
+                <img
+                        class="popup-image"
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/32/cf/65/da/caption.jpg?w=800&h=800&s=1">
+
+                <div class="popup-content">
+
+            <span class="popup-category">
+                Parque
+            </span>
+
+                    <h2>Parque Central</h2>
+
+                    <p class="popup-description">
+                        Uno de los espacios públicos más importantes del Centro Histórico, rodeado de edificios emblemáticos, cultura y áreas de descanso para visitantes.
+
+                    </p>
+
+                    <div class="popup-details">
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Schedule</span>
+                            <span class="detail-value">24H</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Acceso Gratuito</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">
+                        Zona 1, Ciudad de Guatemala
+                    </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="popup-merced" class="popup-overlay">
+
+            <div class="popup-box">
+
+                <a href="#" class="popup-close">×</a>
+
+                <img
+                        class="popup-image"
+                        src="https://www.guatemala.com/wp-content/uploads/2017/02/Iglesia-de-La-Merced-en-La-Antigua-Guatemala.jpg">
+
+                <div class="popup-content">
+
+            <span class="popup-category">
+                Parque
+            </span>
+
+                    <h2>Parque La Merced</h2>
+
+                    <p class="popup-description">
+                        Espacio tradicional ubicado cerca de la histórica Iglesia La Merced, ideal para descansar, caminar y disfrutar del ambiente cultural del Centro Histórico.
+
+                    </p>
+
+                    <div class="popup-details">
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Schedule</span>
+                            <span class="detail-value">24H</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Acceso Gratuito</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">
+                        Zona 1, Ciudad de Guatemala
+                    </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- zona 2 -->
+
         <div class="area-card">
-            <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01002.webp">
+
+            <img class="area-image"
+                 src="https://codigo-postal.org/data/gt/images/cp/01002.webp">
 
             <div class="area-content">
+
                 <div class="area-title">Zone 2</div>
-                <div class="area-description"></div>
 
                 <div class="area-info">
-                    <span class="badge">Natural and touristic</span>
-                    <span class="location">Zone 2</span>
+
+                    <span class="badge">
+                        Natural and touristic
+                    </span>
+
+                    <span class="location">
+                        Zone 2
+                    </span>
+
                 </div>
 
                 <input type="checkbox" id="c2" class="toggle">
-                <label for="c2" class="btn-area">more</label>
+
+                <label for="c2" class="btn-area">
+                    More
+                </label>
 
                 <div class="extra-list">
-                    <a href="#">Guided tours</a>
-                    <a href="#">Cafeteria</a>
-                    <a href="#">Shop</a>
+
+                    <a href="#popup-ecological">
+                        Ecological park Ciudad Nueva
+                    </a>
+
+                    <a href="#popup-hipodromo">
+                        northern racetrack
+                    </a>
+
+                    <a href="#popup-victorias">
+                        Las Victorias park
+                    </a>
+
                 </div>
+
             </div>
+
         </div>
 
+
+
+        <div id="popup-ecological" class="popup-overlay">
+
+            <div class="popup-box">
+
+                <a href="#" class="popup-close">×</a>
+
+                <img
+                        class="popup-image"
+                        src="https://lahora.gt/wp-content/uploads/sites/5/2015/06/Foto-13-1.jpg">
+
+                <div class="popup-content">
+
+            <span class="popup-category">
+                Ecological Park
+            </span>
+
+                    <h2>Ecological Park Ciudad Nueva</h2>
+
+                    <p class="popup-description">
+                        Natural recreational area with green spaces, walking paths and peaceful environments ideal for family activities and outdoor relaxation.
+
+                    </p>
+
+                    <div class="popup-details">
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Schedule</span>
+                            <span class="detail-value">8AM - 6PM</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Free Entry</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">
+                        Zone 2, Guatemala City
+                    </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="popup-hipodromo" class="popup-overlay">
+
+            <div class="popup-box">
+
+                <a href="#" class="popup-close">×</a>
+
+                <img
+                        class="popup-image"
+                        src="https://www.guatemala.com/fotos/2022/05/Resbaladero-gigante-del-Hipodromo-del-Norte-Guatemala.jpg">
+
+                <div class="popup-content">
+
+            <span class="popup-category">
+                Historic Park
+            </span>
+
+                    <h2>Northern Racetrack</h2>
+
+                    <p class="popup-description">
+                        Historic green area known for its monuments, wide walkways and recreational spaces surrounded by trees and cultural heritage.
+
+                    </p>
+
+                    <div class="popup-details">
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Schedule</span>
+                            <span class="detail-value">24H</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Free Entry</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">
+                        Zone 2, Guatemala City
+                    </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="popup-victorias" class="popup-overlay">
+
+            <div class="popup-box">
+
+                <a href="#" class="popup-close">×</a>
+
+                <img
+                        class="popup-image"
+                        src="https://www.guatemala.com/fotos/2022/11/Destino-natural-coban.jpg">
+
+                <div class="popup-content">
+
+            <span class="popup-category">
+                Natural Park
+            </span>
+
+                    <h2>Las Victorias Park</h2>
+
+                    <p class="popup-description">
+                        Beautiful natural reserve with forest trails, viewpoints and protected green areas perfect for ecotourism and outdoor exploration.
+
+                    </p>
+
+                    <div class="popup-details">
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Schedule</span>
+                            <span class="detail-value">7AM - 5PM</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Access</span>
+                            <span class="detail-value">Low Cost Entry</span>
+                        </div>
+
+                        <div class="popup-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">
+                        Cobán, Alta Verapaz
+                    </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <!-- zona 3 -->
+
         <div class="area-card">
-            <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01003.webp">
+
+            <img class="area-image"
+                 src="https://codigo-postal.org/data/gt/images/cp/01003.webp">
 
             <div class="area-content">
+
                 <div class="area-title">Zone 3</div>
-                <div class="area-description"></div>
 
                 <div class="area-info">
-                    <span class="badge">cemetery</span>
-                    <span class="location">Zone 3</span>
+
+                    <span class="badge">
+                        Cemetery
+                    </span>
+
+                    <span class="location">
+                        Zone 3
+                    </span>
+
                 </div>
 
                 <input type="checkbox" id="c3" class="toggle">
-                <label for="c3" class="btn-area">more</label>
+
+                <label for="c3" class="btn-area">
+                    More
+                </label>
 
                 <div class="extra-list">
-                    <a href="#">Camping</a>
-                    <a href="#">Trails</a>
-                    <a href="#">Sports courts</a>
+
+                    <a href="#popup-asis">
+                        San Fransisco De Asís Park
+                    </a>
+
+                    <a href="#popup-guipil">
+                        El guipil plaze
+                    </a>
+
+                    <a href="#popup-agilares">
+                        Aguilares park
+                    </a>
+
                 </div>
+
             </div>
+
         </div>
 
     </div>
+
+</div>
+
+
+
+
+<div id="popup-asis" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <a href="#" class="popup-close">×</a>
+
+        <img
+                class="popup-image"
+                src="https://grandistritoverde.com.gt/wp-content/uploads/2025/06/principal-parque-san-francisco-asis-1030x579.jpg">
+
+        <div class="popup-content">
+
+            <span class="popup-category">
+                Urban Park
+            </span>
+
+            <h2>San Francisco De Asís Park</h2>
+
+            <p class="popup-description">
+                Traditional urban park surrounded by trees and local community spaces, ideal for relaxation and outdoor activities.
+
+            </p>
+
+            <div class="popup-details">
+
+                <div class="popup-detail">
+                    <span class="detail-label">Schedule</span>
+                    <span class="detail-value">24H</span>
+                </div>
+
+                <div class="popup-detail">
+                    <span class="detail-label">Access</span>
+                    <span class="detail-value">Free Entry</span>
+                </div>
+
+                <div class="popup-detail">
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">
+                        Zone 3, Guatemala City
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="popup-guipil" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <a href="#" class="popup-close">×</a>
+
+        <img
+                class="popup-image"
+                src="https://www.guatemala.com/fotos/201701/Plaza-guipil-885x500.jpg">
+
+        <div class="popup-content">
+
+            <span class="popup-category">
+                Cultural Plaza
+            </span>
+
+            <h2>El Güipil Plaza</h2>
+
+            <p class="popup-description">
+                Cultural and recreational public space inspired by Guatemalan traditions, surrounded by colorful artistic elements and green areas.
+            </p>
+
+            <div class="popup-details">
+
+                <div class="popup-detail">
+                    <span class="detail-label">Schedule</span>
+                    <span class="detail-value">8AM - 8PM</span>
+                </div>
+
+                <div class="popup-detail">
+                    <span class="detail-label">Access</span>
+                    <span class="detail-value">Free Entry</span>
+                </div>
+
+                <div class="popup-detail">
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">
+                        Zone 3, Guatemala City
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="popup-agilares" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <a href="#" class="popup-close">×</a>
+
+        <img
+                class="popup-image"
+                src="https://siempretur.com/media/com_jbusinessdirectory/pictures/companies/202/lugar.png">
+
+        <div class="popup-content">
+
+            <span class="popup-category">
+                Recreational Park
+            </span>
+
+            <h2>Aguilares Park</h2>
+
+            <p class="popup-description">
+                Large recreational green space with walking paths, resting areas and open zones perfect for family visits and outdoor sports.
+
+            </p>
+
+            <div class="popup-details">
+
+                <div class="popup-detail">
+                    <span class="detail-label">Schedule</span>
+                    <span class="detail-value">7AM - 6PM</span>
+                </div>
+
+                <div class="popup-detail">
+                    <span class="detail-label">Access</span>
+                    <span class="detail-value">Free Entry</span>
+                </div>
+
+                <div class="popup-detail">
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">
+                        Zone 3, Guatemala City
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 </body>
