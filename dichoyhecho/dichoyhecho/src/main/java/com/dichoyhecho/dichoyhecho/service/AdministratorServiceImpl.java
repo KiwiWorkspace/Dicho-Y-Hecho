@@ -40,7 +40,7 @@ public class AdministratorServiceImpl implements AdministratorService{
 
         Admins guardado = AdminRepository.save(admins);
         try{
-            correoService.sendConfirmation(guardado.getEmail());
+            correoService.sendConfirmation(guardado.getEmail(), guardado.getFirstName());
         } catch (Exception e) {
             System.out.println(e.getMessage());
 

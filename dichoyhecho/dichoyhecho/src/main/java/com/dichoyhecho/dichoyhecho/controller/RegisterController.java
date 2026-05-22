@@ -4,6 +4,7 @@ package com.dichoyhecho.dichoyhecho.controller;
 import com.dichoyhecho.dichoyhecho.entity.Users;
 import com.dichoyhecho.dichoyhecho.repository.UserRepository;
 import com.dichoyhecho.dichoyhecho.service.EmailService;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class RegisterController {
     }
 
     @PostMapping("/enviar-registro")
-    public String registrar(@ModelAttribute("users") Users users, Model model) {
+    public String registrar(@ModelAttribute("users") Users users, Model model) throws MessagingException {
 
         System.out.println("ENTRÓ AL POST");
 
@@ -56,7 +57,7 @@ public class RegisterController {
 
         // save to DB
         userRepository.save(users);
-        emailService.sendConfirmation(users.getEmailUser());
+        emailService.sendConfirmation(users.getEmailUser(), users.getFirstName());
 
         System.out.println("Users save DB: " + users.getUserHandle());
         System.out.println("Pasword save DB: " + users.getPassword());
