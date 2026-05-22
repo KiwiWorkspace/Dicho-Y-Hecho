@@ -101,13 +101,49 @@
 
             <section class="content-section">
                 <h3 th:text="#{profile.activity.title}">Platform Activity</h3>
-                <div class="activity-placeholder-box">
+
+
+                <div th:if="${#lists.isEmpty(myComments)}" class="activity-placeholder-box">
                     <div class="placeholder-icon">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-regular fa-comment-dots"></i>
                     </div>
-                    <h4 th:text="#{profile.activity.subtitle}">Contributions & Stats</h4>
-                    <p th:text="#{profile.activity.text}">Metrics regarding interaction zones and comments will sync
-                        with your database automatically.</p>
+                    <h4 th:text="#{profile.activity.subtitle}">You have no posts yet</h4>
+                    <p th:text="#{profile.activity.text}">The comments you make in different areas of the city will appear in this space.</p>
+                </div>
+                <div th:if="${!#lists.isEmpty(myComments)}" class="profile-comments-list" style="margin-top: 20px;">
+
+                    <div th:each="c : ${myComments}" class="comment-card" style="
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        border-radius: 12px;
+                        padding: 16px;
+                        margin-bottom: 16px;
+                    ">
+                        <div class="comment-header" style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.6);">
+                            <div>
+                                <span class="comment-user" style="font-weight: 600; color: #10b981;" th:text="'@' + ${user.userHandle}">@user</span>
+                                <span style="margin: 0 6px;">•</span>
+                                <span class="comment-time" th:text="${#temporals.format(c.commentDate, 'dd/MM/yyyy HH:mm')}">Fecha</span>
+                            </div>
+                            <span class="comment-zone-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem;">
+                                <i class="fa-solid fa-location-dot"></i> Zone <span th:text="${c.idZone}">1</span>
+                            </span>
+                        </div>
+                        <p class="comment-text" style="color: #e5e7eb; font-size: 0.95rem; line-height: 1.5; margin: 0;" th:text="${c.content}">
+                            Comment content...
+                        </p>
+                        <div th:if="${c.imagen != null or c.video != null}" style="margin-top: 12px;">
+                            <img th:if="${c.imagen != null}"
+                                 th:src="'data:image/jpeg;base64,' + ${c.generateBase64Image()}"
+                                 style="max-width: 100%; max-height: 300px; border-radius: 8px; object-fit: cover;" alt="Adjunto" />
+
+                            <video th:if="${c.video != null}"
+                                   th:src="'data:video/mp4;base64,' + ${c.generateBase64Video()}"
+                                   controls
+                                   style="max-width: 100%; max-height: 300px; border-radius: 8px;"></video>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </main>

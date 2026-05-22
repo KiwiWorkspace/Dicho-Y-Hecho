@@ -15,6 +15,7 @@ import java.util.List;
 @Service
 public class CommentServiceImpl implements CommentService {
 
+
     @Autowired
     private CommentRepository commentRepository;
 
@@ -101,5 +102,11 @@ public class CommentServiceImpl implements CommentService {
             throw new RuntimeException("You do not have permission to delete this comment.");
         }
         commentRepository.delete(comments);
+    }
+
+    @Override
+    public List<Comments> findByUserId(Integer userId) {
+
+        return commentRepository.findByIdUser_IdUser(userId);
     }
 }
