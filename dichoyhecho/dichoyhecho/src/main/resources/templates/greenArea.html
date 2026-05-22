@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Green Areas</title>
+    <title th:text="#{greenareas.page.title}">Green Areas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/greenAreas.css" />
-
 </head>
 
 <body>
@@ -20,17 +18,16 @@
                         th:src="'data:image/jpeg;base64,' + ${user.generateBase64Image()}" alt="User" />
 
                     <div th:if="${user.profileImg == null}" style="
-                width: 32px;
-                height: 32px;
-                background: #10b981;
-                color: white;
-                border-radius: 50%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bold;
-                font-size: 0.9rem;
-              " th:text="${user.firstName.substring(0,1)}">
+                        width: 32px;
+                        height: 32px;
+                        background: #10b981;
+                        color: white;
+                        border-radius: 50%;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: bold;
+                        font-size: 0.9rem;" th:text="${user.firstName.substring(0,1)}">
                         C
                     </div>
 
@@ -46,16 +43,15 @@
                     <div class="dropdown-divider"></div>
                     <form th:action="@{/logout}" method="post" style="margin: 0">
                         <button type="submit" class="danger" style="
-                  background: none;
-                  border: none;
-                  width: 100%;
-                  text-align: left;
-                  padding: 10px 15px;
-                  font-family: inherit;
-                  font-size: inherit;
-                  cursor: pointer;
-                  color: #f43f5e;
-                " th:text="#{home.menu.signout}">
+                          background: none;
+                          border: none;
+                          width: 100%;
+                          text-align: left;
+                          padding: 10px 15px;
+                          font-family: inherit;
+                          font-size: inherit;
+                          cursor: pointer;
+                          color: #f43f5e;" th:text="#{home.menu.signout}">
                             Sign out
                         </button>
                     </form>
@@ -77,6 +73,23 @@
                             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
                     </svg>
                     <span th:text="#{home.nav.home}">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/marketplace">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-shop" viewBox="0 0 16 16">
+                    </svg>
+                    <span th:text="#{nav.marketplace}">Marketplace</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/areasVerdes/greenArea">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-tree" viewBox="0 0 16 16">
+                    </svg>
+                    <span th:text="#{nav.greenAreas}">Green Areas</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -103,30 +116,37 @@
             </li>
             <li class="nav-title" th:text="#{home.nav.title.nav}">Navegación</li>
             <li class="nav-item nav-group show">
-                <a class="nav-link nav-group-toggle active" href="#"> Guatemala City </a>
+                <a class="nav-link nav-group-toggle active" href="#" th:text="#{greenareas.nav.city}"> Guatemala City
+                </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
                         <a class="nav-link" href="#zone1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                             </svg>
-                            Zone 1
+                            <span th:text="#{greenareas.zone1.title}">Zone 1</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#zone2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                             </svg>
-                            Zone 2
+                            <span th:text="#{greenareas.zone2.title}">Zone 2</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#zone3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                             </svg>
-                            Zone 3
+                            <span th:text="#{greenareas.zone3.title}">Zone 3</span>
                         </a>
                     </li>
                 </ul>
@@ -135,623 +155,344 @@
     </div>
 
     <div class="content">
-
-    <div class="header">
-        <h1>Green Areas</h1>
-        <p>Explore parks and nature</p>
-    </div>
-
-    <div class="areas-grid">
-
-
-
-
-        <!-- zona 1 -->
-
-        <div id="zone1" class="area-card">
-
-            <img class="area-image"
-                 src="https://codigo-postal.org/data/gt/images/cp/01001.webp">
-
-            <div class="area-content">
-                <div class="area-title">Zone 1</div>
-                <div class="area-info">
-
-                    <span class="badge">
-                        National Palace
-                    </span>
-
-                    <span class="location">
-                        Zone 1
-                    </span>
-                </div>
-                <input type="checkbox" id="c1" class="toggle">
-                <label for="c1" class="btn-area">
-                    More
-                </label>
-                <div class="extra-list">
-
-                    <a href="#popup-park">
-                        San Sebastián Park
-                    </a>
-
-                    <a href="#popup-centralpark">
-                        Central Park
-                    </a>
-
-                    <a href="#popup-merced">
-                        La merced Park
-                    </a>
-
-                </div>
-
-            </div>
-
+        <div class="header">
+            <h1 th:text="#{greenareas.header.title}">Green Areas</h1>
+            <p th:text="#{greenareas.header.subtitle}">Explore parks and nature</p>
         </div>
 
+        <div class="areas-grid">
+            <div id="zone1" class="area-card">
+                <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01001.webp">
+                <div class="area-content">
+                    <div class="area-title" th:text="#{greenareas.zone1.title}">Zone 1</div>
+                    <div class="area-info">
+                        <span class="badge" th:text="#{greenareas.zone1.badge}">National Palace</span>
+                        <span class="location" th:text="#{greenareas.zone1.title}">Zone 1</span>
+                    </div>
+                    <input type="checkbox" id="c1" class="toggle">
+                    <label for="c1" class="btn-area" th:text="#{greenareas.btn.more}">More</label>
+                    <div class="extra-list">
+                        <a href="#popup-park" th:text="#{greenareas.park.sebastians.name}">San Sebastián Park</a>
+                        <a href="#popup-centralpark" th:text="#{greenareas.park.central.name}">Central Park</a>
+                        <a href="#popup-merced" th:text="#{greenareas.park.merced.name}">La merced Park</a>
+                    </div>
+                </div>
+            </div>
 
-        <div id="popup-park" class="popup-overlay">
-
-            <div class="popup-box">
-
-                <a href="#" class="popup-close">×</a>
-
-                <img
-                        class="popup-image"
+            <div id="popup-park" class="popup-overlay">
+                <div class="popup-box">
+                    <a href="#" class="popup-close">×</a>
+                    <img class="popup-image"
                         src="https://www.guatemala.com/wp-content/uploads/2022/10/Historia-del-Parque-San-Sebastian-3.jpg">
-
-                <div class="popup-content">
-
-            <span class="popup-category">
-                Park
-            </span>
-
-                    <h2>San Sebastián Park</h2>
-
-                    <p class="popup-description">
-                        It is one of the most emblematic historical
-                        and traditional spaces in the city center.
-                        It serves as a meeting poiny surrounded by history, commerce,
-                        an old architecture.
-                    </p>
-
-                    <div class="popup-details">
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Schedule</span>
-                            <span class="detail-value">24H</span>
+                    <div class="popup-content">
+                        <span class="popup-category" th:text="#{greenareas.category.park}">Park</span>
+                        <h2 th:text="#{greenareas.park.sebastians.name}">San Sebastián Park</h2>
+                        <p class="popup-description" th:text="#{greenareas.park.sebastians.desc}">
+                            It is one of the most emblematic historical and traditional spaces in the city center. It
+                            serves as a meeting point surrounded by history, commerce, and old architecture.
+                        </p>
+                        <div class="popup-details">
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                                <span class="detail-value" th:text="#{greenareas.value.24h}">24H</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                                <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                                <span class="detail-value" th:text="#{greenareas.park.sebastians.loc}">3ª street and 6ª
+                                    avenue, zone 1, Guatemala city</span>
+                            </div>
                         </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Access</span>
-                            <span class="detail-value">Free Acces </span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">3ª street and 6ª avenue, zone 1, Guatemala city</span>
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-        </div>
-
-
-
-        <div id="popup-centralpark" class="popup-overlay">
-
-            <div class="popup-box">
-
-                <a href="#" class="popup-close">×</a>
-
-                <img
-                        class="popup-image"
+            <div id="popup-centralpark" class="popup-overlay">
+                <div class="popup-box">
+                    <a href="#" class="popup-close">×</a>
+                    <img class="popup-image"
                         src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/32/cf/65/da/caption.jpg?w=800&h=800&s=1">
-
-                <div class="popup-content">
-
-            <span class="popup-category">
-                Park
-            </span>
-
-                    <h2>Central Park</h2>
-
-                    <p class="popup-description">
-                        One of the most important public spaces in the Historic Center, surrounded by emblematic buildings, culture, and rest areas for visitors.
-
-                    </p>
-
-                    <div class="popup-details">
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Schedule</span>
-                            <span class="detail-value">24H</span>
+                    <div class="popup-content">
+                        <span class="popup-category" th:text="#{greenareas.category.park}">Park</span>
+                        <h2 th:text="#{greenareas.park.central.name}">Central Park</h2>
+                        <p class="popup-description" th:text="#{greenareas.park.central.desc}">
+                            One of the most important public spaces in the Historic Center, surrounded by emblematic
+                            buildings, culture, and rest areas for visitors.
+                        </p>
+                        <div class="popup-details">
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                                <span class="detail-value" th:text="#{greenareas.value.24h}">24H</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                                <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                                <span class="detail-value" th:text="#{greenareas.park.central.loc}">Zone 1, Guatemala
+                                    City</span>
+                            </div>
                         </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Access</span>
-                            <span class="detail-value">Free Acces</span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">
-                        Zone 1, Guatemala City
-                    </span>
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-        </div>
-
-
-
-        <div id="popup-merced" class="popup-overlay">
-
-            <div class="popup-box">
-
-                <a href="#" class="popup-close">×</a>
-
-                <img
-                        class="popup-image"
+            <div id="popup-merced" class="popup-overlay">
+                <div class="popup-box">
+                    <a href="#" class="popup-close">×</a>
+                    <img class="popup-image"
                         src="https://www.guatemala.com/wp-content/uploads/2017/02/Iglesia-de-La-Merced-en-La-Antigua-Guatemala.jpg">
-
-                <div class="popup-content">
-
-            <span class="popup-category">
-                Park
-            </span>
-
-                    <h2>La Merced Park</h2>
-
-                    <p class="popup-description">
-                        Traditional space located near the historic La Merced Church, ideal for resting, walking and enjoying the cultural atmosphere of the Historic Center.
-                    </p>
-
-                    <div class="popup-details">
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Schedule</span>
-                            <span class="detail-value">24H</span>
+                    <div class="popup-content">
+                        <span class="popup-category" th:text="#{greenareas.category.park}">Park</span>
+                        <h2 th:text="#{greenareas.park.merced.name}">La Merced Park</h2>
+                        <p class="popup-description" th:text="#{greenareas.park.merced.desc}">
+                            Traditional space located near the historic La Merced Church, ideal for resting, walking and
+                            enjoying the cultural atmosphere of the Historic Center.
+                        </p>
+                        <div class="popup-details">
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                                <span class="detail-value" th:text="#{greenareas.value.24h}">24H</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                                <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                                <span class="detail-value" th:text="#{greenareas.park.merced.loc}">Zone 1, Guatemala
+                                    City</span>
+                            </div>
                         </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Access</span>
-                            <span class="detail-value">Free Acces</span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">
-                        Zone 1, Guatemala City
-                    </span>
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-        </div>
-
-
-
-        <!-- zona 2 -->
-
-        <div id="zone2" class="area-card">
-
-            <img class="area-image"
-                 src="https://codigo-postal.org/data/gt/images/cp/01002.webp">
-
-            <div class="area-content">
-
-                <div class="area-title">Zone 2</div>
-
-                <div class="area-info">
-
-                    <span class="badge">
-                        Natural and touristic
-                    </span>
-
-                    <span class="location">
-                        Zone 2
-                    </span>
-
-                </div>
-
-                <input type="checkbox" id="c2" class="toggle">
-
-                <label for="c2" class="btn-area">
-                    More
-                </label>
-
-                <div class="extra-list">
-
-                    <a href="#popup-ecological">
-                        Ecological park Ciudad Nueva
-                    </a>
-
-                    <a href="#popup-hipodromo">
-                        northern racetrack
-                    </a>
-
-                    <a href="#popup-victorias">
-                        Las Victorias park
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <div id="popup-ecological" class="popup-overlay">
-
-            <div class="popup-box">
-
-                <a href="#" class="popup-close">×</a>
-
-                <img
-                        class="popup-image"
-                        src="https://lahora.gt/wp-content/uploads/sites/5/2015/06/Foto-13-1.jpg">
-
-                <div class="popup-content">
-
-            <span class="popup-category">
-                Ecological Park
-            </span>
-
-                    <h2>Ecological Park Ciudad Nueva</h2>
-
-                    <p class="popup-description">
-                        Natural recreational area with green spaces, walking paths and peaceful environments ideal for family activities and outdoor relaxation.
-
-                    </p>
-
-                    <div class="popup-details">
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Schedule</span>
-                            <span class="detail-value">8AM - 6PM</span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Access</span>
-                            <span class="detail-value">Free Access</span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">
-                        Zone 2, Guatemala City
-                    </span>
-                        </div>
-
+            <div id="zone2" class="area-card">
+                <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01002.webp">
+                <div class="area-content">
+                    <div class="area-title" th:text="#{greenareas.zone2.title}">Zone 2</div>
+                    <div class="area-info">
+                        <span class="badge" th:text="#{greenareas.zone2.badge}">Natural and touristic</span>
+                        <span class="location" th:text="#{greenareas.zone2.title}">Zone 2</span>
                     </div>
-
+                    <input type="checkbox" id="c2" class="toggle">
+                    <label for="c2" class="btn-area" th:text="#{greenareas.btn.more}">More</label>
+                    <div class="extra-list">
+                        <a href="#popup-ecological" th:text="#{greenareas.park.ecological.name}">Ecological park Ciudad
+                            Nueva</a>
+                        <a href="#popup-hipodromo" th:text="#{greenareas.park.hipodromo.name}">northern racetrack</a>
+                        <a href="#popup-victorias" th:text="#{greenareas.park.victorias.name}">Las Victorias park</a>
+                    </div>
                 </div>
-
             </div>
 
-        </div>
+            <div id="popup-ecological" class="popup-overlay">
+                <div class="popup-box">
+                    <a href="#" class="popup-close">×</a>
+                    <img class="popup-image" src="https://lahora.gt/wp-content/uploads/sites/5/2015/06/Foto-13-1.jpg">
+                    <div class="popup-content">
+                        <span class="popup-category" th:text="#{greenareas.category.ecological}">Ecological Park</span>
+                        <h2 th:text="#{greenareas.park.ecological.name}">Ecological Park Ciudad Nueva</h2>
+                        <p class="popup-description" th:text="#{greenareas.park.ecological.desc}">
+                            Natural recreational area with green spaces, walking paths and peaceful environments ideal
+                            for family activities and outdoor relaxation.
+                        </p>
+                        <div class="popup-details">
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                                <span class="detail-value" th:text="#{greenareas.park.ecological.sched}">8AM -
+                                    6PM</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                                <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                                <span class="detail-value" th:text="#{greenareas.park.ecological.loc}">Zone 2, Guatemala
+                                    City</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div id="popup-hipodromo" class="popup-overlay">
-
-            <div class="popup-box">
-
-                <a href="#" class="popup-close">×</a>
-
-                <img
-                        class="popup-image"
+            <div id="popup-hipodromo" class="popup-overlay">
+                <div class="popup-box">
+                    <a href="#" class="popup-close">×</a>
+                    <img class="popup-image"
                         src="https://www.guatemala.com/fotos/2022/05/Resbaladero-gigante-del-Hipodromo-del-Norte-Guatemala.jpg">
-
-                <div class="popup-content">
-
-            <span class="popup-category">
-                Historic Park
-            </span>
-
-                    <h2>Northern Racetrack</h2>
-
-                    <p class="popup-description">
-                        Historic green area known for its monuments, wide walkways and recreational spaces surrounded by trees and cultural heritage.
-
-                    </p>
-
-                    <div class="popup-details">
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Schedule</span>
-                            <span class="detail-value">24H</span>
+                    <div class="popup-content">
+                        <span class="popup-category" th:text="#{greenareas.category.historic}">Historic Park</span>
+                        <h2 th:text="#{greenareas.park.hipodromo.name}">Northern Racetrack</h2>
+                        <p class="popup-description" th:text="#{greenareas.park.hipodromo.desc}">
+                            Historic green area known for its monuments, wide walkways and recreational spaces
+                            surrounded by trees and cultural heritage.
+                        </p>
+                        <div class="popup-details">
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                                <span class="detail-value" th:text="#{greenareas.value.24h}">24H</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                                <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                                <span class="detail-value" th:text="#{greenareas.park.hipodromo.loc}">Zone 2, Guatemala
+                                    City</span>
+                            </div>
                         </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Access</span>
-                            <span class="detail-value">Free Access</span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">
-                        Zone 2, Guatemala City
-                    </span>
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-        </div>
-
-        <div id="popup-victorias" class="popup-overlay">
-
-            <div class="popup-box">
-
-                <a href="#" class="popup-close">×</a>
-
-                <img
-                        class="popup-image"
-                        src="https://www.guatemala.com/fotos/2022/11/Destino-natural-coban.jpg">
-
-                <div class="popup-content">
-
-            <span class="popup-category">
-                Natural Park
-            </span>
-
-                    <h2>Las Victorias Park</h2>
-
-                    <p class="popup-description">
-                        Beautiful natural reserve with forest trails, viewpoints and protected green areas perfect for ecotourism and outdoor exploration.
-
-                    </p>
-
-                    <div class="popup-details">
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Schedule</span>
-                            <span class="detail-value">7AM - 5PM</span>
+            <div id="popup-victorias" class="popup-overlay">
+                <div class="popup-box">
+                    <a href="#" class="popup-close">×</a>
+                    <img class="popup-image" src="https://www.guatemala.com/fotos/2022/11/Destino-natural-coban.jpg">
+                    <div class="popup-content">
+                        <span class="popup-category" th:text="#{greenareas.category.natural}">Natural Park</span>
+                        <h2 th:text="#{greenareas.park.victorias.name}">Las Victorias Park</h2>
+                        <p class="popup-description" th:text="#{greenareas.park.victorias.desc}">
+                            Beautiful natural reserve with forest trails, viewpoints and protected green areas perfect
+                            for ecotourism and outdoor exploration.
+                        </p>
+                        <div class="popup-details">
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                                <span class="detail-value" th:text="#{greenareas.park.victorias.sched}">7AM - 5PM</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                                <span class="detail-value" th:text="#{greenareas.park.victorias.acc}">Low Cost
+                                    Entry</span>
+                            </div>
+                            <div class="popup-detail">
+                                <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                                <span class="detail-value" th:text="#{greenareas.park.victorias.loc}">Cobán, Alta
+                                    Verapaz</span>
+                            </div>
                         </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Access</span>
-                            <span class="detail-value">Low Cost Entry</span>
-                        </div>
-
-                        <div class="popup-detail">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">
-                        Cobán, Alta Verapaz
-                    </span>
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-
-
-        </div>
-
-        <!-- zona 3 -->
-
-        <div id="zone3" class="area-card">
-
-            <img class="area-image"
-                 src="https://codigo-postal.org/data/gt/images/cp/01003.webp">
-
-            <div class="area-content">
-
-                <div class="area-title">Zone 3</div>
-
-                <div class="area-info">
-
-                    <span class="badge">
-                        Cemetery
-                    </span>
-
-                    <span class="location">
-                        Zone 3
-                    </span>
-
+            <div id="zone3" class="area-card">
+                <img class="area-image" src="https://codigo-postal.org/data/gt/images/cp/01003.webp">
+                <div class="area-content">
+                    <div class="area-title" th:text="#{greenareas.zone3.title}">Zone 3</div>
+                    <div class="area-info">
+                        <span class="badge" th:text="#{greenareas.zone3.badge}">Cemetery</span>
+                        <span class="location" th:text="#{greenareas.zone3.title}">Zone 3</span>
+                    </div>
+                    <input type="checkbox" id="c3" class="toggle">
+                    <label for="c3" class="btn-area" th:text="#{greenareas.btn.more}">More</label>
+                    <div class="extra-list">
+                        <a href="#popup-asis" th:text="#{greenareas.park.asis.name}">San Fransisco De Asís Park</a>
+                        <a href="#popup-guipil" th:text="#{greenareas.park.guipil.name}">El guipil plaze</a>
+                        <a href="#popup-agilares" th:text="#{greenareas.park.agilares.name}">Aguilares park</a>
+                    </div>
                 </div>
-
-                <input type="checkbox" id="c3" class="toggle">
-
-                <label for="c3" class="btn-area">
-                    More
-                </label>
-
-                <div class="extra-list">
-
-                    <a href="#popup-asis">
-                        San Fransisco De Asís Park
-                    </a>
-
-                    <a href="#popup-guipil">
-                        El guipil plaze
-                    </a>
-
-                    <a href="#popup-agilares">
-                        Aguilares park
-                    </a>
-
-                </div>
-
             </div>
-
         </div>
-
     </div>
 
-</div>
-
-
-
-
-<div id="popup-asis" class="popup-overlay">
-
-    <div class="popup-box">
-
-        <a href="#" class="popup-close">×</a>
-
-        <img
-                class="popup-image"
+    <div id="popup-asis" class="popup-overlay">
+        <div class="popup-box">
+            <a href="#" class="popup-close">×</a>
+            <img class="popup-image"
                 src="https://grandistritoverde.com.gt/wp-content/uploads/2025/06/principal-parque-san-francisco-asis-1030x579.jpg">
-
-        <div class="popup-content">
-
-            <span class="popup-category">
-                Urban Park
-            </span>
-
-            <h2>San Francisco De Asís Park</h2>
-
-            <p class="popup-description">
-                Traditional urban park surrounded by trees and local community spaces, ideal for relaxation and outdoor activities.
-
-            </p>
-
-            <div class="popup-details">
-
-                <div class="popup-detail">
-                    <span class="detail-label">Schedule</span>
-                    <span class="detail-value">24H</span>
+            <div class="popup-content">
+                <span class="popup-category" th:text="#{greenareas.category.urban}">Urban Park</span>
+                <h2 th:text="#{greenareas.park.asis.name}">San Francisco De Asís Park</h2>
+                <p class="popup-description" th:text="#{greenareas.park.asis.desc}">
+                    Traditional urban park surrounded by trees and local community spaces, ideal for relaxation and
+                    outdoor activities.
+                </p>
+                <div class="popup-details">
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                        <span class="detail-value" th:text="#{greenareas.value.24h}">24H</span>
+                    </div>
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                        <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                    </div>
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                        <span class="detail-value" th:text="#{greenareas.park.asis.loc}">Zone 3, Guatemala City</span>
+                    </div>
                 </div>
-
-                <div class="popup-detail">
-                    <span class="detail-label">Access</span>
-                    <span class="detail-value">Free Access</span>
-                </div>
-
-                <div class="popup-detail">
-                    <span class="detail-label">Location</span>
-                    <span class="detail-value">
-                        Zone 3, Guatemala City
-                    </span>
-                </div>
-
             </div>
-
         </div>
-
     </div>
 
-</div>
-
-<div id="popup-guipil" class="popup-overlay">
-
-    <div class="popup-box">
-
-        <a href="#" class="popup-close">×</a>
-
-        <img
-                class="popup-image"
-                src="https://www.guatemala.com/fotos/201701/Plaza-guipil-885x500.jpg">
-
-        <div class="popup-content">
-
-            <span class="popup-category">
-                Cultural Plaza
-            </span>
-
-            <h2>El Güipil Plaza</h2>
-
-            <p class="popup-description">
-                Cultural and recreational public space inspired by Guatemalan traditions, surrounded by colorful artistic elements and green areas.
-            </p>
-
-            <div class="popup-details">
-
-                <div class="popup-detail">
-                    <span class="detail-label">Schedule</span>
-                    <span class="detail-value">8AM - 8PM</span>
+    <div id="popup-guipil" class="popup-overlay">
+        <div class="popup-box">
+            <a href="#" class="popup-close">×</a>
+            <img class="popup-image" src="https://www.guatemala.com/fotos/201701/Plaza-guipil-885x500.jpg">
+            <div class="popup-content">
+                <span class="popup-category" th:text="#{greenareas.category.cultural}">Cultural Plaza</span>
+                <h2 th:text="#{greenareas.park.guipil.name}">El Güipil Plaza</h2>
+                <p class="popup-description" th:text="#{greenareas.park.guipil.desc}">
+                    Cultural and recreational public space inspired by Guatemalan traditions, surrounded by colorful
+                    artistic elements and green areas.
+                </p>
+                <div class="popup-details">
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                        <span class="detail-value" th:text="#{greenareas.park.guipil.sched}">8AM - 8PM</span>
+                    </div>
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                        <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                    </div>
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                        <span class="detail-value" th:text="#{greenareas.park.guipil.loc}">Zone 3, Guatemala City</span>
+                    </div>
                 </div>
-
-                <div class="popup-detail">
-                    <span class="detail-label">Access</span>
-                    <span class="detail-value">Free Access</span>
-                </div>
-
-                <div class="popup-detail">
-                    <span class="detail-label">Location</span>
-                    <span class="detail-value">
-                        Zone 3, Guatemala City
-                    </span>
-                </div>
-
             </div>
-
         </div>
-
     </div>
 
-</div>
-
-<div id="popup-agilares" class="popup-overlay">
-
-    <div class="popup-box">
-
-        <a href="#" class="popup-close">×</a>
-
-        <img
-                class="popup-image"
+    <div id="popup-agilares" class="popup-overlay">
+        <div class="popup-box">
+            <a href="#" class="popup-close">×</a>
+            <img class="popup-image"
                 src="https://siempretur.com/media/com_jbusinessdirectory/pictures/companies/202/lugar.png">
-
-        <div class="popup-content">
-
-            <span class="popup-category">
-                Recreational Park
-            </span>
-
-            <h2>Aguilares Park</h2>
-
-            <p class="popup-description">
-                Large recreational green space with walking paths, resting areas and open zones perfect for family visits and outdoor sports.
-
-            </p>
-
-            <div class="popup-details">
-
-                <div class="popup-detail">
-                    <span class="detail-label">Schedule</span>
-                    <span class="detail-value">7AM - 6PM</span>
+            <div class="popup-content">
+                <span class="popup-category" th:text="#{greenareas.category.recreational}">Recreational Park</span>
+                <h2 th:text="#{greenareas.park.agilares.name}">Aguilares Park</h2>
+                <p class="popup-description" th:text="#{greenareas.park.agilares.desc}">
+                    Large recreational green space with walking paths, resting areas and open zones perfect for family
+                    visits and outdoor sports.
+                </p>
+                <div class="popup-details">
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.schedule}">Schedule</span>
+                        <span class="detail-value" th:text="#{greenareas.park.agilares.sched}">7AM - 6PM</span>
+                    </div>
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.access}">Access</span>
+                        <span class="detail-value" th:text="#{greenareas.value.free}">Free Access</span>
+                    </div>
+                    <div class="popup-detail">
+                        <span class="detail-label" th:text="#{greenareas.label.location}">Location</span>
+                        <span class="detail-value" th:text="#{greenareas.park.agilares.loc}">Zone 3, Guatemala
+                            City</span>
+                    </div>
                 </div>
-
-                <div class="popup-detail">
-                    <span class="detail-label">Access</span>
-                    <span class="detail-value">Free Access</span>
-                </div>
-
-                <div class="popup-detail">
-                    <span class="detail-label">Location</span>
-                    <span class="detail-value">
-                        Zone 3, Guatemala City
-                    </span>
-                </div>
-
             </div>
-
         </div>
-
     </div>
-
-</div>
-
 </body>
+
 </html>
