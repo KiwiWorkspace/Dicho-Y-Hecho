@@ -13,126 +13,130 @@
 <body>
 
     <aside class="sidebar">
-        <div class="sidebar border-end">
-            <div class="sidebar-header border-bottom">
-                <div class="sidebar-brand">Said and Done</div>
-            </div>
-            <div class="sidebar-content">
-            <ul class="sidebar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/home">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-house" viewBox="0 0 16 16">
-                            <path
-                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
-                        </svg>
-                        <span th:text="#{sidebar.home}">Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-bar-chart" viewBox="0 0 16 16">
-                            <path
-                                d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z" />
-                        </svg>
-                        <span th:text="#{sidebar.trends}">Trends</span>
-                        <span class="badge bg-primary ms-auto">NEW</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/marketplace">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-shop" viewBox="0 0 16 16">
-                            <path d="M2.5 1a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H0v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3h-1V2a1 1 0 0 0-1-1H2.5zm13 3v3h-1V3h1zm-1 9H2.5a1.5 1.5 0 0 1-1.5-1.5V8H0v5h14V8h-1V5h-1.5a1.5 1.5 0 0 1-1.5 1.5h-.5zm-2.5 3H2v5h10V9zm0 5H2v-2h10v2z"/>
-                        </svg>
-                        <span th:text="#{nav.marketplace}">Marketplace</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/areasVerdes/greenArea">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-tree" viewBox="0 0 16 16">
-                            <path d="M8.416.223c-.15-.461-3.023-.223-4.309.037-.875.184-1.584.95-1.558 1.715.054 1.585 1.674 2.913 2.875 3.768 1.348.958 2.794 1.683 3.496 2.824.238.387.354.75.344 1.163-.016.692-.636 1.227-1.411 1.227H5.5c-.775 0-1.395-.535-1.411-1.227-.01-.413.106-.776.344-1.163.702-1.141 2.148-1.866 3.496-2.824 1.201-.855 2.821-2.183 2.875-3.768.026-.765-.683-1.531-1.558-1.715-1.286-.26-4.159-.198-4.309-.037zM5.5 4.727c.275-.193.568-.308.875-.308.307 0 .6.115.875.308.275.193.518.463.706.786.186.32.318.67.393 1.036.077.375.098.76.062 1.17-.046.539-.346 1.013-.864 1.364H3.5c-.518-.351-.818-.825-.864-1.364-.036-.41-.015-.795.062-1.17.075-.366.207-.716.393-1.036.188-.323.431.593.706.786z"/>
-                        </svg>
-                        <span th:text="#{nav.greenAreas}">Green Areas</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
-                        </svg>
-                        <span th:text="#{sidebar.contact}">Contact</span>
-                        <span class="badge bg-primary ms-auto">NEW</span>
-                    </a>
-                </li>
-                <li class="nav-title" th:text="#{sidebar.nav_title}">Navegación</li>
-                <li class="nav-item nav-group show">
-                    <a class="nav-link nav-group-toggle" href="#">Guatemala City</a>
-                    <ul class="nav-group-items">
-                        <li class="nav-item" th:each="z : ${#numbers.sequence(1, 6)}">
-                            <a class="nav-link" th:href="@{/zona/{n}(n=${z})}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-square" viewBox="0 0 16 16">
-                                    <path
-                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                                </svg>
-                                <span th:text="#{sidebar.zone} + ' ' + ${z}">Zone 1</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            </div>
+        <div class="sidebar-header">
+            <div class="sidebar-brand">Said and Done<span>.</span></div>
         </div>
+        <ul class="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-house" viewBox="0 0 16 16">
+                        <path
+                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                    </svg>
+                    <span th:text="#{sidebar.home}">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-bar-chart" viewBox="0 0 16 16">
+                        <path
+                            d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z" />
+                    </svg>
+                    <span th:text="#{sidebar.trends}">Trends</span>
+                    <span class="badge bg-primary ms-auto">NEW</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/marketplace">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-shop" viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 1a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H0v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3h-1V2a1 1 0 0 0-1-1H2.5zm13 3v3h-1V3h1zm-1 9H2.5a1.5 1.5 0 0 1-1.5-1.5V8H0v5h14V8h-1V5h-1.5a1.5 1.5 0 0 1-1.5 1.5h-.5zm-2.5 3H2v5h10V9zm0 5H2v-2h10v2z" />
+                    </svg>
+                    <span th:text="#{nav.marketplace}">Marketplace</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/areasVerdes/greenArea">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-tree" viewBox="0 0 16 16">
+                        <path
+                            d="M8.416.223c-.15-.461-3.023-.223-4.309.037-.875.184-1.584.95-1.558 1.715.054 1.585 1.674 2.913 2.875 3.768 1.348.958 2.794 1.683 3.496 2.824.238.387.354.75.344 1.163-.016.692-.636 1.227-1.411 1.227H5.5c-.775 0-1.395-.535-1.411-1.227-.01-.413.106-.776.344-1.163.702-1.141 2.148-1.866 3.496-2.824 1.201-.855 2.821-2.183 2.875-3.768.026-.765-.683-1.531-1.558-1.715-1.286-.26-4.159-.198-4.309-.037zM5.5 4.727c.275-.193.568-.308.875-.308.307 0 .6.115.875.308.275.193.518.463.706.786.186.32.318.67.393 1.036.077.375.098.76.062 1.17-.046.539-.346 1.013-.864 1.364H3.5c-.518-.351-.818-.825-.864-1.364-.036-.41-.015-.795.062-1.17.075-.366.207-.716.393-1.036.188-.323.431.593.706.786z" />
+                    </svg>
+                    <span th:text="#{nav.greenAreas}">Green Areas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
+                    </svg>
+                    <span th:text="#{sidebar.contact}">Contact</span>
+                </a>
+            </li>
+
+            <li class="nav-title" th:text="#{sidebar.nav_title}">Navigation</li>
+
+            <li class="nav-item">
+                <ul class="nav-group-items">
+                    <li th:each="z : ${#numbers.sequence(1, 6)}">
+                        <a class="nav-link" th:href="@{/zona/{n}(n=${z})}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                class="bi bi-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                            </svg>
+                            <span th:text="#{sidebar.zone} + ' ' + ${z}">Zone 1</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </aside>
 
-    <main class="main-content">
-        <div class="contact-card">
-            <h1 class="text-center mb-4" th:text="#{contact.main.title}">Contact</h1>
-            <p class="text-center mb-4" style="opacity: 0.8;" th:text="#{contact.main.subtitle}">
-                Do you have questions about our services or need to report bugs? Contact us.
-            </p>
+    <main class="contact-page">
+        <div class="contact-container">
 
-            <form th:action="@{/contact}" method="POST">
-                <div class="mb-3">
-                    <label class="form-label fw-bold" th:text="#{contact.label.name}">Full Name</label>
-                    <input type="text" name="nombre" class="form-control" th:placeholder="#{contact.placeholder.name}"
-                        placeholder="Your name here..." required>
-                </div>
+            <div class="contact-header">
+                <h1 th:text="#{contact.main.title}">Contact Us</h1>
+                <p th:text="#{contact.main.subtitle}">Do you have questions about our services or need to report bugs?
+                    Contact us.</p>
+            </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold" th:text="#{contact.label.email}">Email</label>
-                    <input type="email" name="email" class="form-control" th:placeholder="#{contact.placeholder.email}"
-                        placeholder="ejemplo@correo.com" required>
-                </div>
+            <div class="contact-form-card">
+                <form th:action="@{/contact}" method="POST">
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold" th:text="#{contact.label.subject}">Subject</label>
-                    <input type="text" name="asunto" class="form-control"
-                        th:placeholder="#{contact.placeholder.subject}" placeholder="Ej: Technical Support">
-                </div>
+                    <div class="form-group">
+                        <label for="nombre" th:text="#{contact.label.name}">Full Name</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control"
+                            th:placeholder="#{contact.placeholder.name}" placeholder="Your name here..." required>
+                    </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-bold" th:text="#{contact.label.message}">Message</label>
-                    <textarea name="mensaje" class="form-control" rows="4"
-                        th:placeholder="#{contact.placeholder.message}" placeholder="Write your message here..."
-                        required></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="email" th:text="#{contact.label.email}">Email</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            th:placeholder="#{contact.placeholder.email}" placeholder="example@mail.com" required>
+                    </div>
 
-                <button type="submit" class="btn-submit">
-                    <i class="fas fa-paper-plane me-2"></i> <span th:text="#{contact.btn.submit}">Submit Form</span>
-                </button>
+                    <div class="form-group">
+                        <label for="asunto" th:text="#{contact.label.subject}">Subject</label>
+                        <input type="text" id="asunto" name="asunto" class="form-control"
+                            th:placeholder="#{contact.placeholder.subject}" placeholder="e.g., Technical Support">
+                    </div>
 
-                <div th:if="${success}" class="alert alert-success mt-4 border-0 text-white shadow-lg"
-                    style="background-color: var(--primary);">
-                    <i class="fas fa-check-circle me-2"></i> <span th:text="#{contact.msg.success}">Data sent
-                        successfully!</span>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="mensaje" th:text="#{contact.label.message}">Message</label>
+                        <textarea id="mensaje" name="mensaje" class="form-control" rows="4"
+                            th:placeholder="#{contact.placeholder.message}" placeholder="Write your message here..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        <span th:text="#{contact.btn.submit}">Send Message</span>
+                    </button>
+
+                    <div th:if="${success}" class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <span th:text="#{contact.msg.success}">Data sent successfully!</span>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </main>
 
