@@ -36,10 +36,11 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(Model model, Principal principal) {
-        Users user = userRepository.findByUserHandle(principal.getName()).orElse(null);
-
-        model.addAttribute("user", user);
-        model.addAttribute("username", principal.getName());
+        if (principal !=null) {
+            Users user = userRepository.findByUserHandle(principal.getName()).orElse(null);
+            model.addAttribute("user", user);
+            model.addAttribute("username", principal.getName());
+        }
 
         List<Comments> recentComments = commentRepository.findAllByOrderByCommentDateDesc();
         model.addAttribute("recentComments", recentComments.stream().limit(5).toList());

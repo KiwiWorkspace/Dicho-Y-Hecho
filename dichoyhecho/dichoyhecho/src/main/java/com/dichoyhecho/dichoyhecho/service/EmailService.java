@@ -34,7 +34,7 @@ public class EmailService {
 
 
         String html = templateEngine.process(
-                "email/bienvenida",
+                "email/welcome",
                 context
         );
 

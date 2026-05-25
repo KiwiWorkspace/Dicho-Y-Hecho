@@ -49,6 +49,10 @@
 
     <main class="profile-main-content">
 
+        <div th:if="${error}" style="background: #fee2e2; color: #b91c1c; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #f87171;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span th:text="${error}"></span>
+        </div>
         <form th:action="@{/profile/update}" th:object="${user}" method="post" class="content-section" enctype="multipart/form-data">
 
             <input type="hidden" th:field="*{idUser}" />
