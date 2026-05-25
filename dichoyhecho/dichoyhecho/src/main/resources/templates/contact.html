@@ -5,45 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="#{contact.page.title}">Contact - Said And Done</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" th:href="@{/css/contact.css}" href="/css/contact.css">
 </head>
 
 <body>
 
     <aside class="sidebar">
-        <div class="sidebar border-end">
-            <div class="sidebar-header border-bottom">
-                <div class="sidebar-brand">Said and Done</div>
-            </div>
-            <div class="sidebar-content">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">Said and Done</div>
+        </div>
+        <div class="sidebar-content">
             <ul class="sidebar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/home">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-house" viewBox="0 0 16 16">
-                            <path
-                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                    <a class="nav-link" href="/home">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                         </svg>
                         <span th:text="#{sidebar.home}">Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-bar-chart" viewBox="0 0 16 16">
-                            <path
-                                d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/>
                         </svg>
                         <span th:text="#{sidebar.trends}">Trends</span>
-                        <span class="badge bg-primary ms-auto">NEW</span>
+                        <span class="nav-badge">NEW</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/marketplace">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-shop" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M2.5 1a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H0v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3h-1V2a1 1 0 0 0-1-1H2.5zm13 3v3h-1V3h1zm-1 9H2.5a1.5 1.5 0 0 1-1.5-1.5V8H0v5h14V8h-1V5h-1.5a1.5 1.5 0 0 1-1.5 1.5h-.5zm-2.5 3H2v5h10V9zm0 5H2v-2h10v2z"/>
                         </svg>
                         <span th:text="#{nav.marketplace}">Marketplace</span>
@@ -51,34 +43,29 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/areasVerdes/greenArea">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-tree" viewBox="0 0 16 16">
-                            <path d="M8.416.223c-.15-.461-3.023-.223-4.309.037-.875.184-1.584.95-1.558 1.715.054 1.585 1.674 2.913 2.875 3.768 1.348.958 2.794 1.683 3.496 2.824.238.387.354.75.344 1.163-.016.692-.636 1.227-1.411 1.227H5.5c-.775 0-1.395-.535-1.411-1.227-.01-.413.106-.776.344-1.163.702-1.141 2.148-1.866 3.496-2.824 1.201-.855 2.821-2.183 2.875-3.768.026-.765-.683-1.531-1.558-1.715-1.286-.26-4.159-.198-4.309-.037zM5.5 4.727c.275-.193.568-.308.875-.308.307 0 .6.115.875.308.275.193.518.463.706.786.186.32.318.67.393 1.036.077.375.098.76.062 1.17-.046.539-.346 1.013-.864 1.364H3.5c-.518-.351-.818-.825-.864-1.364-.036-.41-.015-.795.062-1.17.075-.366.207-.716.393-1.036.188-.323.431.593.706.786z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.416.223c-.15-.461-3.023-.223-4.309.037-.875.184-1.584.95-1.558 1.715.054 1.585 1.674 2.913 2.875 3.768 1.348.958 2.794 1.683 3.496 2.824.238.387.354.75.344 1.163-.016.692-.636 1.227-1.411 1.227H5.5c-.775 0-1.395-.535-1.411-1.227-.01-.413.106-.776.344-1.163.702-1.141 2.148-1.866 3.496-2.824 1.201-.855 2.821-2.183 2.875-3.768.026-.765-.683-1.531-1.558-1.715C8.575.262 5.702.024 5.552.223z"/>
                         </svg>
                         <span th:text="#{nav.greenAreas}">Green Areas</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
+                    <a class="nav-link active" href="/contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
                         </svg>
                         <span th:text="#{sidebar.contact}">Contact</span>
-                        <span class="badge bg-primary ms-auto">NEW</span>
+                        <span class="nav-badge">NEW</span>
                     </a>
                 </li>
                 <li class="nav-title" th:text="#{sidebar.nav_title}">Navegación</li>
-                <li class="nav-item nav-group show">
+                <li class="nav-item nav-group">
                     <a class="nav-link nav-group-toggle" href="#">Guatemala City</a>
                     <ul class="nav-group-items">
                         <li class="nav-item" th:each="z : ${#numbers.sequence(1, 6)}">
                             <a class="nav-link" th:href="@{/zona/{n}(n=${z})}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-square" viewBox="0 0 16 16">
-                                    <path
-                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
                                 </svg>
                                 <span th:text="#{sidebar.zone} + ' ' + ${z}">Zone 1</span>
                             </a>
@@ -86,57 +73,90 @@
                     </ul>
                 </li>
             </ul>
-            </div>
         </div>
     </aside>
 
-    <main class="main-content">
-        <div class="contact-card">
-            <h1 class="text-center mb-4" th:text="#{contact.main.title}">Contact</h1>
-            <p class="text-center mb-4" style="opacity: 0.8;" th:text="#{contact.main.subtitle}">
-                Do you have questions about our services or need to report bugs? Contact us.
-            </p>
+    <main class="contact-page">
+        <div class="contact-container">
 
-            <form th:action="@{/contact}" method="POST">
-                <div class="mb-3">
-                    <label class="form-label fw-bold" th:text="#{contact.label.name}">Full Name</label>
-                    <input type="text" name="nombre" class="form-control" th:placeholder="#{contact.placeholder.name}"
-                        placeholder="Your name here..." required>
+            <!-- Header -->
+            <div class="contact-header">
+                <h1 th:text="#{contact.main.title}">Contáctanos</h1>
+                <p th:text="#{contact.main.subtitle}">¿Tienes preguntas sobre nuestros servicios o necesitas reportar un problema? Escríbenos.</p>
+            </div>
+
+            <!-- Info chips -->
+            <div class="contact-chips">
+                <div class="contact-chip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    soporte@saidanddone.gt
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label fw-bold" th:text="#{contact.label.email}">Email</label>
-                    <input type="email" name="email" class="form-control" th:placeholder="#{contact.placeholder.email}"
-                        placeholder="ejemplo@correo.com" required>
+                <div class="contact-chip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Resp. en menos de 24h
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label fw-bold" th:text="#{contact.label.subject}">Subject</label>
-                    <input type="text" name="asunto" class="form-control"
-                        th:placeholder="#{contact.placeholder.subject}" placeholder="Ej: Technical Support">
+                <div class="contact-chip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Ciudad de Guatemala
                 </div>
+            </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-bold" th:text="#{contact.label.message}">Message</label>
-                    <textarea name="mensaje" class="form-control" rows="4"
-                        th:placeholder="#{contact.placeholder.message}" placeholder="Write your message here..."
-                        required></textarea>
-                </div>
+            <!-- Form card -->
+            <div class="contact-form-card">
+                <form th:action="@{/contact}" method="POST">
 
-                <button type="submit" class="btn-submit">
-                    <i class="fas fa-paper-plane me-2"></i> <span th:text="#{contact.btn.submit}">Submit Form</span>
-                </button>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label th:text="#{contact.label.name}">Nombre completo</label>
+                            <input type="text" name="nombre"
+                                th:placeholder="#{contact.placeholder.name}"
+                                placeholder="Tu nombre aquí..." required>
+                        </div>
+                        <div class="form-group">
+                            <label th:text="#{contact.label.email}">Correo electrónico</label>
+                            <input type="email" name="email"
+                                th:placeholder="#{contact.placeholder.email}"
+                                placeholder="ejemplo@correo.com" required>
+                        </div>
+                    </div>
 
-                <div th:if="${success}" class="alert alert-success mt-4 border-0 text-white shadow-lg"
-                    style="background-color: var(--primary);">
-                    <i class="fas fa-check-circle me-2"></i> <span th:text="#{contact.msg.success}">Data sent
-                        successfully!</span>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label th:text="#{contact.label.subject}">Asunto</label>
+                        <select name="asunto">
+                            <option value="" disabled selected>Selecciona una categoría...</option>
+                            <option value="soporte">🛠️ Soporte técnico</option>
+                            <option value="reporte">🚨 Reportar un problema</option>
+                            <option value="sugerencia">💡 Sugerencia</option>
+                            <option value="municipalidad">🏛️ Consulta a la municipalidad</option>
+                            <option value="otro">📋 Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:text="#{contact.label.message}">Mensaje</label>
+                        <textarea name="mensaje" rows="5"
+                            th:placeholder="#{contact.placeholder.message}"
+                            placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                        <span th:text="#{contact.btn.submit}">Enviar mensaje</span>
+                    </button>
+
+                    <div th:if="${success}" class="success-message">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span th:text="#{contact.msg.success}">¡Mensaje enviado con éxito!</span>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

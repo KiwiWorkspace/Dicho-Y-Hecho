@@ -5,7 +5,7 @@
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
-      <remarks>D:/taller/Dicho-Y-Hecho/dichoyhecho/dichoyhecho/src/main/resources/application.properties</remarks>
+      <remarks>E:/KINAL2026/TALLER/GITHUB/Dicho-Y-Hecho/dichoyhecho/dichoyhecho/src/main/resources/application.properties</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/dichoyhecho_in5bv?useUssl=false</jdbc-url>
       <jdbc-additional-properties>

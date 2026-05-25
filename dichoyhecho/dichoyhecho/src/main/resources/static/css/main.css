@@ -1049,62 +1049,211 @@ h3 {
   color: #f87171;
 }
 
-/* ========== MODERN COMMENTS ========== */
+/* ========== CHAT BUBBLES ========== */
 
+/* Contenedor general del área de mensajes */
+.chat-messages-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 8px;
+}
+
+/* Cada mensaje = una fila */
 .comment-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 16px 18px;
-  margin-bottom: 12px;
-  transition: all 0.25s ease;
-  animation: fadeInUp 0.4s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;    /* ajeno: izquierda */
+  max-width: 100%;
+  margin-bottom: 4px;
+  animation: bubbleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Mensajes propios: alinear a la derecha */
+.comment-card.own {
+  align-items: flex-end;
 }
 
-.comment-card:nth-child(1) { animation-delay: 0s; }
-.comment-card:nth-child(2) { animation-delay: 0.05s; }
-.comment-card:nth-child(3) { animation-delay: 0.1s; }
-.comment-card:nth-child(4) { animation-delay: 0.15s; }
-.comment-card:nth-child(5) { animation-delay: 0.2s; }
-
-.comment-card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.12);
-  transform: translateX(3px);
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* Cabecera del mensaje (usuario + hora) */
 .comment-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding: 0 4px;
+}
+
+.comment-card.own .comment-header {
+  flex-direction: row-reverse;
+}
+
+/* Avatar inicial */
+.comment-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.comment-card.own .comment-avatar {
+  background: linear-gradient(135deg, #059669, #10b981);
 }
 
 .comment-user {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: var(--primary);
-  background: rgba(16, 185, 129, 0.1);
-  padding: 4px 10px;
-  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.comment-card.own .comment-user {
+  color: rgba(16, 185, 129, 0.8);
 }
 
 .comment-time {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* La burbuja en sí */
+.comment-bubble {
+  max-width: 72%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  position: relative;
+  word-break: break-word;
+  line-height: 1.55;
+}
+
+/* Burbuja ajena (izquierda) */
+.comment-card:not(.own) .comment-bubble {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: 4px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Burbuja propia (derecha) */
+.comment-card.own .comment-bubble {
+  background: linear-gradient(135deg, #059669, #10b981);
+  border-bottom-right-radius: 4px;
+  color: white;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
 }
 
 .comment-text {
-  font-size: 0.92rem;
-  color: var(--text-main);
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+/* Botones editar/eliminar dentro de la burbuja propia */
+.comment-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  justify-content: flex-end;
+}
+
+.comment-card:not(.own) .comment-actions {
+  justify-content: flex-start;
+}
+
+/* Formulario de edición inline */
+.comment-card form[id^="form-"] {
+  max-width: 72%;
+  margin-top: 6px;
+}
+
+.comment-card.own form[id^="form-"] {
+  align-self: flex-end;
+}
+
+.comment-card form[id^="form-"] input[type="text"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 7px 10px !important;
+  font-size: 0.88rem;
+  width: 100%;
+}
+
+/* Imagen/video adjunto */
+.comment-media {
+  max-width: 72%;
+  margin-top: 4px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.comment-card.own .comment-media {
+  align-self: flex-end;
+}
+
+.comment-media img,
+.comment-media video {
+  max-width: 100%;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Separador de sección "Comentarios Recientes" */
+.chat-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 12px;
+}
+
+.chat-divider span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--secondary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chat-divider::before,
+.chat-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Estado vacío dentro del chat */
+.chat-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.chat-empty svg {
+  opacity: 0.25;
+  margin-bottom: 10px;
+}
+
+.chat-empty p {
+  font-size: 0.88rem;
   line-height: 1.6;
-  word-break: break-word;
 }
 
 .comment-actions {

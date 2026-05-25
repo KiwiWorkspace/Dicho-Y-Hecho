@@ -12,45 +12,57 @@
 
 <body>
   <div class="auth-container">
-    <div class="contenedor">
-      <div class="tarjeta">
-        <h2 class="titulo" th:text="#{login.title}">Said and Done</h2>
-        <p class="subtitulo" th:text="#{login.subtitle}">
-          Log in to access the system
-        </p>
 
-        <div th:if="${param.error}" class="mensaje error" th:text="#{login.error}">
-          Incorrect username or password
+    <!-- Panel izquierdo: ilustración decorativa -->
+    <div class="panel-ilustracion">
+      <div class="blob"></div>
+      <div class="ilustracion-inner">
+        <div class="logo-mark">S&D</div>
+        <p class="panel-tagline">Said &amp; Done</p>
+      </div>
+      <div class="burbuja b1"></div>
+      <div class="burbuja b2"></div>
+      <div class="burbuja b3"></div>
+    </div>
+
+    <!-- Panel derecho: formulario -->
+    <div class="panel-form">
+      <h2 class="titulo" th:text="#{login.title}">Said and Done</h2>
+      <p class="subtitulo" th:text="#{login.subtitle}">Log in to access the system</p>
+
+      <div th:if="${param.error}" class="mensaje error" th:text="#{login.error}">
+        Incorrect username or password
+      </div>
+      <div th:if="${param.logout}" class="mensaje success" th:text="#{login.logout}">
+        Successfully logged out
+      </div>
+
+      <form th:action="@{/login}" method="post">
+        <div class="campo">
+          <label for="username" th:text="#{login.label.user}">User</label>
+          <input type="text" id="username" name="username"
+            th:placeholder="#{login.placeholder.user}"
+            placeholder="Your user" required autocomplete="username" />
         </div>
 
-        <div th:if="${param.logout}" class="mensaje success" th:text="#{login.logout}">
-          Successfully logged out
+        <div class="campo">
+          <label for="password" th:text="#{login.label.password}">Password</label>
+          <input type="password" id="password" name="password"
+            placeholder="••••••••" required autocomplete="current-password" />
         </div>
 
-        <form th:action="@{/login}" method="post">
-          <div class="campo">
-            <label for="username" th:text="#{login.label.user}">User</label>
-            <input type="text" id="username" name="username" th:placeholder="#{login.placeholder.user}"
-              placeholder="Your user" required autocomplete="username" />
-          </div>
+        <button type="submit" class="boton btn-principal" th:text="#{login.btn.submit}">
+          Log in
+        </button>
+      </form>
 
-          <div class="campo">
-            <label for="password" th:text="#{login.label.password}">Password</label>
-            <input type="password" id="password" name="password" placeholder="••••••••" required
-              autocomplete="current-password" />
-          </div>
-
-          <button type="submit" class="boton btn-principal" th:text="#{login.btn.submit}">
-            Log in
-          </button>
-        </form>
-
-        <div class="acciones">
-          <a th:href="@{/register}" class="boton btn-secundario" th:text="#{login.btn.register}">
-            Register</a>
-        </div>
+      <div class="acciones">
+        <a th:href="@{/register}" class="boton btn-secundario" th:text="#{login.btn.register}">
+          Register
+        </a>
       </div>
     </div>
+
   </div>
 </body>
 

@@ -194,36 +194,50 @@
                         Current trends
                     </div>
                     <div class="reddit-cards">
-                        <a href="#" class="reddit-card">
+
+                        <!-- ===== NOTICIA ORIGINAL 1: ZOOLÓGICO LA AURORA ===== -->
+                        <div class="reddit-card news-card" onclick="openNewsModal('aurora')">
                             <div class="reddit-card-thumb" style="
-                    background-image: url(&quot;https://muniguatealfrente.com/wp-content/uploads/548512958_122227454666182619_3672088510251592905_n.jpg&quot;);
-                  "></div>
-                            <div class="reddit-card-body">
+                                background-image: url('https://muniguatealfrente.com/wp-content/uploads/548512958_122227454666182619_3672088510251592905_n.jpg');
+                                height: 140px; background-size: cover; background-position: center;
+                                position: relative;">
+                                <span style="position:absolute;top:10px;left:10px;background:rgba(16,185,129,0.92);color:white;font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;">🦁 Zoológico</span>
+                            </div>
+                            <div class="reddit-card-body" style="padding: 12px 14px;">
                                 <div class="reddit-card-meta">
-                                    <span class="reddit-card-zone">📍
-                                        <span th:text="#{home.nav.zone} + ' 1'">Zona 1</span></span>
+                                    <span class="reddit-card-zone">📍 <span th:text="#{home.nav.zone} + ' 13'">Zona 13</span></span>
                                     <span class="reddit-card-time" th:text="#{home.feed.time.hours}">Hace 2 horas</span>
                                 </div>
                                 <h3 class="reddit-card-title" th:text="#{home.mock.card1.title}">
                                     Arreglan Baches en Zoológico La Aurora
                                 </h3>
                                 <p class="reddit-card-text" th:text="#{home.mock.card1.text}">
-                                    El Zoológico La Aurora ha iniciado un proyecto de reparación
-                                    de baches en sus accesos principales...
+                                    El Zoológico La Aurora ha iniciado un proyecto de reparación de baches en sus accesos principales...
                                 </p>
-                                <div class="reddit-card-footer">
-                                    <span class="reddit-card-votes">▲ 142</span>
-                                    <span class="reddit-card-comments">💬 38
-                                        <span th:text="#{home.feed.comments.suffix}">comentarios</span></span>
+                                <div class="reddit-card-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
+                                    <div style="display:flex;gap:12px;align-items:center;">
+                                        <button class="news-like-btn" id="like-aurora" onclick="event.stopPropagation(); toggleLike('aurora')" title="Me gusta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                            <span id="likes-aurora">142</span>
+                                        </button>
+                                        <span class="reddit-card-comments" style="cursor:pointer;" onclick="event.stopPropagation(); openNewsModal('aurora')">
+                                            💬 <span id="count-aurora">38</span> comentarios
+                                        </span>
+                                    </div>
+                                    <span style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Leer más →</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="#" class="reddit-card">
+                        <!-- ===== NOTICIA ORIGINAL 2: SAN PEDRO AYAMPUC ===== -->
+                        <div class="reddit-card news-card" onclick="openNewsModal('ayampuc')">
                             <div class="reddit-card-thumb" style="
-                    background-image: url(&quot;https://agn.gt/wp-content/uploads/2025/04/Captura-de-pantalla-2025-04-28-165619.png&quot;);
-                  "></div>
-                            <div class="reddit-card-body">
+                                background-image: url('https://agn.gt/wp-content/uploads/2025/04/Captura-de-pantalla-2025-04-28-165619.png');
+                                height: 140px; background-size: cover; background-position: center;
+                                position: relative;">
+                                <span style="position:absolute;top:10px;left:10px;background:rgba(16,185,129,0.92);color:white;font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;">🏗️ Infraestructura</span>
+                            </div>
+                            <div class="reddit-card-body" style="padding: 12px 14px;">
                                 <div class="reddit-card-meta">
                                     <span class="reddit-card-zone">📍 San Pedro Ayampuc</span>
                                     <span class="reddit-card-time" th:text="#{home.feed.time.mins}">Hace 15 min</span>
@@ -232,17 +246,315 @@
                                     Planean reactivar obra inconclusa en la zona
                                 </h3>
                                 <p class="reddit-card-text" th:text="#{home.mock.card2.text}">
-                                    Esta visita permitió a las autoridades determinar la
-                                    urgencia de reactivar el proyecto abandonado...
+                                    Esta visita permitió a las autoridades determinar la urgencia de reactivar el proyecto abandonado...
                                 </p>
-                                <div class="reddit-card-footer">
-                                    <span class="reddit-card-votes">▲ 87</span>
-                                    <span class="reddit-card-comMENTS">💬 21
-                                        <span th:text="#{home.feed.comments.suffix}">comentarios</span></span>
+                                <div class="reddit-card-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
+                                    <div style="display:flex;gap:12px;align-items:center;">
+                                        <button class="news-like-btn" id="like-ayampuc" onclick="event.stopPropagation(); toggleLike('ayampuc')" title="Me gusta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                            <span id="likes-ayampuc">87</span>
+                                        </button>
+                                        <span class="reddit-card-comments" style="cursor:pointer;" onclick="event.stopPropagation(); openNewsModal('ayampuc')">
+                                            💬 <span id="count-ayampuc">21</span> comentarios
+                                        </span>
+                                    </div>
+                                    <span style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Leer más →</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
+
+                        <!-- ===== NOTICIA NUEVA 1: AEROMETRO ===== -->
+                        <div class="reddit-card news-card" onclick="openNewsModal('aerometro')">
+                            <div class="reddit-card-thumb" style="
+                                background-image: url('https://lahora.gt/wp-content/uploads/2026/04/AeroMetro-La-Hora-MuniGuate.jpg');
+                                height: 140px; background-size: cover; background-position: center;
+                                position: relative;">
+                                <span style="position:absolute;top:10px;left:10px;background:rgba(16,185,129,0.92);color:white;font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;">🏙️ MuniGuate</span>
+                            </div>
+                            <div class="reddit-card-body" style="padding: 12px 14px;">
+                                <div class="reddit-card-meta">
+                                    <span class="reddit-card-zone">📍 Zona 9 · Mixco</span>
+                                    <span class="reddit-card-time">Hace 2 semanas</span>
+                                </div>
+                                <h3 class="reddit-card-title">
+                                    AeroMetro: cabinas llegan de Europa para el primer teleférico de Centroamérica
+                                </h3>
+                                <p class="reddit-card-text">
+                                    MuniGuate recibe los primeros componentes del sistema electromecánico. El proyecto conectará Plaza España con Mixco y beneficiará a más de 375,000 usuarios diarios.
+                                </p>
+                                <div class="reddit-card-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
+                                    <div style="display:flex;gap:12px;align-items:center;">
+                                        <button class="news-like-btn" id="like-aerometro" onclick="event.stopPropagation(); toggleLike('aerometro')" title="Me gusta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                            <span id="likes-aerometro">247</span>
+                                        </button>
+                                        <span class="reddit-card-comments" style="cursor:pointer;" onclick="event.stopPropagation(); openNewsModal('aerometro')">
+                                            💬 <span id="count-aerometro">14</span> comentarios
+                                        </span>
+                                    </div>
+                                    <span style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Leer más →</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== NOTICIA NUEVA 2: MUNITEC / ESCUELA TALLER ===== -->
+                        <div class="reddit-card news-card" onclick="openNewsModal('munitec')">
+                            <div class="reddit-card-thumb" style="
+                                background-image: url('https://muniguatealfrente.com/wp-content/uploads/0936f297-bd6f-4625-b6e0-14b11c8cc79d.jpg');
+                                height: 140px; background-size: cover; background-position: center top;
+                                position: relative;">
+                                <span style="position:absolute;top:10px;left:10px;background:rgba(16,185,129,0.92);color:white;font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;">🎓 MuniTec</span>
+                            </div>
+                            <div class="reddit-card-body" style="padding: 12px 14px;">
+                                <div class="reddit-card-meta">
+                                    <span class="reddit-card-zone">📍 Ciudad de Guatemala</span>
+                                    <span class="reddit-card-time">Hace 4 días</span>
+                                </div>
+                                <h3 class="reddit-card-title">
+                                    Más de 300 vecinos se capacitan gratis en construcción y oficios con MuniTec
+                                </h3>
+                                <p class="reddit-card-text">
+                                    La Municipalidad ofrece cursos gratuitos de herrería, carpintería, IA y más para vecinos de la capital. Inscripciones abiertas en la Escuela Taller Municipal.
+                                </p>
+                                <div class="reddit-card-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
+                                    <div style="display:flex;gap:12px;align-items:center;">
+                                        <button class="news-like-btn" id="like-munitec" onclick="event.stopPropagation(); toggleLike('munitec')" title="Me gusta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                            <span id="likes-munitec">183</span>
+                                        </button>
+                                        <span class="reddit-card-comments" style="cursor:pointer;" onclick="event.stopPropagation(); openNewsModal('munitec')">
+                                            💬 <span id="count-munitec">9</span> comentarios
+                                        </span>
+                                    </div>
+                                    <span style="font-size:0.7rem;color:rgba(255,255,255,0.35);">Leer más →</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- ===== MODAL DE NOTICIA ===== -->
+                    <div id="newsModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);overflow-y:auto;padding:40px 20px;" onclick="closeNewsModalOutside(event)">
+                        <div id="newsModalContent" style="max-width:680px;margin:0 auto;background:linear-gradient(160deg,#022c22,#064e3b);border:1px solid rgba(52,211,153,0.25);border-radius:24px;overflow:hidden;">
+
+                            <!-- Imagen header -->
+                            <div id="modalImg" style="height:260px;background-size:cover;background-position:center;position:relative;">
+                                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 60%);"></div>
+                                <button onclick="closeNewsModal()" style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.6);border:none;color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;">✕</button>
+                                <div id="modalZone" style="position:absolute;bottom:16px;left:20px;background:rgba(16,185,129,0.92);color:white;font-size:0.7rem;font-weight:700;padding:5px 12px;border-radius:8px;text-transform:uppercase;letter-spacing:0.5px;"></div>
+                            </div>
+
+                            <!-- Cuerpo -->
+                            <div style="padding:24px;">
+                                <h2 id="modalTitle" style="font-size:1.4rem;font-weight:800;color:white;line-height:1.35;margin-bottom:10px;"></h2>
+                                <p id="modalBody" style="color:rgba(255,255,255,0.78);line-height:1.75;font-size:0.95rem;margin-bottom:18px;"></p>
+                                <a id="modalLink" href="#" target="_blank" style="display:inline-block;color:#10b981;font-size:0.85rem;font-weight:600;text-decoration:none;margin-bottom:20px;">Ver noticia completa →</a>
+
+                                <!-- Acciones -->
+                                <div style="display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:20px;">
+                                    <button id="modalLikeBtn" onclick="toggleLikeModal()" style="display:flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.25);color:rgba(255,255,255,0.8);padding:8px 16px;border-radius:10px;cursor:pointer;font-size:0.88rem;font-weight:600;transition:all 0.2s;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                        Me gusta · <span id="modalLikeCount"></span>
+                                    </button>
+                                    <span style="color:rgba(255,255,255,0.4);font-size:0.85rem;">💬 <span id="modalCommentCount"></span> comentarios</span>
+                                </div>
+
+                                <!-- Comentarios existentes -->
+                                <div id="modalComments" style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;"></div>
+
+                                <!-- Nuevo comentario -->
+                                <div style="display:flex;gap:10px;align-items:flex-start;">
+                                    <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#10b981,#34d399);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.8rem;flex-shrink:0;" th:text="${user.firstName.substring(0,1)}">U</div>
+                                    <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+                                        <textarea id="newCommentInput" placeholder="Escribe un comentario..." rows="2" style="width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:white;padding:12px;border-radius:12px;font-family:inherit;font-size:0.9rem;resize:none;outline:none;"></textarea>
+                                        <button onclick="submitComment()" style="align-self:flex-end;background:linear-gradient(135deg,#10b981,#059669);border:none;color:white;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.88rem;">Comentar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ESTILOS INLINE PARA LAS CARDS ===== -->
+                    <style>
+                        .news-card { cursor: pointer; }
+                        .news-like-btn {
+                            display: inline-flex; align-items: center; gap: 5px;
+                            background: none; border: none; color: rgba(255,255,255,0.55);
+                            font-size: 0.78rem; font-weight: 700; cursor: pointer;
+                            padding: 4px 8px; border-radius: 8px; transition: all 0.2s;
+                        }
+                        .news-like-btn:hover { background: rgba(16,185,129,0.15); color: #10b981; }
+                        .news-like-btn.liked { color: #10b981; }
+                        .news-like-btn.liked svg { fill: #10b981; }
+                        .modal-comment {
+                            background: rgba(255,255,255,0.05); border-radius: 12px;
+                            padding: 12px 14px; display: flex; flex-direction: column; gap: 6px;
+                        }
+                        .modal-comment-header { display: flex; align-items: center; gap: 8px; }
+                        .modal-comment-avatar {
+                            width: 28px; height: 28px; border-radius: 50%;
+                            background: linear-gradient(135deg,#059669,#34d399);
+                            display: flex; align-items: center; justify-content: center;
+                            color: white; font-size: 0.72rem; font-weight: 700; flex-shrink: 0;
+                        }
+                        .modal-comment-user { font-size: 0.82rem; font-weight: 700; color: #34d399; }
+                        .modal-comment-time { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-left: auto; }
+                        .modal-comment-text { font-size: 0.88rem; color: rgba(255,255,255,0.82); line-height: 1.55; padding-left: 36px; }
+                        #newCommentInput:focus { border-color: rgba(52,211,153,0.4); box-shadow: 0 0 0 3px rgba(52,211,153,0.1); }
+                    </style>
+
+                    <!-- ===== SCRIPT INTERACTIVO ===== -->
+                    <script>
+                        // ─── Estado de noticias ───────────────────────────────────────────
+                        const newsData = {
+                            aurora: {
+                                title: "Arreglan Baches en Zoológico La Aurora",
+                                zone: "🦁 Zona 13 — Zoológico La Aurora",
+                                img: "https://muniguatealfrente.com/wp-content/uploads/548512958_122227454666182619_3672088510251592905_n.jpg",
+                                body: "El Zoológico La Aurora ha iniciado un proyecto de reparación de baches en sus accesos principales, una obra impulsada por la Municipalidad de Guatemala en beneficio de los miles de visitantes que llegan cada fin de semana. Los trabajos incluyen el recapeo de los ingresos vehiculares y peatonales, mejorando la seguridad y accesibilidad para familias con niños, personas de la tercera edad y visitantes con movilidad reducida. La intervención forma parte del plan de mantenimiento urbano de MuniGuate para espacios públicos recreativos de alto tránsito.",
+                                link: "https://muniguatealfrente.com",
+                                likes: 142,
+                                comments: [
+                                    { user: "familia_zona13", text: "¡Por fin! Esos baches estaban malísimos, especialmente con carriola.", time: "Hace 3 horas" },
+                                    { user: "visitante_aurora", text: "Cada domingo venimos al zoológico. Agradecidos con la muni por esto.", time: "Hace 2 horas" },
+                                    { user: "vecino_zona13", text: "Ojalá también arreglen la entrada peatonal de la 7a av.", time: "Hace 1 hora" },
+                                ]
+                            },
+                            ayampuc: {
+                                title: "Planean reactivar obra inconclusa en la zona",
+                                zone: "🏗️ San Pedro Ayampuc — Infraestructura",
+                                img: "https://agn.gt/wp-content/uploads/2025/04/Captura-de-pantalla-2025-04-28-165619.png",
+                                body: "Autoridades municipales realizaron una visita técnica a la obra abandonada en San Pedro Ayampuc, lo que permitió determinar la urgencia de reactivar el proyecto. La inspección, realizada en conjunto con representantes del Consejo Municipal de Desarrollo, concluyó que la obra —un sistema de drenaje pluvial que beneficiaría a más de 800 familias— puede retomarse en las próximas semanas con los fondos del presupuesto 2026. La comunidad lleva más de dos años esperando la finalización de esta infraestructura vital para prevenir inundaciones en época de lluvias.",
+                                link: "https://agn.gt",
+                                likes: 87,
+                                comments: [
+                                    { user: "residente_ayampuc", text: "Dos años esperando. Esperemos que ahora sí se concrete.", time: "Hace 30 min" },
+                                    { user: "lider_comunitario", text: "Nosotros como comunidad estamos listos para apoyar y dar seguimiento.", time: "Hace 20 min" },
+                                ]
+                            },
+                            aerometro: {
+                                title: "AeroMetro: cabinas llegan de Europa para el primer teleférico de Centroamérica",
+                                zone: "🏙️ Zona 9 · Mixco — MuniGuate",
+                                img: "https://lahora.gt/wp-content/uploads/2026/04/AeroMetro-La-Hora-MuniGuate.jpg",
+                                body: "La Municipalidad de Guatemala avanza con el AeroMetro, el primer sistema de transporte público por cable aéreo en Centroamérica. En la semana 13 de ejecución, llegaron los primeros componentes del sistema electromecánico desde Europa. El proyecto conectará Plaza España con Molino de las Flores en Mixco a través de ~9 km con más de 450 cabinas, cada una con capacidad para 12 pasajeros. Se estima que beneficiará a más de 375,000 usuarios diarios, generará 500+ empleos directos y reducirá hasta un 75% el tiempo de viaje en el corredor Avenida Roosevelt. Funciona con energía eléctrica y se integrará a la red de TransMetro y TuBus.",
+                                link: "https://lahora.gt/nacionales/ypena/2026/04/15/aerometro-recibe-primeros-componentes-del-sistema-electromecanico-para-su-funcionamiento/",
+                                likes: 247,
+                                comments: [
+                                    { user: "vecino_zona9", text: "Ya era hora de algo así para la Avenida Roosevelt. Todos los días pierdo 2 horas en ese corredor.", time: "Hace 3 días" },
+                                    { user: "ciudadana_GT", text: "Esperemos que de verdad arranque pronto y sea accesible para todos.", time: "Hace 2 días" },
+                                    { user: "mixcano_2026", text: "Desde Mixco va a ser un alivio enorme. Apoyo totalmente este proyecto.", time: "Hace 1 día" },
+                                ]
+                            },
+                            munitec: {
+                                title: "Más de 300 vecinos se capacitan gratis en construcción y oficios con MuniTec",
+                                zone: "🎓 Ciudad de Guatemala — Escuela Taller Municipal",
+                                img: "https://muniguatealfrente.com/wp-content/uploads/0936f297-bd6f-4625-b6e0-14b11c8cc79d.jpg",
+                                body: "La Municipalidad de Guatemala, a través de MuniTec y la Escuela Taller Municipal, ofrece para 2026 una amplia variedad de cursos gratuitos dirigidos a vecinos de la capital. Más de 300 personas han recibido capacitación en construcción liviana, herrería, carpintería y agroecología. También están disponibles cursos de Inteligencia Artificial, Excel, música, danza y actividades para el adulto mayor. Los talleres técnicos están dirigidos a jóvenes de 16 a 21 años y combinan formación práctica con Educación Básica y Bachillerato oficialmente avalado. El objetivo es brindar herramientas reales para emprender, trabajar y mejorar el ingreso familiar.",
+                                link: "https://muniguatealfrente.com/cursos-disponibles-de-munitec-oportunidades-a-jovenes/",
+                                likes: 183,
+                                comments: [
+                                    { user: "madre_zona6", text: "Mi hijo se inscribió en herrería y está aprendiendo un oficio de verdad. Gracias MuniGuate.", time: "Hace 5 días" },
+                                    { user: "joven_emprendedor", text: "¿Alguien sabe si aún hay cupo para el curso de carpintería?", time: "Hace 3 días" },
+                                ]
+                            }
+                        };
+
+                        let currentNews = null;
+
+                        function openNewsModal(key) {
+                            currentNews = key;
+                            const d = newsData[key];
+                            document.getElementById('modalImg').style.backgroundImage = `url('${d.img}')`;
+                            document.getElementById('modalZone').textContent = d.zone;
+                            document.getElementById('modalTitle').textContent = d.title;
+                            document.getElementById('modalBody').textContent = d.body;
+                            document.getElementById('modalLink').href = d.link;
+                            document.getElementById('modalLikeCount').textContent = d.likes;
+                            document.getElementById('modalCommentCount').textContent = d.comments.length;
+                            updateModalLikeBtn(key);
+                            renderModalComments(d.comments);
+                            document.getElementById('newCommentInput').value = '';
+                            document.getElementById('newsModal').style.display = 'block';
+                            document.body.style.overflow = 'hidden';
+                        }
+
+                        function closeNewsModal() {
+                            document.getElementById('newsModal').style.display = 'none';
+                            document.body.style.overflow = '';
+                        }
+
+                        function closeNewsModalOutside(e) {
+                            if (e.target === document.getElementById('newsModal')) closeNewsModal();
+                        }
+
+                        function renderModalComments(comments) {
+                            const container = document.getElementById('modalComments');
+                            container.innerHTML = comments.map(c => `
+                                <div class="modal-comment">
+                                    <div class="modal-comment-header">
+                                        <div class="modal-comment-avatar">${c.user.charAt(0).toUpperCase()}</div>
+                                        <span class="modal-comment-user">@${c.user}</span>
+                                        <span class="modal-comment-time">${c.time}</span>
+                                    </div>
+                                    <p class="modal-comment-text">${c.text}</p>
+                                </div>
+                            `).join('');
+                        }
+
+                        function submitComment() {
+                            const input = document.getElementById('newCommentInput');
+                            const text = input.value.trim();
+                            if (!text || !currentNews) return;
+                            const d = newsData[currentNews];
+                            d.comments.push({ user: 'tú', text: text, time: 'Ahora mismo' });
+                            renderModalComments(d.comments);
+                            // Actualizar contador en card (sin aparecer en sección de comentarios recientes del home)
+                            const countEl = document.getElementById('count-' + currentNews);
+                            if (countEl) countEl.textContent = d.comments.length;
+                            document.getElementById('modalCommentCount').textContent = d.comments.length;
+                            input.value = '';
+                        }
+
+                        const likedNews = {};
+
+                        function toggleLike(key) {
+                            const d = newsData[key];
+                            if (likedNews[key]) {
+                                likedNews[key] = false;
+                                d.likes--;
+                            } else {
+                                likedNews[key] = true;
+                                d.likes++;
+                            }
+                            document.getElementById('likes-' + key).textContent = d.likes;
+                            const btn = document.getElementById('like-' + key);
+                            btn.classList.toggle('liked', likedNews[key]);
+                            // Sync modal if open
+                            if (currentNews === key) {
+                                document.getElementById('modalLikeCount').textContent = d.likes;
+                                updateModalLikeBtn(key);
+                            }
+                        }
+
+                        function toggleLikeModal() {
+                            if (currentNews) toggleLike(currentNews);
+                        }
+
+                        function updateModalLikeBtn(key) {
+                            const btn = document.getElementById('modalLikeBtn');
+                            if (!btn) return;
+                            if (likedNews[key]) {
+                                btn.style.background = 'rgba(16,185,129,0.25)';
+                                btn.style.color = '#10b981';
+                                btn.style.borderColor = 'rgba(16,185,129,0.5)';
+                            } else {
+                                btn.style.background = 'rgba(16,185,129,0.12)';
+                                btn.style.color = 'rgba(255,255,255,0.8)';
+                                btn.style.borderColor = 'rgba(16,185,129,0.25)';
+                            }
+                        }
+
+                        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNewsModal(); });
+                    </script>
                     <div class="section-label" style="margin-top: 28px">
                         Comentarios Recientes
                     </div>
@@ -340,51 +652,56 @@
                         Comentarios en Zona <span th:text="${zonaActual}"></span>
                     </div>
 
-                    <div th:if="${#lists.isEmpty(allComments)}" style="
-                        text-align: center;
-                        padding: 40px 20px;
-                        color: rgba(255,255,255,0.5);
-                        background: rgba(255,255,255,0.04);
-                        border-radius: 16px;
-                    ">
+                    <div th:if="${#lists.isEmpty(allComments)}" class="chat-empty">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" style="opacity: 0.3; margin-bottom: 12px;">
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.76 9.76 0 01-5.33-1.84C4.41 17.91 3 15.41 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
-                        <p style="font-size: 0.9rem;">Aún no hay comentarios en esta zona</p>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">Sé el primero en publicar</p>
+                        <p>Aún no hay mensajes en esta zona</p>
+                        <p>¡Sé el primero en publicar!</p>
                     </div>
 
-                    <div th:each="c : ${allComments}" class="comment-card" style="margin-bottom: 12px;">
+                    <!-- Mensajes de esta zona -->
+                    <div th:each="c : ${allComments}"
+                        th:class="${user.idUser == c.idUser.idUser} ? 'comment-card own' : 'comment-card'">
+
+                        <!-- Cabecera: avatar + usuario + hora -->
                         <div class="comment-header">
+                            <div class="comment-avatar"
+                                th:text="${#strings.substring(c.idUser.userHandle, 0, 1).toUpperCase()}">U</div>
                             <span class="comment-user" th:text="'@' + ${c.idUser.userHandle}">@usuario</span>
                             <span class="comment-time"
                                 th:text="${#temporals.format(c.commentDate, 'dd/MM HH:mm')}">Fecha</span>
+                        </div>
 
+                        <!-- Burbuja de texto -->
+                        <div class="comment-bubble">
+                            <p class="comment-text" th:id="'text-' + ${c.commentId}" th:text="${c.content}">
+                                Contenido
+                            </p>
+
+                            <!-- Botones editar/eliminar solo si es el autor -->
                             <div th:if="${user.idUser == c.idUser.idUser}" class="comment-actions">
                                 <button type="button" class="btn-action btn-edit"
                                     th:onclick="'toggleEditForm(' + ${c.commentId} + ')'"
                                     th:title="#{home.action.edit}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
                                     </svg>
                                 </button>
-
                                 <form th:action="@{/comment/delete/{id}(id=${c.commentId}, zona=${zonaActual})}"
-                                    method="POST" style="display: inline" onsubmit="
-                    this.querySelector('button[type=submit]').disabled = true
-                  ">
+                                    method="POST" style="display:inline"
+                                    onsubmit="this.querySelector('button[type=submit]').disabled=true">
                                     <button type="submit" class="btn-action btn-delete"
                                         th:title="#{home.action.delete}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <polyline points="3 6 5 6 21 6" />
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                                             <line x1="10" y1="11" x2="10" y2="17" />
                                             <line x1="14" y1="11" x2="14" y2="17" />
                                         </svg>
@@ -393,63 +710,47 @@
                             </div>
                         </div>
 
-                        <p class="comment-text" th:id="'text-' + ${c.commentId}" th:text="${c.content}">
-                            Contenido
-                        </p>
-                        <form th:id="'form-' + ${c.commentId}" th:action="@{/comment/update/{id}(id=${c.commentId})}"
-                            method="POST" style="display: none; margin-top: 10px">
-                            <input type="text" name="content" th:value="${c.content}" style="
-                  width: 80%;
-                  background: #333;
-                  color: white;
-                  border: 1px solid #444;
-                  padding: 5px;
-                " />
-                            <button type="submit" style="
-                  color: #10b981;
-                  border: none;
-                  background: none;
-                  cursor: pointer;
-                " th:text="#{home.action.save}">
-                                Guardar
-                            </button>
+                        <!-- Formulario de edición inline -->
+                        <form th:id="'form-' + ${c.commentId}"
+                            th:action="@{/comment/update/{id}(id=${c.commentId})}"
+                            method="POST" style="display:none; margin-top:6px; width:72%;">
+                            <input type="text" name="content" th:value="${c.content}" />
+                            <button type="submit" style="color:#10b981;border:none;background:none;cursor:pointer;font-weight:600;"
+                                th:text="#{home.action.save}">Guardar</button>
                         </form>
 
-                        <div th:if="${c.imagen != null or c.video != null}" style="margin-top: 10px">
+                        <!-- Media adjunta -->
+                        <div th:if="${c.imagen != null or c.video != null}" class="comment-media">
                             <img th:if="${c.imagen != null}"
-                                th:src="'data:image/jpeg;base64,' + ${c.generateBase64Image()}"
-                                style="max-width: 100%; border-radius: 8px" />
+                                th:src="'data:image/jpeg;base64,' + ${c.generateBase64Image()}" />
                             <video th:if="${c.video != null}"
-                                th:src="'data:video/mp4;base64,' + ${c.generateBase64Video()}" controls
-                                style="max-width: 100%; border-radius: 8px"></video>
+                                th:src="'data:video/mp4;base64,' + ${c.generateBase64Video()}" controls></video>
                         </div>
                     </div>
 
-                    <div class="section-label" style="margin-top: 28px">
-                        Comentarios Recientes
+                    <!-- Divisor de comentarios recientes -->
+                    <div class="chat-divider">
+                        <span>Comentarios Recientes</span>
                     </div>
 
-                    <div th:if="${#lists.isEmpty(recentComments)}" style="
-                        text-align: center;
-                        padding: 40px 20px;
-                        color: rgba(255,255,255,0.5);
-                        background: rgba(255,255,255,0.04);
-                        border-radius: 16px;
-                    ">
-                        <p style="font-size: 0.9rem;">No hay comentarios recientes</p>
+                    <div th:if="${#lists.isEmpty(recentComments)}" class="chat-empty">
+                        <p>No hay comentarios recientes</p>
                     </div>
 
-                    <div th:each="c : ${recentComments}" class="comment-card" style="margin-bottom: 12px;">
+                    <div th:each="c : ${recentComments}"
+                        th:class="${user.idUser == c.idUser.idUser} ? 'comment-card own' : 'comment-card'">
                         <div class="comment-header">
+                            <div class="comment-avatar"
+                                th:text="${#strings.substring(c.idUser.userHandle, 0, 1).toUpperCase()}">U</div>
                             <span class="comment-user" th:text="'@' + ${c.idUser.userHandle}">@usuario</span>
                             <span class="comment-time"
                                 th:text="${#temporals.format(c.commentDate, 'dd/MM HH:mm')}">Fecha</span>
                         </div>
-                        <p class="comment-text" th:text="${c.content}">Contenido</p>
-                        <div th:if="${c.imagen != null or c.video != null}" style="margin-top: 10px">
-                            <img th:if="${c.imagen != null}"
-                                th:src="'data:image/jpeg;base64,' + ${c.generateBase64Image()}"
-                                style="max-width: 100%; border-radius: 8px" />
+                        <div class="comment-bubble">
+                            <p class="comment-text" th:text="${c.content}">Contenido</p>
+                        </div>
+                        <div th:if="${c.imagen != null}" class="comment-media">
+                            <img th:src="'data:image/jpeg;base64,' + ${c.generateBase64Image()}" />
                         </div>
                     </div>
                 </div>
