@@ -1,6 +1,8 @@
 package com.dichoyhecho.dichoyhecho.controller;
 
+import com.dichoyhecho.dichoyhecho.entity.Comments;
 import com.dichoyhecho.dichoyhecho.entity.Users;
+import com.dichoyhecho.dichoyhecho.service.CommentService;
 import com.dichoyhecho.dichoyhecho.service.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -11,13 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Controller
 public class ProfileController {
 
     private final UserService userService;
+    private final CommentService commentService;
 
-    public ProfileController(UserService userService) {
+    public ProfileController(UserService userService, CommentService commentService) {
         this.userService = userService;
+        this.commentService = commentService;
     }
 
     @GetMapping("/profile")
@@ -25,6 +31,9 @@ public class ProfileController {
         String currentHandle = authentication.getName();
         Users user = userService.getByHandle(currentHandle);
         model.addAttribute("user", user);
+        List<Comments> userComments = commentService.findByUserId(user.getIdUser());
+        model.addAttribute("myComments", userComments);
+
         return "profile";
     }
 
@@ -38,7 +47,7 @@ public class ProfileController {
 
     @PostMapping("/profile/update")
     public String updateProfile(@ModelAttribute("user") Users updatedUser,
-                                @RequestParam("profilePhoto") MultipartFile profilePhoto, // <-- Recibe el archivo del HTML
+                                @RequestParam("profilePhoto") MultipartFile profilePhoto,
                                 Model model,
                                 Authentication authentication) {
         try {

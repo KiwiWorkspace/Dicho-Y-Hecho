@@ -14,6 +14,7 @@ public interface CommentService {
     Comments create(Comments comment);
     Comments update(Integer id, Comments comment);
     void delete(Integer id);
+    List<Comments> findByUserId(Integer userId);
 
     void save(String content, Integer idZone, Users user, MultipartFile file);
     void guardarComentario(CommentRequest request) throws IOException;

@@ -23,6 +23,7 @@ body {
   display: flex;
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ═══════════════════════════════════════
@@ -33,6 +34,7 @@ body {
   min-height: 100vh;
   height: 100vh;
   background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
   border-right: 1px solid var(--border);
   display: flex;
@@ -219,6 +221,7 @@ body {
 ═══════════════════════════════════════ */
 .contact-form-card {
   background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   border-radius: 24px;
@@ -246,9 +249,8 @@ body {
   letter-spacing: 0.07em;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
+.contact-form-card .form-group input.form-control,
+.contact-form-card .form-group textarea.form-control {
   width: 100%;
   padding: 13px 16px;
   background: rgba(0, 0, 0, 0.22);
@@ -275,9 +277,13 @@ body {
   color: white;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.contact-form-card .form-group textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form-card .form-group input.form-control:focus,
+.contact-form-card .form-group textarea.form-control:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
@@ -311,7 +317,7 @@ body {
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   width: 100%;
   margin-top: 4px;
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);

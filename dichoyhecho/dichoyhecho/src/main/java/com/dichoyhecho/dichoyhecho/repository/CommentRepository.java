@@ -8,4 +8,5 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comments, Long> {
     List<Comments> findAllByOrderByCommentDateDesc();
     List<Comments> findByIdZoneOrderByCommentDateAsc(Integer idZone);
+    List<Comments> findByIdUser_IdUser(Integer idUser);
 }
